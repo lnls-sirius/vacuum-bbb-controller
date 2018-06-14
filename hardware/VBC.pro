@@ -1,4 +1,4 @@
-update=Thu 07 Jun 2018 09:59:40 -03
+update=Qui 14 Jun 2018 08:10:01 -03
 version=1
 last_client=kicad
 [pcbnew]
@@ -59,3 +59,4 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=/run/user/1000/gvfs/smb-share:server=centaurus,share=repositorio/LNLS/Grupos/CONT/Library/Controle/Controle
+LibName31=/run/user/1001/gvfs/smb-share:server=centaurus,share=repositorio/LNLS/Grupos/CONT/Library/Controle/Controle
