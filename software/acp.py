@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import serial
 import sys
-connection = serial.Serial("/dev/ttyUSB1", 9600, timeout=1)
+connection = serial.Serial("/dev/ttyUSB0", 9600, timeout=1)
 
 def receive_message():
     message_received = ""
