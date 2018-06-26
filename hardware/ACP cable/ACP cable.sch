@@ -1,0 +1,284 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:Controle
+LIBS:ACP cable-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L RJ25 J1
+U 1 1 5B23DD8C
+P 2675 1900
+F 0 "J1" H 2925 2400 60  0000 C CNN
+F 1 "RJ25" H 2525 2400 60  0000 C CNN
+F 2 "" H 2675 1900 60  0000 C CNN
+F 3 "" H 2675 1900 60  0000 C CNN
+	1    2675 1900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L DB15 J2
+U 1 1 5B23DE5F
+P 5375 2450
+F 0 "J2" H 5395 3300 50  0000 C CNN
+F 1 "DB15" H 5325 1600 50  0000 C CNN
+F 2 "" H 5375 2450 50  0000 C CNN
+F 3 "" H 5375 2450 50  0000 C CNN
+	1    5375 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2675 2350 2675 2425
+Wire Wire Line
+	2775 2350 2775 2500
+NoConn ~ 2875 2350
+Wire Wire Line
+	2475 2950 4925 2950
+$Comp
+L GND #PWR1
+U 1 1 5B23E0BA
+P 2375 2500
+F 0 "#PWR1" H 2375 2250 50  0001 C CNN
+F 1 "GND" H 2375 2350 50  0000 C CNN
+F 2 "" H 2375 2500 50  0000 C CNN
+F 3 "" H 2375 2500 50  0000 C CNN
+	1    2375 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2675 2425 2775 2425
+Connection ~ 2775 2425
+Wire Wire Line
+	2575 2750 4925 2750
+Wire Wire Line
+	2375 2350 2375 2500
+$Comp
+L GND #PWR3
+U 1 1 5B23FEB8
+P 2775 2500
+F 0 "#PWR3" H 2775 2250 50  0001 C CNN
+F 1 "GND" H 2775 2350 50  0000 C CNN
+F 2 "" H 2775 2500 50  0000 C CNN
+F 3 "" H 2775 2500 50  0000 C CNN
+	1    2775 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2475 2350 2475 2950
+Wire Wire Line
+	2575 2750 2575 2350
+$Comp
+L RJ25 J3
+U 1 1 5B241D10
+P 2675 5000
+F 0 "J3" H 2925 5500 60  0000 C CNN
+F 1 "RJ25" H 2525 5500 60  0000 C CNN
+F 2 "" H 2675 5000 60  0000 C CNN
+F 3 "" H 2675 5000 60  0000 C CNN
+	1    2675 5000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L DB15 J4
+U 1 1 5B241D16
+P 5375 5550
+F 0 "J4" H 5395 6400 50  0000 C CNN
+F 1 "DB15" H 5325 4700 50  0000 C CNN
+F 2 "" H 5375 5550 50  0000 C CNN
+F 3 "" H 5375 5550 50  0000 C CNN
+	1    5375 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 5B241D1C
+P 4075 5350
+F 0 "R1" V 4155 5350 50  0000 C CNN
+F 1 "1.5k" V 4075 5350 50  0000 C CNN
+F 2 "" V 4005 5350 50  0000 C CNN
+F 3 "" H 4075 5350 50  0000 C CNN
+	1    4075 5350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2675 5450 2675 5525
+Wire Wire Line
+	2775 5450 2775 5600
+NoConn ~ 2875 5450
+Wire Wire Line
+	2475 6050 4925 6050
+$Comp
+L GND #PWR2
+U 1 1 5B241D29
+P 2375 5600
+F 0 "#PWR2" H 2375 5350 50  0001 C CNN
+F 1 "GND" H 2375 5450 50  0000 C CNN
+F 2 "" H 2375 5600 50  0000 C CNN
+F 3 "" H 2375 5600 50  0000 C CNN
+	1    2375 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2675 5525 2775 5525
+Connection ~ 2775 5525
+Wire Wire Line
+	2575 5850 4925 5850
+Wire Wire Line
+	2375 5450 2375 5600
+$Comp
+L GND #PWR4
+U 1 1 5B241D35
+P 2775 5600
+F 0 "#PWR4" H 2775 5350 50  0001 C CNN
+F 1 "GND" H 2775 5450 50  0000 C CNN
+F 2 "" H 2775 5600 50  0000 C CNN
+F 3 "" H 2775 5600 50  0000 C CNN
+	1    2775 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 5B241D3B
+P 4075 6250
+F 0 "R2" V 4155 6250 50  0000 C CNN
+F 1 "1.5k" V 4075 6250 50  0000 C CNN
+F 2 "" V 4005 6250 50  0000 C CNN
+F 3 "" H 4075 6250 50  0000 C CNN
+	1    4075 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R3
+U 1 1 5B241D41
+P 4525 5650
+F 0 "R3" V 4605 5650 50  0000 C CNN
+F 1 "120" V 4525 5650 50  0000 C CNN
+F 2 "" V 4455 5650 50  0000 C CNN
+F 3 "" H 4525 5650 50  0000 C CNN
+	1    4525 5650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4075 4850 4925 4850
+Wire Wire Line
+	4075 4850 4075 5200
+Wire Wire Line
+	4075 5500 4075 5850
+Connection ~ 4075 5850
+Wire Wire Line
+	4925 6250 4875 6250
+Wire Wire Line
+	4875 6250 4875 6450
+Wire Wire Line
+	4875 6450 4075 6450
+Wire Wire Line
+	4075 6450 4075 6400
+Wire Wire Line
+	4075 6100 4075 6050
+Connection ~ 4075 6050
+Wire Wire Line
+	4675 5650 4925 5650
+Wire Wire Line
+	4375 5650 4325 5650
+Wire Wire Line
+	4325 5650 4325 6050
+Connection ~ 4325 6050
+Wire Wire Line
+	4750 5650 4750 5850
+Connection ~ 4750 5850
+Connection ~ 4750 5650
+Wire Wire Line
+	2475 5450 2475 6050
+Wire Wire Line
+	2575 5850 2575 5450
+Wire Bus Line
+	2025 3525 2025 900 
+Wire Bus Line
+	2025 900  5825 900 
+Wire Bus Line
+	5825 900  5825 3525
+Wire Bus Line
+	5825 3525 2025 3525
+Wire Bus Line
+	2025 6675 2025 4050
+Wire Bus Line
+	2025 4050 5825 4050
+Wire Bus Line
+	5825 4050 5825 6675
+Wire Bus Line
+	5825 6675 2025 6675
+Text Notes 2125 1075 0    79   ~ 0
+Cable option 1: without fail-safe and termination resistors
+Text Notes 2200 4225 0    79   ~ 0
+Cable option 2: with fail-safe and termination resistors
+Text Label 3575 2950 0    60   ~ 0
+V+(A)
+Text Label 3575 2750 0    60   ~ 0
+V-(B)
+Text Label 3300 6050 0    60   ~ 0
+V+(A)
+Text Label 3300 5850 0    60   ~ 0
+V-(B)
+NoConn ~ 4925 1750
+NoConn ~ 4925 1850
+NoConn ~ 4925 1950
+NoConn ~ 4925 2050
+NoConn ~ 4925 2150
+NoConn ~ 4925 2250
+NoConn ~ 4925 2350
+NoConn ~ 4925 2450
+NoConn ~ 4925 2550
+NoConn ~ 4925 2650
+NoConn ~ 4925 2850
+NoConn ~ 4925 3050
+NoConn ~ 4925 3150
+NoConn ~ 4925 4950
+NoConn ~ 4925 5050
+NoConn ~ 4925 5150
+NoConn ~ 4925 5250
+NoConn ~ 4925 5350
+NoConn ~ 4925 5450
+NoConn ~ 4925 5550
+NoConn ~ 4925 5750
+NoConn ~ 4925 5950
+NoConn ~ 4925 6150
+$EndSCHEMATC
