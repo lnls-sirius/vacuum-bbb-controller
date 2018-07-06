@@ -17,32 +17,39 @@ def receive_message():
 
 def adr():
     connection.write("#???ADR\r")
-    receive_message()  
+    receive_message()
+    #000,ok
 
 def set_adr(previous, new):
     message = "#" + previous + "ADR" + new + "\r"
     connection.write(message)
     receive_message()
+    #003,ok
 
 def idn():
     connection.write("#000IDN\r")
-    receive_message()  
+    receive_message()
+    #000,VPACP15-VB.07
 
 def on():
     connection.write("#000ACPON\r")
-    receive_message()  
-    
+    receive_message()
+    #000,ok
+
 def off():
     connection.write("#000ACPOFF\r")
-    receive_message()  
+    receive_message()
+    #000,ok
 
 def standby_speed():
     connection.write("#000SBY\r")
-    receive_message()      
+    receive_message()
+    #000,ok
 
 def nominal_speed():
     connection.write("#000NSP\r")
-    receive_message()      
+    receive_message()
+    #000,ok
 
 def set_speed(speed):
     if ((speed > 6000) or (speed < 2100)):
@@ -51,5 +58,5 @@ def set_speed(speed):
         message = "#000RPM" + str(speed/10*10) + "\r"
         print "Speed adjusted to " + str(speed/10*10) + " rpm (" + str(round((speed/10*10/60.0),2)) + " Hz)"
         connection.write(message)
-        receive_message()  
-
+        receive_message()
+        #000,ok

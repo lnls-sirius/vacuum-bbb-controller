@@ -2,11 +2,11 @@
 import serial
 import sys
 connection = serial.Serial(
-    port='/dev/ttyUSB1',
+    port='/dev/ttyUSB0',
     baudrate=19200,
     parity=serial.PARITY_EVEN,
-    stopbits=serial.STOPBITS_ONE,
-    bytesize=serial.EIGHTBITS,
+#    stopbits=serial.STOPBITS_ONE,
+#    bytesize=serial.EIGHTBITS,
     timeout=1
 )
 '''
@@ -57,33 +57,37 @@ def receive_message():
     print "==================="
     print " Response telegram "
     print "==================="
-    print "STX = 0x" + "{:02x}".format((ord(msg[0])))
-    print "LGE = 0x" + "{:02x}".format((ord(msg[1])))
-    print "ADR = 0x" + "{:02x}".format((ord(msg[2]))) + "\n"
+    if (len(msg) == 24):
+        print "STX = 0x" + "{:02x}".format((ord(msg[0])))
+        print "LGE = 0x" + "{:02x}".format((ord(msg[1])))
+        print "ADR = 0x" + "{:02x}".format((ord(msg[2]))) + "\n"
 
-    print "PKE = " + str((((ord(msg[3]) & 0b111) << 8)) + (ord(msg[4])))
-    print "IND = " + str((ord(msg[6])))
-    print "PWE = " + str((ord(msg[7]) << 24) + (ord(msg[8]) << 16) + (ord(msg[9]) << 8) + ord(msg[10])) + "\n"
+        print "PKE = " + str((((ord(msg[3]) & 0b111) << 8)) + (ord(msg[4])))
+        print "IND = " + str((ord(msg[6])))
+        print "PWE = " + str((ord(msg[7]) << 24) + (ord(msg[8]) << 16) + (ord(msg[9]) << 8) + ord(msg[10])) + "\n"
 
-    print "PZD1 = 0x" + "{:02x}".format((ord(msg[11]))) + "{:02x}".format((ord(msg[12])))
-    print "PZD2 = " + str(((ord(msg[13])) << 8) + ord(msg[14])) + " Hz"
-    print "PZD3 = " + str(((ord(msg[15])) << 8) + ord(msg[16])) + " oC"
-    print "PZD4 = " + str((((ord(msg[17])) << 8) + ord(msg[18])) / 10.0) + " A"
-    print "PZD6 = " + str((((ord(msg[21])) << 8) + ord(msg[22])) / 10.0) + " V\n"
+        print "PZD1 = 0x" + "{:02x}".format((ord(msg[11]))) + "{:02x}".format((ord(msg[12])))
+        print "PZD2 = " + str(((ord(msg[13])) << 8) + ord(msg[14])) + " Hz"
+        print "PZD3 = " + str(((ord(msg[15])) << 8) + ord(msg[16])) + " oC"
+        print "PZD4 = " + str((((ord(msg[17])) << 8) + ord(msg[18])) / 10.0) + " A"
+        print "PZD6 = " + str((((ord(msg[21])) << 8) + ord(msg[22])) / 10.0) + " V\n"
 
-#    print "PKE = 0x" + "{:02x}".format((ord(msg[3]))) + "{:02x}".format((ord(msg[4])))
-#    print "IND = 0x" + "{:02x}".format((ord(msg[6])))
-#    print "PZD2 = 0x" + "{:02x}".format((ord(msg[13]))) + "{:02x}".format((ord(msg[14])))
-#    print "PZD3 = 0x" + "{:02x}".format((ord(msg[15]))) + "{:02x}".format((ord(msg[16])))
-#    print "PZD4 = 0x" + "{:02x}".format((ord(msg[17]))) + "{:02x}".format((ord(msg[18])))
-#    print "PZD6 = 0x" + "{:02x}".format((ord(msg[21]))) + "{:02x}".format((ord(msg[22]))) + "\n"
+    #    print "PKE = 0x" + "{:02x}".format((ord(msg[3]))) + "{:02x}".format((ord(msg[4])))
+    #    print "IND = 0x" + "{:02x}".format((ord(msg[6])))
+    #    print "PZD2 = 0x" + "{:02x}".format((ord(msg[13]))) + "{:02x}".format((ord(msg[14])))
+    #    print "PZD3 = 0x" + "{:02x}".format((ord(msg[15]))) + "{:02x}".format((ord(msg[16])))
+    #    print "PZD4 = 0x" + "{:02x}".format((ord(msg[17]))) + "{:02x}".format((ord(msg[18])))
+    #    print "PZD6 = 0x" + "{:02x}".format((ord(msg[21]))) + "{:02x}".format((ord(msg[22]))) + "\n"
 
-    print "BCC = 0x" + "{:02x}".format((ord(msg[23])))
-    print "==================="
+        print "BCC = 0x" + "{:02x}".format((ord(msg[23])))
+        print "==================="
 
-    for i in range(len(msg)):
-        sys.stdout.write("{:02x}".format(ord(msg[i])) + " ")
-    print "\n"
+        for i in range(len(msg)):
+            sys.stdout.write("{:02x}".format(ord(msg[i])) + " ")
+        print "\n"
+
+    else:
+        print "Message received corrupted!"
 
     return msg
 #==============================================================================
