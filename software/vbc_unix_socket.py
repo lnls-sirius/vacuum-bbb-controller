@@ -6,7 +6,7 @@ import os
 import serial
 import Adafruit_BBIO.GPIO as GPIO
 #------------------------------------------------------------------------------
-PORT = "/dev/ttyUSB1"
+PORT = "/dev/ttyUSB0"
 #------------------------------------------------------------------------------
 '''
 =================
@@ -30,7 +30,7 @@ ta
 
 '''
 
-'''
+
 #==============================================================================
 # BBB functions support (for valves controls)
 #==============================================================================
@@ -39,8 +39,8 @@ relay1 = "P9_23"
 relay2 = "P9_21"
 relay3 = "P9_24"
 relay4 = "P9_12"
-valve_open = "P8_07"
-valve_closed = "P8_09"
+valve_open = "P8_7"
+valve_closed = "P8_9"
 #------------------------------------------------------------------------------
 # defining pins direction
 GPIO.setup(relay1, GPIO.OUT)
@@ -55,7 +55,7 @@ GPIO.output(relay1, GPIO.LOW)
 GPIO.output(relay2, GPIO.LOW)
 GPIO.output(relay3, GPIO.LOW)
 GPIO.output(relay4, GPIO.LOW)
-'''
+
 #---------------------------------------
 #
 #---------------------------------------
@@ -346,7 +346,6 @@ def tf():
     pass
 #==============================================================================
 def ACP_OnOff(current_state):
-    print current_state
     if (current_state == 0):
         print "Turning ACP15 pump OFF"
         acp_recv_msg("#000ACPOFF\r")
@@ -397,16 +396,39 @@ while(True):
                     ta()
                 elif (data[0] == "\x01"):
                     # switch relay 1
-                    tb()
+                    if (int(data[1]) == 0):
+                        print "Switching Relay 1 OFF"
+                        GPIO.output(relay1, GPIO.LOW)
+                    if (int(data[1]) == 1):
+                        print "Switching Relay 1 ON"
+                        GPIO.output(relay1, GPIO.HIGH)
                 elif (data[0] == "\x02"):
                     # switch relay 2
-                    tc()
+                    if (int(data[1]) == 0):
+                        print "Switching Relay 2 OFF"
+                        GPIO.output(relay2, GPIO.LOW)
+                    if (int(data[1]) == 1):
+                        print "Switching Relay 2 ON"
+                        GPIO.output(relay2, GPIO.HIGH)
+
                 elif (data[0] == "\x03"):
                     # switch relay 3
-                    td()
+                    if (int(data[1]) == 0):
+                        print "Switching Relay 3 OFF"
+                        GPIO.output(relay3, GPIO.LOW)
+                    if (int(data[1]) == 1):
+                        print "Switching Relay 3 ON"
+                        GPIO.output(relay3, GPIO.HIGH)
+
                 elif (data[0] == "\x04"):
                     # switch relay 4
-                    te()
+                    if (int(data[1]) == 0):
+                        print "Switching Relay 4 OFF"
+                        GPIO.output(relay4, GPIO.LOW)
+                    if (int(data[1]) == 1):
+                        print "Switching Relay 4 ON"
+                        GPIO.output(relay4, GPIO.HIGH)
+
                 elif (data[0] == "\x05"):
                     # read open VAT valve status
                     tf()
