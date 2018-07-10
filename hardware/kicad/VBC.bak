@@ -612,9 +612,9 @@ F 3 "" H 7005 2755 50  0001 C CNN
 	1    7005 2755
 	1    0    0    -1  
 $EndComp
-Text Label 8950 2985 2    60   ~ 0
+Text Label 10610 3280 0    60   ~ 0
 BBB_p6
-Text Label 8950 2885 2    60   ~ 0
+Text Label 10610 3180 0    60   ~ 0
 BBB_p5
 NoConn ~ 9715 1445
 NoConn ~ 6500 1530
@@ -636,10 +636,6 @@ NoConn ~ 10110 3080
 NoConn ~ 10110 2980
 NoConn ~ 10110 2880
 NoConn ~ 10110 3180
-NoConn ~ 10610 2880
-NoConn ~ 10610 2980
-NoConn ~ 10610 3180
-NoConn ~ 10610 3280
 NoConn ~ 10610 3380
 NoConn ~ 10610 3480
 NoConn ~ 10610 3580
@@ -1523,4 +1519,9 @@ Connection ~ 3090 6090
 NoConn ~ 2540 5990
 NoConn ~ 2530 4065
 NoConn ~ 2450 615 
+NoConn ~ 15530 2965
+NoConn ~ 10610 2880
+NoConn ~ 10610 2980
+NoConn ~ 8950 2885
+NoConn ~ 8950 2985
 $EndSCHEMATC
