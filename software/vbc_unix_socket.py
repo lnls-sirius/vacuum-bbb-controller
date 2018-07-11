@@ -5,32 +5,10 @@ import sys
 import os
 import serial
 import Adafruit_BBIO.GPIO as GPIO
+import Adafruit_BBIO.ADC as ADC
 #------------------------------------------------------------------------------
 PORT = "/dev/ttyUSB0"
 #------------------------------------------------------------------------------
-'''
-=================
-ACP 15
-=================
-acp_recv_msg
-=================
-TURBOVAC
-=================
-checksum
-turbovac_recv_msg
-pack_message
-read_parameter
-=================
-Subroutines called from the main loop
-=================
------------------
-tb
------------------
-ta
-
-'''
-
-
 #==============================================================================
 # BBB functions support (for valves controls)
 #==============================================================================
@@ -55,34 +33,12 @@ GPIO.output(relay1, GPIO.LOW)
 GPIO.output(relay2, GPIO.LOW)
 GPIO.output(relay3, GPIO.LOW)
 GPIO.output(relay4, GPIO.LOW)
-
-#---------------------------------------
-#
-#---------------------------------------
-'''
-input parameters:
-    - xxx:
-    - yyy:
-output parameters:
-    - zzz:
-----------------------------
-description:
-    blablabla
-'''
-
-#---------------------------------------
-#
-#---------------------------------------
-'''
-input parameters:
-    - xxx:
-    - yyy:
-output parameters:
-    - zzz:
-----------------------------
-description:
-    blablabla
-'''
+#==============================================================================
+# BBB ADC support (for analog reading)
+#==============================================================================
+# defining pin used in analog reading (pressure)
+analog_in = "P9_36" # AIN5
+ADC.setup()
 #==============================================================================
 # ACP15 functions support
 #==============================================================================
@@ -181,42 +137,59 @@ def turbovac_recv_msg(task_telegram):
 	    msg += next_byte
 	    next_byte = con2.read(1)
     #-----------------------------------------------------
-    print "==================="
-    print " Response telegram "
-    print "==================="
+#    print "==================="
+#    print " Response telegram "
+#    print "==================="
     if (len(msg) == 24):
-        print "STX = 0x" + "{:02x}".format((ord(msg[0])))
-        print "LGE = 0x" + "{:02x}".format((ord(msg[1])))
-        print "ADR = 0x" + "{:02x}".format((ord(msg[2]))) + "\n"
+        #print "STX = 0x" + "{:02x}".format((ord(msg[0])))
+        #print "LGE = 0x" + "{:02x}".format((ord(msg[1])))
+        #print "ADR = 0x" + "{:02x}".format((ord(msg[2]))) + "\n"
 
-        print "PKE = " + str((((ord(msg[3]) & 0b111) << 8)) + (ord(msg[4])))
-        print "IND = " + str((ord(msg[6])))
-        print "PWE = " + str((ord(msg[7]) << 24) + (ord(msg[8]) << 16) + (ord(msg[9]) << 8) + ord(msg[10])) + "\n"
+        #print "PKE = " + str((((ord(msg[3]) & 0b111) << 8)) + (ord(msg[4])))
+        #print "IND = " + str((ord(msg[6])))
+        #print "PWE = " + str((ord(msg[7]) << 24) + (ord(msg[8]) << 16) + (ord(msg[9]) << 8) + ord(msg[10])) + "\n"
 
-        print "PZD1 = 0x" + "{:02x}".format((ord(msg[11]))) + "{:02x}".format((ord(msg[12])))
-        print "PZD2 = " + str(((ord(msg[13])) << 8) + ord(msg[14])) + " Hz"
-        print "PZD3 = " + str(((ord(msg[15])) << 8) + ord(msg[16])) + " oC"
-        print "PZD4 = " + str((((ord(msg[17])) << 8) + ord(msg[18])) / 10.0) + " A"
-        print "PZD6 = " + str((((ord(msg[21])) << 8) + ord(msg[22])) / 10.0) + " V\n"
+        #print "PZD1 = 0x" + "{:02x}".format((ord(msg[11]))) + "{:02x}".format((ord(msg[12])))
+        #print "PZD2 = " + str(((ord(msg[13])) << 8) + ord(msg[14])) + " Hz"
+        #print "PZD3 = " + str(((ord(msg[15])) << 8) + ord(msg[16])) + " oC"
+        #print "PZD4 = " + str((((ord(msg[17])) << 8) + ord(msg[18])) / 10.0) + " A"
+        #print "PZD6 = " + str((((ord(msg[21])) << 8) + ord(msg[22])) / 10.0) + " V\n"
 
-    #    print "PKE = 0x" + "{:02x}".format((ord(msg[3]))) + "{:02x}".format((ord(msg[4])))
-    #    print "IND = 0x" + "{:02x}".format((ord(msg[6])))
-    #    print "PZD2 = 0x" + "{:02x}".format((ord(msg[13]))) + "{:02x}".format((ord(msg[14])))
-    #    print "PZD3 = 0x" + "{:02x}".format((ord(msg[15]))) + "{:02x}".format((ord(msg[16])))
-    #    print "PZD4 = 0x" + "{:02x}".format((ord(msg[17]))) + "{:02x}".format((ord(msg[18])))
-    #    print "PZD6 = 0x" + "{:02x}".format((ord(msg[21]))) + "{:02x}".format((ord(msg[22]))) + "\n"
+        #print "PKE = 0x" + "{:02x}".format((ord(msg[3]))) + "{:02x}".format((ord(msg[4])))
+        #print "IND = 0x" + "{:02x}".format((ord(msg[6])))
+        #print "PZD2 = 0x" + "{:02x}".format((ord(msg[13]))) + "{:02x}".format((ord(msg[14])))
+        #print "PZD3 = 0x" + "{:02x}".format((ord(msg[15]))) + "{:02x}".format((ord(msg[16])))
+        #print "PZD4 = 0x" + "{:02x}".format((ord(msg[17]))) + "{:02x}".format((ord(msg[18])))
+        #print "PZD6 = 0x" + "{:02x}".format((ord(msg[21]))) + "{:02x}".format((ord(msg[22]))) + "\n"
 
-        print "BCC = 0x" + "{:02x}".format((ord(msg[23])))
-        print "==================="
+        #print "BCC = 0x" + "{:02x}".format((ord(msg[23])))
+        #print "==================="
 
         for i in range(len(msg)):
             sys.stdout.write("{:02x}".format(ord(msg[i])) + " ")
         print "\n"
 
-    else:
-        print "Message received corrupted!"
+        #return msg
+        STX = ord(msg[0])
+        LGE = ord(msg[1])
+        ADR = ord(msg[2])
+        #---------------------------------------------------
+        PKE = ((ord(msg[3]) & 0b111) << 8) + (ord(msg[4]))
+        IND = ord(msg[6])
+        PWE = (ord(msg[7]) << 24) + (ord(msg[8]) << 16) + (ord(msg[9]) << 8) + ord(msg[10])
+        #---------------------------------------------------
+        PZD1_1 = ord(msg[11])
+        PZD1_2 = ord(msg[12])
+        PZD2 = (ord(msg[13]) << 8) + ord(msg[14])
+        PZD3 = ((ord(msg[15])) << 8) + ord(msg[16])
+        PZD4 = (((ord(msg[17])) << 8) + ord(msg[18])) / 10.0
+        PZD6 = (((ord(msg[21])) << 8) + ord(msg[22])) / 10.0
 
-    return msg
+        return [PZD1_1, PZD1_2, PZD2, PZD3, PZD4, PZD6]
+
+    else:
+        #print "Message received corrupted!"
+        return 0
 #---------------------------------------
 # packing the task telegram
 #---------------------------------------
@@ -264,33 +237,24 @@ def pack_message(PKW, PZD):
     msg = [STX, LGE, ADR, PKW, PZD, BCC]
     print msg
 
-    print "==================="
-    print "   Task telegram   "
-    print "==================="
-    print "STX = 0x" + "{:02x}".format(ord(STX))
-    print "LGE = 0x" + "{:02x}".format(ord(LGE))
-    print "ADR = 0x" + "{:02x}".format(ord(ADR)) + "\n"
+    #print "==================="
+    #print "   Task telegram   "
+    #print "==================="
+    #print "STX = 0x" + "{:02x}".format(ord(STX))
+    #print "LGE = 0x" + "{:02x}".format(ord(LGE))
+    #print "ADR = 0x" + "{:02x}".format(ord(ADR)) + "\n"
 
-    print "PKE = " + str((((ord(PKW[0]) & 0b111) << 8)) + (ord(PKW[1])))
-    print "IND = " + str(ord(PKW[3]))
-    print "PWE = " + str((ord(PKW[4]) << 24) + (ord(PKW[5]) << 16) + (ord(PKW[6]) << 8) + ord(PKW[7])) + "\n"
+    #print "PKE = " + str((((ord(PKW[0]) & 0b111) << 8)) + (ord(PKW[1])))
+    #print "IND = " + str(ord(PKW[3]))
+    #print "PWE = " + str((ord(PKW[4]) << 24) + (ord(PKW[5]) << 16) + (ord(PKW[6]) << 8) + ord(PKW[7])) + "\n"
 
-    print "PZD1 = 0x" + "{:02x}".format((ord(PZD[0]))) + "{:02x}".format((ord(PZD[1])))
-    print "PZD2 = " + str(((ord(PZD[2])) << 8) + ord(PZD[3])) + " Hz"
-    print "PZD3 = " + str(((ord(PZD[4])) << 8) + ord(PZD[5])) + " oC"
-    print "PZD4 = " + str((((ord(PZD[6])) << 8) + ord(PZD[7])) / 10.0) + " A"
-    print "PZD6 = " + str((((ord(PZD[10])) << 8) + ord(PZD[11])) / 10.0) + " V\n"
+    #print "PZD1 = 0x" + "{:02x}".format((ord(PZD[0]))) + "{:02x}".format((ord(PZD[1])))
+    #print "PZD2 = " + str(((ord(PZD[2])) << 8) + ord(PZD[3])) + " Hz"
+    #print "PZD3 = " + str(((ord(PZD[4])) << 8) + ord(PZD[5])) + " oC"
+    #print "PZD4 = " + str((((ord(PZD[6])) << 8) + ord(PZD[7])) / 10.0) + " A"
+    #print "PZD6 = " + str((((ord(PZD[10])) << 8) + ord(PZD[11])) / 10.0) + " V\n"
 
-#    print "PKE = 0x" + "{:02x}".format(ord(PKW[0])) + "{:02x}".format(ord(PKW[1]))
-#    print "IND = 0x" + "{:02x}".format(ord(PKW[3]))
-
-#    print "PZD1 = 0x" + "{:02x}".format(ord(PZD[0])) + "{:02x}".format(ord(PZD[1]))
-#    print "PZD2 = 0x" + "{:02x}".format(ord(PZD[2])) + "{:02x}".format(ord(PZD[3]))
-#    print "PZD3 = 0x" + "{:02x}".format(ord(PZD[4])) + "{:02x}".format(ord(PZD[5]))
-#    print "PZD4 = 0x" + "{:02x}".format(ord(PZD[6])) + "{:02x}".format(ord(PZD[7]))
-#    print "PZD6 = 0x" + "{:02x}".format(ord(PZD[10])) + "{:02x}".format(ord(PZD[11])) + "\n"
-
-    print "BCC = 0x" + "{:02x}".format(ord(BCC))
+    #print "BCC = 0x" + "{:02x}".format(ord(BCC))
 
     ##############
     return message
@@ -326,31 +290,16 @@ def read_parameter(parameter):
     PZD = PZD1 + PZD2 + PZD3 + PZD4 + "\x00\x00" + PZD6
     #-----------------------------------------------------
     task_telegram = pack_message(PKW, PZD)
-    recv_msg(task_telegram)
+    turbovac_recv_msg(task_telegram)
 #==============================================================================
 # Subroutines called from the main loop
 #==============================================================================
-def ta():
-    print "test A"
-    read_parameter(1)
-def tb():
-    print "test B"
-    acp_recv_msg("#000IDN\r")
-def tc():
-    pass
-def td():
-    pass
-def te():
-    pass
-def tf():
-    pass
-#==============================================================================
 def ACP_OnOff(current_state):
     if (current_state == 0):
-        print "Turning ACP15 pump OFF"
+        #print "Turning ACP15 pump OFF"
         acp_recv_msg("#000ACPOFF\r")
     if (current_state == 1):
-        print "Turning ACP15 pump ON"
+        #print "Turning ACP15 pump ON"
         acp_recv_msg("#000ACPON\r")
 def ACP_SetSpeed(speed):
     # before setting a speed to the pump, we should change it to the standby speed
@@ -364,7 +313,33 @@ def ACP_SetSpeed(speed):
         print message
         acp_recv_msg(message)
         #000,ok
-
+def TURBOVAC_OnOff(current_state):
+    # PKW area
+    AK = 0b0000
+    PNU = 0
+    PKE = chr((AK << 4) + (0 << 3) + ((PNU >> 8) & 0x300)) + chr(PNU & 0xFF)
+    IND = "\x00"
+    PWE = "\x00\x00\x00\x00"
+    # joining the fields
+    PKW = PKE + "\x00" + IND + PWE
+    #-----------------------------------------------------
+    # PZD area
+    if (current_state == 0):
+        #print "Turning TURBOVAC pump OFF"
+        PZD1 = "\x04\x00"
+    if (current_state == 1):
+        #print "Turning TURBOVAC pump ON"
+        PZD1 = "\x04\x01"
+    PZD2 = "\x00\x00"
+    PZD3 = "\x00\x00"
+    PZD4 = "\x00\x00"
+    PZD6 = "\x00\x00"
+    # joining the fields
+    PZD = PZD1 + PZD2 + PZD3 + PZD4 + "\x00\x00" + PZD6
+    #-----------------------------------------------------
+    task_telegram = pack_message(PKW, PZD)
+    response = turbovac_recv_msg(task_telegram)
+    return response
 #==============================================================================
 # Creating the UNIX SOCKET for EPICS support
 #==============================================================================
@@ -390,55 +365,71 @@ while(True):
             data = connection.recv(512)
             if(data):
                 #==============================================================
-                # set GPIO pin direction
+                # reserved
                 if (data[0] == "\x00"):
-                    # reserved
-                    ta()
+                    pass
+                #---------------------------------------
+                # switch relay 1 (P9_23)
                 elif (data[0] == "\x01"):
-                    # switch relay 1
                     if (int(data[1]) == 0):
                         print "Switching Relay 1 OFF"
                         GPIO.output(relay1, GPIO.LOW)
                     if (int(data[1]) == 1):
                         print "Switching Relay 1 ON"
                         GPIO.output(relay1, GPIO.HIGH)
+                #---------------------------------------
+                # switch relay 2 (P9_21)
                 elif (data[0] == "\x02"):
-                    # switch relay 2
                     if (int(data[1]) == 0):
                         print "Switching Relay 2 OFF"
                         GPIO.output(relay2, GPIO.LOW)
                     if (int(data[1]) == 1):
                         print "Switching Relay 2 ON"
                         GPIO.output(relay2, GPIO.HIGH)
-
+                #---------------------------------------
+                # switch relay 3 (P9_24)
                 elif (data[0] == "\x03"):
-                    # switch relay 3
                     if (int(data[1]) == 0):
                         print "Switching Relay 3 OFF"
                         GPIO.output(relay3, GPIO.LOW)
                     if (int(data[1]) == 1):
                         print "Switching Relay 3 ON"
                         GPIO.output(relay3, GPIO.HIGH)
-
+                #---------------------------------------
+                # switch relay 4 (P9_12)
                 elif (data[0] == "\x04"):
-                    # switch relay 4
                     if (int(data[1]) == 0):
                         print "Switching Relay 4 OFF"
                         GPIO.output(relay4, GPIO.LOW)
                     if (int(data[1]) == 1):
                         print "Switching Relay 4 ON"
                         GPIO.output(relay4, GPIO.HIGH)
-
+                #---------------------------------------
+                # read open VAT valve status (P8_7)
                 elif (data[0] == "\x05"):
-                    # read open VAT valve status
-                    tf()
+                    connection.sendall(str(GPIO.input(valve_open)))
+                #---------------------------------------
+                # read closed VAT valve status (P8_9)
                 elif (data[0] == "\x06"):
-                    # read closed VAT valve status
-                    tf()
-                # commands from 0x07 to 0x0A reserved for future BBB implementations
+                    connection.sendall(str(GPIO.input(valve_closed)))
+                #---------------------------------------
+                # read analog in corresponding to the pressure (P9_36)
+                elif (data[0] == "\x07"):
+                    voltage = ADC.read(analog_in)
+                    #
+                    # convert voltage to pressure
+                    #
+                    pressure = voltage * 1.0
+                    connection.sendall("voltage = "+ str(voltage) + ", pressure = " + str(pressure))
+                #---------------------------------------
+                # commands from 0x08 to 0x0A reserved
+                # for future BBB implementations
+                #---------------------------------------
+                # turns ACP15 pump On/Off
                 elif (data[0] == "\x0B"):
-                    # turns ACP15 pump On/Off
                     ACP_OnOff(int(data[1]))
+                #---------------------------------------
+                # set ACP15 pump speed in rpm
                 elif ((data[0] == "\x0C")):
                     # the first character is a form feed ('\f' or 0x0C in ASCII)
                     # the last character is a carriage return ('\r' or 0x0D in ASCII)
@@ -448,7 +439,52 @@ while(True):
                         exponent = 10**(len(data)-i-3)
                         speed += digit * exponent
                     ACP_SetSpeed(speed)
-
+                #---------------------------------------
+                # set ACP15 pump speed in Hz
+                elif ((data[0] == "\x0D")):
+                    # the first character is a form feed ('\f' or 0x0C in ASCII)
+                    # the last character is a carriage return ('\r' or 0x0D in ASCII)
+                    speed = 0
+                    for i in range(len(data)-2):
+                        digit = int(data[i+1])
+                        exponent = 10**(len(data)-i-3)
+                        speed += digit * exponent
+                    speed *= 60
+                    ACP_SetSpeed(speed)
+                #---------------------------------------
+                # commands from 0x0E to 0x0F reserved
+                # for future ACP15 implementations
+                #---------------------------------------
+                # turns ACP15 pump On/Off
+                elif ((data[0] == "\x10")):
+                    r = TURBOVAC_OnOff(int(data[1]))
+                    if (len(r) == 6):
+                        connection.sendall(
+                            str(10) +
+                            ", PZD1_1=" + str(r[0]) +
+                            ", PZD1_2=" + str(r[1]) +
+                            ", PZD2=" + str(r[2]) +
+                            ", PZD3=" + str(r[3]) +
+                            ", PZD4=" + str(r[4]) +
+                            ", PZD6=" + str(r[5])
+                        )
+                    else:
+                        pass
+                #---------------------------------------
+                # get TURBOVAC ID
+                elif ((data[0] == "\x11")):
+                    connection.sendall(str(read_parameter(1)))
+                # set TURBOVAC pump speed
+                elif ((data[0] == "\x12")):
+                    pass
+                #---------------------------------------
+                #
+                elif ((data[0] == "\x13")):
+                    pass
+                #---------------------------------------
+                # commands from 0x13 to 0x1F reserved
+                # for future TURBOVAC implementations
+                #---------------------------------------
                 else:
                     break
     finally:
