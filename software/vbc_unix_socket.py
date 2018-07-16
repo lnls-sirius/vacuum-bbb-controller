@@ -13,12 +13,12 @@ PORT = "/dev/ttyUSB0"
 # BBB functions support (for valves controls)
 #==============================================================================
 # defining pins used for valves controls
-relay1 = "P9_23"
-relay2 = "P9_21"
-relay3 = "P9_24"
+relay1 = "P8_18"
+relay2 = "P9_24"
+relay3 = "P8_16"
 relay4 = "P9_12"
-valve_open = "P8_7"
-valve_closed = "P8_9"
+valve_open = "P9_16"
+valve_closed = "P9_14"
 #------------------------------------------------------------------------------
 # defining pins direction
 GPIO.setup(relay1, GPIO.OUT)
