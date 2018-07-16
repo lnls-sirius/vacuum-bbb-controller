@@ -58,7 +58,7 @@ description:
 '''
 def acp_recv_msg(command):
     con1 = serial.Serial(PORT, 9600, timeout=1)
-    print "con1 = 9600"
+    #print "con1 = 9600"
     con1.write(command)
 
     message_received = ""
@@ -125,7 +125,7 @@ def turbovac_recv_msg(task_telegram):
         timeout=1
     )
     #-----------------------------------------------------
-    print "con2 = 19200"
+    #print "con2 = 19200"
     con2.write(task_telegram)
     #-----------------------------------------------------
     msg = ""
@@ -137,33 +137,10 @@ def turbovac_recv_msg(task_telegram):
 	    msg += next_byte
 	    next_byte = con2.read(1)
     #-----------------------------------------------------
-#    print "==================="
-#    print " Response telegram "
-#    print "==================="
+    #print "==================="
+    #print " Response telegram "
+    #print "==================="
     if (len(msg) == 24):
-        #print "STX = 0x" + "{:02x}".format((ord(msg[0])))
-        #print "LGE = 0x" + "{:02x}".format((ord(msg[1])))
-        #print "ADR = 0x" + "{:02x}".format((ord(msg[2]))) + "\n"
-
-        #print "PKE = " + str((((ord(msg[3]) & 0b111) << 8)) + (ord(msg[4])))
-        #print "IND = " + str((ord(msg[6])))
-        #print "PWE = " + str((ord(msg[7]) << 24) + (ord(msg[8]) << 16) + (ord(msg[9]) << 8) + ord(msg[10])) + "\n"
-
-        #print "PZD1 = 0x" + "{:02x}".format((ord(msg[11]))) + "{:02x}".format((ord(msg[12])))
-        #print "PZD2 = " + str(((ord(msg[13])) << 8) + ord(msg[14])) + " Hz"
-        #print "PZD3 = " + str(((ord(msg[15])) << 8) + ord(msg[16])) + " oC"
-        #print "PZD4 = " + str((((ord(msg[17])) << 8) + ord(msg[18])) / 10.0) + " A"
-        #print "PZD6 = " + str((((ord(msg[21])) << 8) + ord(msg[22])) / 10.0) + " V\n"
-
-        #print "PKE = 0x" + "{:02x}".format((ord(msg[3]))) + "{:02x}".format((ord(msg[4])))
-        #print "IND = 0x" + "{:02x}".format((ord(msg[6])))
-        #print "PZD2 = 0x" + "{:02x}".format((ord(msg[13]))) + "{:02x}".format((ord(msg[14])))
-        #print "PZD3 = 0x" + "{:02x}".format((ord(msg[15]))) + "{:02x}".format((ord(msg[16])))
-        #print "PZD4 = 0x" + "{:02x}".format((ord(msg[17]))) + "{:02x}".format((ord(msg[18])))
-        #print "PZD6 = 0x" + "{:02x}".format((ord(msg[21]))) + "{:02x}".format((ord(msg[22]))) + "\n"
-
-        #print "BCC = 0x" + "{:02x}".format((ord(msg[23])))
-        #print "==================="
 
         for i in range(len(msg)):
             sys.stdout.write("{:02x}".format(ord(msg[i])) + " ")
@@ -175,6 +152,9 @@ def turbovac_recv_msg(task_telegram):
         ADR = ord(msg[2])
         #---------------------------------------------------
         PKE = ((ord(msg[3]) & 0b111) << 8) + (ord(msg[4]))
+        AK = (ord(msg[3]) >> 4)
+        PNU = (PKE & 0x07FF)
+        # res = ord(msg[5])
         IND = ord(msg[6])
         PWE = (ord(msg[7]) << 24) + (ord(msg[8]) << 16) + (ord(msg[9]) << 8) + ord(msg[10])
         #---------------------------------------------------
@@ -183,15 +163,44 @@ def turbovac_recv_msg(task_telegram):
         PZD2 = (ord(msg[13]) << 8) + ord(msg[14])
         PZD3 = ((ord(msg[15])) << 8) + ord(msg[16])
         PZD4 = (((ord(msg[17])) << 8) + ord(msg[18])) / 10.0
+        # res = (ord(msg[19]) << 8) + ord(msg[20])
         PZD6 = (((ord(msg[21])) << 8) + ord(msg[22])) / 10.0
 
-        return [PZD1_1, PZD1_2, PZD2, PZD3, PZD4, PZD6]
+        return [STX, LGE, ADR, PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2, PZD3, PZD4, PZD6]
 
     else:
         #print "Message received corrupted!"
         return 0
+#==============================================================================
+# Subroutines called from the main loop
+#==============================================================================
 #---------------------------------------
-# packing the task telegram
+# turns ACP15 on/off
+#---------------------------------------
+def ACP_OnOff(current_state):
+    if (current_state == 0):
+        #print "Turning ACP15 pump OFF"
+        acp_recv_msg("#000ACPOFF\r")
+    if (current_state == 1):
+        #print "Turning ACP15 pump ON"
+        acp_recv_msg("#000ACPON\r")
+#---------------------------------------
+# set ACP15 speed
+#---------------------------------------
+def ACP_SetSpeed(speed):
+    # before setting a speed to the pump, we should change it to the standby speed
+    acp_recv_msg("#000SBY\r")
+    # now we are able to set the new desired speed
+    if ((speed > 6000) or (speed < 2100)):
+        print "error: minimum speed = 2100; maximum speed = 6000 rpm"
+    else:
+        message = "#000RPM" + str(speed/10*10) + "\r"
+        print "Speed adjusted to " + str(speed/10*10) + " rpm (" + str(round((speed/10*10/60.0),2)) + " Hz)"
+        print message
+        acp_recv_msg(message)
+        #000,ok
+#---------------------------------------
+# send a task telegram to TURBOVAC
 #---------------------------------------
 '''
 input parameters:
@@ -218,9 +227,27 @@ description:
     this function takes as input the fields PKW and PZD and merge them with the
     other fields (STX, LGE, ADR and BCC) to form the whole task telegram.
 '''
-def pack_message(PKW, PZD):
+def task_telegram(STX, LGE, ADR, PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2):
+    # PKW area
+    PKE = chr((AK << 4) + (0 << 3) + ((PNU >> 8) & 0x700)) + chr(PNU & 0xFF)
+    IND = chr(IND)
+    PWE = chr((PWE & 0xFF000000) >> 24) + chr((PWE & 0x00FF0000) >> 16) + chr((PWE & 0x0000FF00) >> 8) + chr(PWE & 0x000000FF)
+    # joining the fields
+    PKW = PKE + "\x00" + IND + PWE
+    #-----------------------------------------------------
+    # PZD area
+    PZD1 = chr(PZD1_1) + chr(PZD1_2)
+    PZD2_1 = chr((PZD2 & 0xFF00) >> 8)
+    PZD2_2 = chr(PZD2 & 0x00FF)
+    PZD2 = PZD2_1 + PZD2_2
+    PZD3 = "\x00\x00"
+    PZD4 = "\x00\x00"
+    PZD6 = "\x00\x00"
+    # joining the fields
+    PZD = PZD1 + PZD2 + PZD3 + PZD4 + "\x00\x00" + PZD6
+    #-----------------------------------------------------
     byte = []
-    LGE = chr(len(PKW + PZD) + 2)
+    #LGE = chr(len(PKW + PZD) + 2)
     message = STX + LGE + ADR + PKW + PZD
 
     for i in range(len(message)):
@@ -236,109 +263,9 @@ def pack_message(PKW, PZD):
     ##############
     msg = [STX, LGE, ADR, PKW, PZD, BCC]
     print msg
-
-    #print "==================="
-    #print "   Task telegram   "
-    #print "==================="
-    #print "STX = 0x" + "{:02x}".format(ord(STX))
-    #print "LGE = 0x" + "{:02x}".format(ord(LGE))
-    #print "ADR = 0x" + "{:02x}".format(ord(ADR)) + "\n"
-
-    #print "PKE = " + str((((ord(PKW[0]) & 0b111) << 8)) + (ord(PKW[1])))
-    #print "IND = " + str(ord(PKW[3]))
-    #print "PWE = " + str((ord(PKW[4]) << 24) + (ord(PKW[5]) << 16) + (ord(PKW[6]) << 8) + ord(PKW[7])) + "\n"
-
-    #print "PZD1 = 0x" + "{:02x}".format((ord(PZD[0]))) + "{:02x}".format((ord(PZD[1])))
-    #print "PZD2 = " + str(((ord(PZD[2])) << 8) + ord(PZD[3])) + " Hz"
-    #print "PZD3 = " + str(((ord(PZD[4])) << 8) + ord(PZD[5])) + " oC"
-    #print "PZD4 = " + str((((ord(PZD[6])) << 8) + ord(PZD[7])) / 10.0) + " A"
-    #print "PZD6 = " + str((((ord(PZD[10])) << 8) + ord(PZD[11])) / 10.0) + " V\n"
-
-    #print "BCC = 0x" + "{:02x}".format(ord(BCC))
-
     ##############
-    return message
-#---------------------------------------
-# reading a parameter
-#---------------------------------------
-'''
-input parameters:
-    - parameter: parameter number
-output parameters:
-    - response telegram
-----------------------------
-description:
-    this function reads a parameter value and return the response telegram.
-'''
-def read_parameter(parameter):
-    # PKW area
-    AK = 0b0001
-    PNU = parameter
-    PKE = chr((AK << 4) + (0 << 3) + (PNU >> 8)) + chr(PNU & 0xFF)
-    IND = "\x00"
-    PWE = "\x00\x00\x00\x00"
-    # joining the fields
-    PKW = PKE + "\x00" + IND + PWE
-    #-----------------------------------------------------
-    # PZD area
-    PZD1 = "\x00\x00"
-    PZD2 = "\x00\x00"
-    PZD3 = "\x00\x00"
-    PZD4 = "\x00\x00"
-    PZD6 = "\x00\x00"
-    # joining the fields
-    PZD = PZD1 + PZD2 + PZD3 + PZD4 + "\x00\x00" + PZD6
-    #-----------------------------------------------------
-    task_telegram = pack_message(PKW, PZD)
-    turbovac_recv_msg(task_telegram)
-#==============================================================================
-# Subroutines called from the main loop
-#==============================================================================
-def ACP_OnOff(current_state):
-    if (current_state == 0):
-        #print "Turning ACP15 pump OFF"
-        acp_recv_msg("#000ACPOFF\r")
-    if (current_state == 1):
-        #print "Turning ACP15 pump ON"
-        acp_recv_msg("#000ACPON\r")
-def ACP_SetSpeed(speed):
-    # before setting a speed to the pump, we should change it to the standby speed
-    acp_recv_msg("#000SBY\r")
-    # now we are able to set the new desired speed
-    if ((speed > 6000) or (speed < 2100)):
-        print "error: minimum speed = 2100; maximum speed = 6000 rpm"
-    else:
-        message = "#000RPM" + str(speed/10*10) + "\r"
-        print "Speed adjusted to " + str(speed/10*10) + " rpm (" + str(round((speed/10*10/60.0),2)) + " Hz)"
-        print message
-        acp_recv_msg(message)
-        #000,ok
-def TURBOVAC_OnOff(current_state):
-    # PKW area
-    AK = 0b0000
-    PNU = 0
-    PKE = chr((AK << 4) + (0 << 3) + ((PNU >> 8) & 0x300)) + chr(PNU & 0xFF)
-    IND = "\x00"
-    PWE = "\x00\x00\x00\x00"
-    # joining the fields
-    PKW = PKE + "\x00" + IND + PWE
-    #-----------------------------------------------------
-    # PZD area
-    if (current_state == 0):
-        #print "Turning TURBOVAC pump OFF"
-        PZD1 = "\x04\x00"
-    if (current_state == 1):
-        #print "Turning TURBOVAC pump ON"
-        PZD1 = "\x04\x01"
-    PZD2 = "\x00\x00"
-    PZD3 = "\x00\x00"
-    PZD4 = "\x00\x00"
-    PZD6 = "\x00\x00"
-    # joining the fields
-    PZD = PZD1 + PZD2 + PZD3 + PZD4 + "\x00\x00" + PZD6
-    #-----------------------------------------------------
-    task_telegram = pack_message(PKW, PZD)
-    response = turbovac_recv_msg(task_telegram)
+
+    response = turbovac_recv_msg(message)
     return response
 #==============================================================================
 # Creating the UNIX SOCKET for EPICS support
@@ -372,37 +299,37 @@ while(True):
                 # switch relay 1 (P9_23)
                 elif (data[0] == "\x01"):
                     if (int(data[1]) == 0):
-                        print "Switching Relay 1 OFF"
+                        #print "Switching Relay 1 OFF"
                         GPIO.output(relay1, GPIO.LOW)
                     if (int(data[1]) == 1):
-                        print "Switching Relay 1 ON"
+                        #print "Switching Relay 1 ON"
                         GPIO.output(relay1, GPIO.HIGH)
                 #---------------------------------------
                 # switch relay 2 (P9_21)
                 elif (data[0] == "\x02"):
                     if (int(data[1]) == 0):
-                        print "Switching Relay 2 OFF"
+                        #print "Switching Relay 2 OFF"
                         GPIO.output(relay2, GPIO.LOW)
                     if (int(data[1]) == 1):
-                        print "Switching Relay 2 ON"
+                        #print "Switching Relay 2 ON"
                         GPIO.output(relay2, GPIO.HIGH)
                 #---------------------------------------
                 # switch relay 3 (P9_24)
                 elif (data[0] == "\x03"):
                     if (int(data[1]) == 0):
-                        print "Switching Relay 3 OFF"
+                        #print "Switching Relay 3 OFF"
                         GPIO.output(relay3, GPIO.LOW)
                     if (int(data[1]) == 1):
-                        print "Switching Relay 3 ON"
+                        #print "Switching Relay 3 ON"
                         GPIO.output(relay3, GPIO.HIGH)
                 #---------------------------------------
                 # switch relay 4 (P9_12)
                 elif (data[0] == "\x04"):
                     if (int(data[1]) == 0):
-                        print "Switching Relay 4 OFF"
+                        #print "Switching Relay 4 OFF"
                         GPIO.output(relay4, GPIO.LOW)
                     if (int(data[1]) == 1):
-                        print "Switching Relay 4 ON"
+                        #print "Switching Relay 4 ON"
                         GPIO.output(relay4, GPIO.HIGH)
                 #---------------------------------------
                 # read open VAT valve status (P8_7)
@@ -455,34 +382,165 @@ while(True):
                 # commands from 0x0E to 0x0F reserved
                 # for future ACP15 implementations
                 #---------------------------------------
-                # turns ACP15 pump On/Off
+                # send a task telegram to TURBOVAC
                 elif ((data[0] == "\x10")):
-                    r = TURBOVAC_OnOff(int(data[1]))
-                    if (len(r) == 6):
+                    #---------------------------------------
+                    # fields initialized
+                    #---------------------------------------
+                    STX = 0
+                    LGE = 0
+                    ADR = 0
+                    #----------
+                    IND = 0
+                    PNU = 0
+                    PWE = 0
+                    #----------
+                    PZD1_1 = 0
+                    PZD1_2 = 0
+                    PZD2 = 0
+                    #---------------------------------------
+                    # decoding the header (STX)
+                    #---------------------------------------
+                    # OFFSET is one because of the first character used in the protocol: 0x10
+                    OFFSET = 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        STX += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding the header (LGE)
+                    #---------------------------------------
+                    # set the new OFFSET value for the LGE field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        LGE += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding the header (ADR)
+                    #---------------------------------------
+                    # set the new OFFSET value for the ADR field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        ADR += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding and calculating the two bytes of PZD1
+                    #---------------------------------------
+                    OFFSET += digits + 1
+                    for i in range(8):
+                        PZD1_1 += (int(data[OFFSET + i]) << (7-i))
+                        PZD1_2 += (int(data[OFFSET + 8 + i]) << (7-i))
+                    #---------------------------------------
+                    # decoding PNU field
+                    #---------------------------------------
+                    # the OFFSET represents the number of characters sent before
+                    # the PKW data:
+                    #    1 character for the protocol: 0x10
+                    #   16 characters for status bits
+                    OFFSET += 16
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        PNU += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding AK field
+                    #---------------------------------------
+                    # set the new OFFSET value for the AK field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    AK = int(data[OFFSET])
+                    #---------------------------------------
+                    # decoding IND field
+                    #---------------------------------------
+                    # set the new OFFSET value for the IND field
+                    # the "+2" refers to the comma separator character and next character
+                    OFFSET += 2
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        IND += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding PWE field
+                    #---------------------------------------
+                    # set the new OFFSET value for the PWE field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        PWE += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # Decoding PZD2 field
+                    #---------------------------------------
+                    # set the new OFFSET value for the PZD2 field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    digits = (len(data) - OFFSET)
+                    for j in range(digits):
+                        PZD2 += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+                    if (response == 0):
+                        # message corrupted!
+                        pass
+                    elif (len(response) == 13):
                         connection.sendall(
-                            str(10) +
-                            ", PZD1_1=" + str(r[0]) +
-                            ", PZD1_2=" + str(r[1]) +
-                            ", PZD2=" + str(r[2]) +
-                            ", PZD3=" + str(r[3]) +
-                            ", PZD4=" + str(r[4]) +
-                            ", PZD6=" + str(r[5])
+                            #-------------------------------
+                              "STX=" + str(response[0]) +
+                            ", LGE=" + str(response[1]) +
+                            ", ADR=" + str(response[2]) +
+                            #-------------------------------
+                            ", PNU=" + str(response[3]) +
+                            ", AK=" + str(response[4]) +
+                            ", IND=" + str(response[5]) +
+                            ", PWE=" + str(response[6]) +
+                            #-------------------------------
+                            ", PZD1_1=" + str(response[7]) +
+                            ", PZD1_2=" + str(response[8]) +
+                            ", PZD2=" + str(response[9]) +
+                            ", PZD3=" + str(response[10]) +
+                            ", PZD4=" + str(response[11]) +
+                            ", PZD6=" + str(response[12])
+                            #-------------------------------
                         )
                     else:
                         pass
                 #---------------------------------------
-                # get TURBOVAC ID
-                elif ((data[0] == "\x11")):
-                    connection.sendall(str(read_parameter(1)))
-                # set TURBOVAC pump speed
-                elif ((data[0] == "\x12")):
-                    pass
-                #---------------------------------------
-                #
-                elif ((data[0] == "\x13")):
-                    pass
-                #---------------------------------------
-                # commands from 0x13 to 0x1F reserved
+                # commands from 0x11 to 0x14 reserved
                 # for future TURBOVAC implementations
                 #---------------------------------------
                 else:
