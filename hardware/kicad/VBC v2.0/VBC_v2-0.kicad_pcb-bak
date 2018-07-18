@@ -8,7 +8,7 @@
     (drawings 18)
     (tracks 759)
     (zones 0)
-    (modules 91)
+    (modules 89)
     (nets 169)
   )
 
@@ -461,17 +461,6 @@
     (via_drill 0.6)
     (uvia_dia 0.3)
     (uvia_drill 0.1)
-  )
-
-  (module Controle:ground_plane_via (layer F.Cu) (tedit 5B4F592D) (tstamp 5B4F58EE)
-    (at 193.44386 147.406081)
-    (path /5B4E6157/5B4E6631)
-    (fp_text reference P5 (at 0 1.9) (layer Dwgs.User) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value CONN_01X01 (at 0 -2) (layer Dwgs.User) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
   )
 
   (module "Conversor USB-RS485:RJ25" (layer F.Cu) (tedit 5B4F6892) (tstamp 5B4F44F1)
@@ -3831,18 +3820,6 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
-  )
-
-  (module Controle:ground_plane_via (layer F.Cu) (tedit 576AC3F8) (tstamp 5B4F5F04)
-    (at 193.44386 147.406081)
-    (path /5B4E6157/5B4E6632)
-    (fp_text reference P6 (at 0 1.9) (layer Dwgs.User) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value CONN_01X01 (at 0 -2) (layer Dwgs.User) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (pad 2 thru_hole circle (at 0 0) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask F.SilkS))
   )
 
   (module Resistors_SMD:R_0805_HandSoldering (layer F.Cu) (tedit 58E0A804) (tstamp 5B4F5F15)
