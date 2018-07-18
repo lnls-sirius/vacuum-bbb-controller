@@ -3,7 +3,7 @@
   (general
     (links 210)
     (no_connects 0)
-    (area 113.361239 37.205279 273.526481 137.406081)
+    (area 98.01079 28.702 282.749801 146.050001)
     (thickness 1.6)
     (drawings 18)
     (tracks 759)
@@ -81,7 +81,7 @@
     (aux_axis_origin 0 0)
     (visible_elements FFFFFF79)
     (pcbplotparams
-      (layerselection 0x3ffff_ffffffff)
+      (layerselection 0x3ffff_80000001)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -104,7 +104,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory gerber/gerber_fabricação_fora/))
+      (outputdirectory gerber/))
   )
 
   (net 0 "")
