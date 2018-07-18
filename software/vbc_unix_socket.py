@@ -70,7 +70,7 @@ def acp_recv_msg(command):
 	    message_received += next_byte
 	    next_byte = con1.read(1)
 
-    print message_received
+    #print message_received
 #==============================================================================
 # TURBOVAC functions support
 #==============================================================================
@@ -142,9 +142,9 @@ def turbovac_recv_msg(task_telegram):
     #print "==================="
     if (len(msg) == 24):
 
-        for i in range(len(msg)):
-            sys.stdout.write("{:02x}".format(ord(msg[i])) + " ")
-        print "\n"
+        #for i in range(len(msg)):
+        #    sys.stdout.write("{:02x}".format(ord(msg[i])) + " ")
+        #print "\n"
 
         #return msg
         STX = ord(msg[0])
@@ -261,8 +261,8 @@ def task_telegram(STX, LGE, ADR, PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2):
     byte.append(BCC)
     message = STX + LGE + ADR + PKW + PZD + BCC
     ##############
-    msg = [STX, LGE, ADR, PKW, PZD, BCC]
-    print msg
+    #msg = [STX, LGE, ADR, PKW, PZD, BCC]
+    #print msg
     ##############
 
     response = turbovac_recv_msg(message)
@@ -342,12 +342,28 @@ while(True):
                 #---------------------------------------
                 # read analog in corresponding to the pressure (P9_36)
                 elif (data[0] == "\x07"):
-                    voltage = ADC.read(analog_in)
-                    #
-                    # convert voltage to pressure
-                    #
-                    pressure = voltage * 1.0
-                    connection.sendall("voltage = "+ str(voltage) + ", pressure = " + str(pressure))
+                    ADC_code = ADC.read_raw(analog_in)
+                    voltage_ADC = ADC.read(analog_in) * 1.8
+                    voltage_equipment = voltage_ADC * 6
+                    #-----------------------------------------------------------
+                    # reading vacuum pressure
+                    pressure_torr = 10 ** ((2 * voltage_equipment) - 11)
+                    pressure_mbar = 1.33 * 10 ** ((2 * voltage_equipment) - 11)
+                    pressure_pascal = 133 * 10 ** ((2 * voltage_equipment) - 11)
+                    #-----------------------------------------------------------
+                    # reading differential pressure
+                    #pressure_torr = 250 * (voltage_equipment - 4)
+                    #pressure_mbar = 1.33 * 250 * (voltage_equipment - 4)
+                    #pressure_pascal = 133 * 250 * (voltage_equipment - 4)
+                    #-----------------------------------------------------------
+                    connection.sendall(
+                        "adc = "+ str(ADC_code) +
+                        ", voltage = "+ str(voltage_ADC) +
+                        ", equipment = "+ str(voltage_equipment) +
+                        ", torr = " + str(pressure_torr) +
+                        ", mbar = " + str(pressure_mbar) +
+                        ", pascal = " + str(pressure_pascal)
+                    )
                 #---------------------------------------
                 # commands from 0x08 to 0x0A reserved
                 # for future BBB implementations
