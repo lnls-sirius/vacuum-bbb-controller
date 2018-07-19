@@ -1,0 +1,221 @@
+===============================================================================
+ list of ACP15 pump PVs
+===============================================================================
+   -scan:
+
+-VBC:ACP:OnOff
+   -record type: bo
+   -description: Turns pump On/Off
+   -scan: Passive
+
+-VBC:ACP:SpeedRPM
+   -record type: ao
+   -description: Set pump speed
+   -scan: Passive
+
+-VBC:ACP:SpeedHz
+   -record type: ao
+   -description: Set pump speed
+   -scan: Passive
+
+===============================================================================
+ list of BeagleBone Black PVs
+===============================================================================
+
+-VBC:BBB:Relay1
+   -record type: bo
+   -description: Switch Relay 1
+   -scan: Passive
+
+-VBC:BBB:Relay2
+   -record type: bo
+   -description: Switch Relay 2
+   -scan: Passive
+
+-VBC:BBB:Relay3
+   -record type: bo
+   -description: Switch Relay 3
+   -scan: Passive
+
+-VBC:BBB:Relay4
+   -record type: bo
+   -description: Switch Relay 4
+   -scan: Passive
+
+-VBC:BBB:ValveOpen
+   -record type: bi
+   -description: Read OPEN VAT Valve status
+   -scan: .1 second
+
+-VBC:BBB:ValveClosed
+   -record type: bi
+   -description: Read CLOSED VAT Valve status
+   -scan: .1 second
+
+-VBC:BBB:ADC
+   -record type: ai
+   -description: Read the ADC code
+   -scan: .1 second
+
+-VBC:BBB:Voltage
+   -record type: ai
+   -description: Read the voltage in ADC
+   -scan: I/O Intr
+
+-VBC:BBB:EquipmentVoltage
+   -record type: ai
+   -description: Read the equipment voltage
+   -scan: I/O Intr
+
+-VBC:BBB:Torr
+   -record type: ai
+   -description: Read the pressure in Torr
+   -scan: I/O Intr
+
+-VBC:BBB:mbar
+   -record type: ai
+   -description: Read the pressure in mbar
+   -scan: I/O Intr
+
+-VBC:BBB:Pascal
+   -record type: ai
+   -description: Read the pressure in Pa
+   -scan: I/O Intr
+
+===============================================================================
+ list of TURBOVAC pump PVs
+===============================================================================
+
+-VBC:TURBOVAC:OnOff
+   -record type: bo
+   -description: Turns pump On/Off
+   -scan: 1 second
+
+-VBC:TURBOVAC:STX-SP
+   -record type: ao
+   -description: STX: Start byte
+   -scan: Passive
+
+-VBC:TURBOVAC:LGE-SP
+   -record type: ao
+   -description: LGE: Length of the payload
+   -scan: Passive
+
+-VBC:TURBOVAC:ADR-SP
+   -record type: ao
+   -description: ADR: Frequency converter address
+   -scan: Passive
+
+-VBC:TURBOVAC:STX-RB
+   -record type: ai
+   -description: STX: Start byte
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:LGE-RB
+   -record type: ai
+   -description: LGE: Length of the payload
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:ADR-RB
+   -record type: ai
+   -description: ADR: Frequency converter address
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:PNU-SP
+   -record type: ao
+   -description: PNU: Parameter number
+   -scan: Passive
+
+-VBC:TURBOVAC:AK-SP
+   -record type: ao
+   -description: AK: Type of parameter access
+   -scan: Passive
+
+-VBC:TURBOVAC:IND-SP
+   -record type: ao
+   -description: IND: Parameter index
+   -scan: Passive
+
+-VBC:TURBOVAC:PWE-SP
+   -record type: ao
+   -description: PWE: Parameter value
+   -scan: Passive
+
+-VBC:TURBOVAC:PNU-RB
+   -record type: ai
+   -description: PNU: Parameter number
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:AK-RB
+   -record type: ai
+   -description: AK: Type of parameter access
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:IND-RB
+   -record type: ai
+   -description: IND: Parameter index
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:PWE-RB
+   -record type: ai
+   -description: PWE: Parameter value
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:PZD1-SP
+   -record type: mbbo
+   -description: PZD1: USS Control Word
+   -scan: Passive
+
+-VBC:TURBOVAC:PZD1-RB0
+   -record type: ai
+   -description: PZD1: USS Status Byte (LSB)
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:PZD1-RB1
+   -record type: ai
+   -description: PZD1: USS Status Byte (MSB)
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:PZD2-SP
+   -record type: ao
+   -description: PZD2: Set pump frequency
+   -scan: Passive
+
+-VBC:TURBOVAC:PZD3-SP
+   -record type: ao
+   -description: PZD3: Frequency converter temperature
+   -scan: Passive
+
+-VBC:TURBOVAC:PZD4-SP
+   -record type: ao
+   -description: PZD4: Current motor current
+   -scan: Passive
+
+-VBC:TURBOVAC:PZD6-SP
+   -record type: ao
+   -description: PZD6: intermediate circuit voltage
+   -scan: Passive
+
+-VBC:TURBOVAC:PZD2-RB
+   -record type: ai
+   -description: PZD2: Current stator frequency
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:PZD3-RB
+   -record type: ai
+   -description: PZD3: Frequency converter temperature
+   -scan: I/O Intr
+
+-VBC:TURBOVAC:PZD4-RB
+   -record type: ai
+   -description: PZD4: Current motor current
+      -scan: I/O Intr
+
+-VBC:TURBOVAC:PZD6-RB
+   -record type: ai
+   -description: PZD6: intermediate circuit voltage
+   -scan: I/O Intr
+
+===============================================================================
+ list of TURBOVAC pump PVs
+===============================================================================
