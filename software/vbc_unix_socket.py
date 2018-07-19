@@ -23,6 +23,13 @@ PVs["VBC:ProcessOn:Status3"] = {"type" : "int"}
 PVs["VBC:ProcessOn:Status4"] = {"type" : "int"}
 PVs["VBC:ProcessOn:Status5"] = {"type" : "int"}
 #-----------------------------------------------
+PVs["VBC:ProcessOff:Status1"] = {"type" : "int"}
+PVs["VBC:ProcessOff:Status2"] = {"type" : "int"}
+PVs["VBC:ProcessOff:Status3"] = {"type" : "int"}
+PVs["VBC:ProcessOff:Status4"] = {"type" : "int"}
+PVs["VBC:ProcessOff:Status5"] = {"type" : "int"}
+PVs["VBC:ProcessOff:Status6"] = {"type" : "int"}
+#-----------------------------------------------
 # EPICS driver
 class PSDriver(Driver):
     # class constructor
