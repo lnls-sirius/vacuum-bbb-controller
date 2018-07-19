@@ -12,15 +12,22 @@ it is divided in 5 stages, described as follow:
 '''
 #------------------------------------------------------------------------------
 # valve names definition
-PRE-VACUUM_VALVE = "VBC:BBB:Relay2"
+PRE_VACUUM_VALVE = "VBC:BBB:Relay2"
 GATE_VALVE = "VBC:BBB:Relay4"
+#------------------------------------------------------------------------------
+# clear all status PVs
+caput("VBC:ProcessOn:Status1", 1)
+caput("VBC:ProcessOn:Status1", 2)
+caput("VBC:ProcessOn:Status1", 3)
+caput("VBC:ProcessOn:Status1", 4)
+caput("VBC:ProcessOn:Status1", 5)
 #==============================================================================
 # Stage 1:
 #==============================================================================
 # open gate valve (VAT) and the pre-vacuum valve
 caput("VBC:ProcessOn:Status1", 1)
 caput(GATE_VALVE, 1)
-caput(PRE-VACUUM_VALVE, 1)
+caput(PRE_VACUUM_VALVE, 1)
 #==============================================================================
 # Stage 2:
 #==============================================================================
@@ -37,13 +44,13 @@ while (loop):
 #==============================================================================
 # turn ACP15 pump ON
 caput("VBC:ProcessOn:Status3", 1)
-caput("VBC:ACP15:OnOff", 1)
+caput("VBC:ACP:OnOff", 1)
 #==============================================================================
 # Stage 4:
 #==============================================================================
 # read the pressure and proceed when its value is under 5*(10^-2) Torr
 caput("VBC:ProcessOn:Status4", 1)
-while (caget("VBC:BBB:Torr") > 0.05):
+while (caget("VBC:BBB:Torr") > 0.08):
     pass
 #==============================================================================
 # Stage 5:

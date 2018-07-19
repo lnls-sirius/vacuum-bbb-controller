@@ -23,12 +23,19 @@ PVs["VBC:ProcessOn:Status3"] = {"type" : "int"}
 PVs["VBC:ProcessOn:Status4"] = {"type" : "int"}
 PVs["VBC:ProcessOn:Status5"] = {"type" : "int"}
 #-----------------------------------------------
-PVs["VBC:ProcessOff:Status1"] = {"type" : "int"}
-PVs["VBC:ProcessOff:Status2"] = {"type" : "int"}
-PVs["VBC:ProcessOff:Status3"] = {"type" : "int"}
-PVs["VBC:ProcessOff:Status4"] = {"type" : "int"}
-PVs["VBC:ProcessOff:Status5"] = {"type" : "int"}
-PVs["VBC:ProcessOff:Status6"] = {"type" : "int"}
+PVs["VBC:ProcessOffFV:Status1"] = {"type" : "int"}
+PVs["VBC:ProcessOffFV:Status2"] = {"type" : "int"}
+PVs["VBC:ProcessOffFV:Status3"] = {"type" : "int"}
+PVs["VBC:ProcessOffFV:Status4"] = {"type" : "int"}
+PVs["VBC:ProcessOffFV:Status5"] = {"type" : "int"}
+PVs["VBC:ProcessOffFV:Status6"] = {"type" : "int"}
+#-----------------------------------------------
+PVs["VBC:ProcessOffNV:Status1"] = {"type" : "int"}
+PVs["VBC:ProcessOffNV:Status2"] = {"type" : "int"}
+PVs["VBC:ProcessOffNV:Status3"] = {"type" : "int"}
+PVs["VBC:ProcessOffNV:Status4"] = {"type" : "int"}
+PVs["VBC:ProcessOffNV:Status5"] = {"type" : "int"}
+PVs["VBC:ProcessOffNV:Status6"] = {"type" : "int"}
 #-----------------------------------------------
 # EPICS driver
 class PSDriver(Driver):
@@ -231,15 +238,16 @@ def ACP_OnOff(current_state):
 # set ACP15 speed
 #---------------------------------------
 def ACP_SetSpeed(speed):
-    # before setting a speed to the pump, we should change it to the standby speed
-    acp_recv_msg("#000SBY\r")
     # now we are able to set the new desired speed
     if ((speed > 6000) or (speed < 2100)):
-        print "error: minimum speed = 2100; maximum speed = 6000 rpm"
+        #print "error: minimum speed = 2100; maximum speed = 6000 rpm"
+        pass
     else:
+        # before setting a speed to the pump, we should change it to the standby speed
+        acp_recv_msg("#000SBY\r")
         message = "#000RPM" + str(speed/10*10) + "\r"
-        print "Speed adjusted to " + str(speed/10*10) + " rpm (" + str(round((speed/10*10/60.0),2)) + " Hz)"
-        print message
+        #print "Speed adjusted to " + str(speed/10*10) + " rpm (" + str(round((speed/10*10/60.0),2)) + " Hz)"
+        #print message
         acp_recv_msg(message)
         #000,ok
 #---------------------------------------
