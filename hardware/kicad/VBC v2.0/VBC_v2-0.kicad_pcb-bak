@@ -2,7 +2,7 @@
 
   (general
     (links 211)
-    (no_connects 40)
+    (no_connects 0)
     (area 109.534999 37.205279 282.749801 167.8992)
     (thickness 1.6)
     (drawings 34)
@@ -46,7 +46,7 @@
   )
 
   (setup
-    (last_trace_width 0.8)
+    (last_trace_width 0.4)
     (user_trace_width 0.01)
     (user_trace_width 0.25)
     (user_trace_width 0.4)
@@ -4132,7 +4132,7 @@
   (gr_line (start 144.4598 137.28028) (end 144.51314 137.28028) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 273.45148 37.28028) (end 273.45148 137.28028) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 144.4598 37.28028) (end 273.45148 37.28028) (angle 90) (layer Edge.Cuts) (width 0.15))
-  (gr_text "Grupo de Controle - LNLS\nVacuum BBB Controller\nPatrícia Nallin\nRafael Ito\nJúlia Giatti\nversão 2.0 - Jul/2018" (at 246.66 125.12) (layer F.SilkS)
+  (gr_text "Grupo de Controle - LNLS\nVacuum BBB Controller\nJúlia Giatti\nPatrícia Nallin\nRafael Ito\nversão 2.0 - Jul/2018" (at 246.66 125.12) (layer F.SilkS)
     (effects (font (size 1.2 1.2) (thickness 0.2)))
   )
 
