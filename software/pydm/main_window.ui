@@ -1706,7 +1706,7 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>385</y>
+      <y>380</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -1748,7 +1748,7 @@
     <property name="geometry">
      <rect>
       <x>15</x>
-      <y>345</y>
+      <y>340</y>
       <width>226</width>
       <height>31</height>
      </rect>
@@ -1911,7 +1911,7 @@
     <property name="geometry">
      <rect>
       <x>25</x>
-      <y>380</y>
+      <y>375</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -2435,7 +2435,7 @@
     <property name="geometry">
      <rect>
       <x>45</x>
-      <y>380</y>
+      <y>375</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -2463,7 +2463,7 @@
     <property name="geometry">
      <rect>
       <x>15</x>
-      <y>435</y>
+      <y>430</y>
       <width>226</width>
       <height>31</height>
      </rect>
@@ -2504,9 +2504,9 @@
    <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>15</x>
       <y>540</y>
-      <width>471</width>
+      <width>486</width>
       <height>36</height>
      </rect>
     </property>
@@ -4442,7 +4442,7 @@
       </palette>
      </property>
      <property name="text">
-      <string>Valve Open</string>
+      <string>Gate Valve Open</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -4873,7 +4873,7 @@
       </palette>
      </property>
      <property name="text">
-      <string>Valve Closed</string>
+      <string>Gate Valve Closed</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -4936,7 +4936,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>385</y>
+      <y>380</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -4977,9 +4977,9 @@
     <property name="geometry">
      <rect>
       <x>15</x>
-      <y>465</y>
+      <y>460</y>
       <width>226</width>
-      <height>56</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -5141,7 +5141,7 @@
     <property name="geometry">
      <rect>
       <x>15</x>
-      <y>375</y>
+      <y>370</y>
       <width>226</width>
       <height>41</height>
      </rect>
