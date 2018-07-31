@@ -17,25 +17,26 @@ import threading
 from pcaspy import Driver, SimpleServer
 #-----------------------------------------------
 PVs = {}
-PVs["VBC:ProcessOn:Status1"] = {"type" : "int"}
-PVs["VBC:ProcessOn:Status2"] = {"type" : "int"}
-PVs["VBC:ProcessOn:Status3"] = {"type" : "int"}
-PVs["VBC:ProcessOn:Status4"] = {"type" : "int"}
-PVs["VBC:ProcessOn:Status5"] = {"type" : "int"}
+VBC = sys.argv[1]
+PVs["VBC" + sys.argv[1] + ":ProcessOn:Status1"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOn:Status2"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOn:Status3"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOn:Status4"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOn:Status5"] = {"type" : "int"}
 #-----------------------------------------------
-PVs["VBC:ProcessOffFV:Status1"] = {"type" : "int"}
-PVs["VBC:ProcessOffFV:Status2"] = {"type" : "int"}
-PVs["VBC:ProcessOffFV:Status3"] = {"type" : "int"}
-PVs["VBC:ProcessOffFV:Status4"] = {"type" : "int"}
-PVs["VBC:ProcessOffFV:Status5"] = {"type" : "int"}
-PVs["VBC:ProcessOffFV:Status6"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status1"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status2"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status3"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status4"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status5"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status6"] = {"type" : "int"}
 #-----------------------------------------------
-PVs["VBC:ProcessOffNV:Status1"] = {"type" : "int"}
-PVs["VBC:ProcessOffNV:Status2"] = {"type" : "int"}
-PVs["VBC:ProcessOffNV:Status3"] = {"type" : "int"}
-PVs["VBC:ProcessOffNV:Status4"] = {"type" : "int"}
-PVs["VBC:ProcessOffNV:Status5"] = {"type" : "int"}
-PVs["VBC:ProcessOffNV:Status6"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status1"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status2"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status3"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status4"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status5"] = {"type" : "int"}
+PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status6"] = {"type" : "int"}
 #-----------------------------------------------
 # EPICS driver
 class PSDriver(Driver):
@@ -387,11 +388,13 @@ def thread_2():
                     #---------------------------------------
                     # read open VAT valve status (P8_7)
                     elif (data[0] == "\x05"):
-                        connection.sendall(str(GPIO.input(valve_open)))
+                        vopen = str(GPIO.input(valve_open))
+                        connection.sendall(vopen)
                     #---------------------------------------
                     # read closed VAT valve status (P8_9)
                     elif (data[0] == "\x06"):
-                        connection.sendall(str(GPIO.input(valve_closed)))
+                        vclosed = str(GPIO.input(valve_closed))
+                        connection.sendall(vclosed)
                     #---------------------------------------
                     # read analog in corresponding to the pressure (P9_36)
                     elif (data[0] == "\x07"):
@@ -399,10 +402,39 @@ def thread_2():
                         voltage_ADC = ADC.read(analog_in) * 1.8
                         voltage_equipment = voltage_ADC * 6
                         #-----------------------------------------------------------
-                        # reading vacuum pressure
+                        # reading vacuum pressure in Torr
                         pressure_torr = 10 ** ((2 * voltage_equipment) - 11)
+                        # converting it into base and exponent
+                        torr_base = pressure_torr
+                        torr_exp = 0
+                        if (torr_base >= 1):
+                            while ((torr_base / 10) >= 1):
+                                torr_exp += 1
+                                torr_base /= 10
+                        else:
+                            while ((torr_base) * 10 < 10):
+                                torr_exp -= 1
+                                torr_base *= 10
+                        #-----------------------------------------------------------
+                        # reading vacuum pressure in mbar
                         pressure_mbar = 1.33 * 10 ** ((2 * voltage_equipment) - 11)
-                        pressure_pascal = 133 * 10 ** ((2 * voltage_equipment) - 11)
+                        # converting it into base and exponent
+                        mbar_base = pressure_mbar
+                        mbar_exp = 0
+                        if (mbar_base >= 1):
+                            while ((mbar_base / 10) >= 1):
+                                mbar_exp += 1
+                                mbar_base /= 10
+                        else:
+                            while ((mbar_base) * 10 < 10):
+                                mbar_exp -= 1
+                                mbar_base *= 10
+                        #-----------------------------------------------------------
+                        # reading vacuum pressure in Pascal
+                        pressure_pascal = 100 * pressure_mbar
+                        # converting it into base and exponent
+                        #pascal_base = mbar_base
+                        #pascal_exp = mbar_exp + 2
                         #-----------------------------------------------------------
                         # reading differential pressure
                         #pressure_torr = 250 * (voltage_equipment - 4)
@@ -414,7 +446,11 @@ def thread_2():
                             ", voltage = "+ str(voltage_ADC) +
                             ", equipment = "+ str(voltage_equipment) +
                             ", torr = " + str(pressure_torr) +
+                            ", torr_base = " + str(torr_base) +
+                            ", torr_exp = " + str(torr_exp) +
                             ", mbar = " + str(pressure_mbar) +
+                            ", mbar_base = " + str(mbar_base) +
+                            ", mbar_exp = " + str(mbar_exp) +
                             ", pascal = " + str(pressure_pascal)
                         )
                     #---------------------------------------
