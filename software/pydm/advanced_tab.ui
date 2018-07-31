@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>914</width>
-    <height>978</height>
+    <width>913</width>
+    <height>889</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>225</y>
+      <y>310</y>
       <width>101</width>
       <height>30</height>
      </rect>
@@ -39,7 +39,7 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay1.DESC</string>
+     <string>ca://${IOC}:BBB:Relay1.DESC</string>
     </property>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator">
@@ -49,7 +49,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>230</y>
+      <y>315</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -71,7 +71,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay1</string>
+     <string>ca://${IOC}:BBB:Relay1</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -91,7 +91,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>225</y>
+      <y>310</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -101,6 +101,9 @@
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="toolTip">
      <string/>
@@ -127,18 +130,21 @@
       <height>16</height>
      </size>
     </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
     <property name="alarmSensitiveBorder" stdset="0">
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay1</string>
+     <string>ca://${IOC}:BBB:Relay1</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PyDMCheckbox_2">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>255</y>
+      <y>340</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -169,14 +175,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay2</string>
+     <string>ca://${IOC}:BBB:Relay2</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PyDMCheckbox_3">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>285</y>
+      <y>370</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -207,14 +213,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay3</string>
+     <string>ca://${IOC}:BBB:Relay3</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PyDMCheckbox_4">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>315</y>
+      <y>400</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -245,14 +251,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay4</string>
+     <string>ca://${IOC}:BBB:Relay4</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PyDMCheckbox_5">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>415</y>
+      <y>480</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -283,14 +289,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff</string>
+     <string>ca://${IOC}:ACP:OnOff</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_2">
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>255</y>
+      <y>340</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -311,14 +317,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay2.DESC</string>
+     <string>ca://${IOC}:BBB:Relay2.DESC</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_3">
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>285</y>
+      <y>370</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -339,14 +345,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay3.DESC</string>
+     <string>ca://${IOC}:BBB:Relay3.DESC</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_4">
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>315</y>
+      <y>400</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -367,14 +373,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay4.DESC</string>
+     <string>ca://${IOC}:BBB:Relay4.DESC</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_5">
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>415</y>
+      <y>480</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -395,14 +401,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff.DESC</string>
+     <string>ca://${IOC}:ACP:OnOff.DESC</string>
     </property>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>260</y>
+      <y>345</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -424,7 +430,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay2</string>
+     <string>ca://${IOC}:BBB:Relay2</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -444,7 +450,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>290</y>
+      <y>375</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -466,7 +472,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay3</string>
+     <string>ca://${IOC}:BBB:Relay3</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -486,7 +492,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>320</y>
+      <y>405</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -508,7 +514,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay4</string>
+     <string>ca://${IOC}:BBB:Relay4</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -528,7 +534,7 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>420</y>
+      <y>485</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -550,7 +556,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff</string>
+     <string>ca://${IOC}:ACP:OnOff</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -570,7 +576,7 @@
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>465</y>
+      <y>525</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -588,14 +594,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:SpeedRPM</string>
+     <string>ca://${IOC}:ACP:SpeedRPM</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>465</y>
+      <y>525</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -611,7 +617,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>465</y>
+      <y>525</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -629,14 +635,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:SpeedRPM.EGU</string>
+     <string>ca://${IOC}:ACP:SpeedRPM.EGU</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_8">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>260</y>
+      <y>340</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -657,14 +663,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay2</string>
+     <string>ca://${IOC}:BBB:Relay2</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_9">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>320</y>
+      <y>400</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -685,14 +691,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay4</string>
+     <string>ca://${IOC}:BBB:Relay4</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_10">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>230</y>
+      <y>310</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -713,14 +719,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay1</string>
+     <string>ca://${IOC}:BBB:Relay1</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_11">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>290</y>
+      <y>370</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -741,7 +747,7 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay3</string>
+     <string>ca://${IOC}:BBB:Relay3</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame">
@@ -751,9 +757,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>215</y>
+      <y>305</y>
       <width>211</width>
-      <height>141</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -767,10 +773,77 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>165</y>
+      <y>255</y>
       <width>321</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -804,7 +877,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>195</y>
+      <y>285</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -831,31 +904,82 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_120">
-     <property name="geometry">
-      <rect>
-       <x>205</x>
-       <y>135</y>
-       <width>181</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Status</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>375</y>
+      <y>445</y>
       <width>321</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -889,9 +1013,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>405</y>
+      <y>475</y>
       <width>321</width>
-      <height>161</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -904,7 +1028,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>40</y>
+       <y>30</y>
        <width>321</width>
        <height>21</height>
       </rect>
@@ -918,7 +1042,7 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>420</y>
+      <y>485</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -939,16 +1063,16 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff</string>
+     <string>ca://${IOC}:ACP:OnOff</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_7">
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>45</y>
+      <y>50</y>
       <width>536</width>
-      <height>751</height>
+      <height>766</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -961,7 +1085,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>330</y>
+       <y>350</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -977,7 +1101,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>345</y>
+       <y>365</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -993,7 +1117,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>360</y>
+       <y>380</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1009,7 +1133,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>375</y>
+       <y>395</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1025,7 +1149,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>405</y>
+       <y>425</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1041,7 +1165,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>420</y>
+       <y>440</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1057,7 +1181,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>390</y>
+       <y>410</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1073,7 +1197,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>435</y>
+       <y>455</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1089,7 +1213,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>515</y>
+       <y>535</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1105,7 +1229,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>530</y>
+       <y>550</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1121,7 +1245,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>500</y>
+       <y>520</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1137,7 +1261,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>545</y>
+       <y>565</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1153,7 +1277,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>605</y>
+       <y>625</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1169,7 +1293,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>575</y>
+       <y>595</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1185,7 +1309,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>590</y>
+       <y>610</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1201,7 +1325,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>560</y>
+       <y>580</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1217,7 +1341,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>300</y>
+       <y>320</y>
        <width>221</width>
        <height>20</height>
       </rect>
@@ -1238,7 +1362,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>470</y>
+       <y>490</y>
        <width>221</width>
        <height>20</height>
       </rect>
@@ -1259,7 +1383,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>670</y>
+       <y>685</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -1275,7 +1399,7 @@
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>645</y>
+       <y>660</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -1291,7 +1415,7 @@
      <property name="geometry">
       <rect>
        <x>485</x>
-       <y>695</y>
+       <y>710</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1309,14 +1433,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD4-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD4-RB.EGU</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_34">
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>695</y>
+       <y>710</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -1332,7 +1456,7 @@
      <property name="geometry">
       <rect>
        <x>485</x>
-       <y>645</y>
+       <y>660</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1350,14 +1474,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD2-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD2-RB.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_21">
      <property name="geometry">
       <rect>
        <x>485</x>
-       <y>720</y>
+       <y>735</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1375,14 +1499,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD6-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD6-RB.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_52">
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>695</y>
+       <y>710</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1403,14 +1527,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD4-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD4-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_51">
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>670</y>
+       <y>685</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1431,14 +1555,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD3-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD3-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_34">
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>645</y>
+       <y>660</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1459,14 +1583,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD2-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD2-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_19">
      <property name="geometry">
       <rect>
        <x>485</x>
-       <y>670</y>
+       <y>685</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1484,14 +1608,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD3-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD3-RB.EGU</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_36">
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>720</y>
+       <y>735</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -1507,7 +1631,7 @@
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>670</y>
+       <y>685</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -1523,7 +1647,7 @@
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>695</y>
+       <y>710</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -1539,7 +1663,7 @@
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>720</y>
+       <y>735</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1560,14 +1684,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD6-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD6-RB</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_33">
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>645</y>
+       <y>660</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -1583,7 +1707,7 @@
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>720</y>
+       <y>735</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -1599,7 +1723,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>455</y>
+       <y>470</y>
        <width>536</width>
        <height>21</height>
       </rect>
@@ -1612,7 +1736,7 @@
      <property name="geometry">
       <rect>
        <x>-385</x>
-       <y>390</y>
+       <y>460</y>
        <width>301</width>
        <height>21</height>
       </rect>
@@ -1625,7 +1749,7 @@
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>295</y>
+       <y>310</y>
        <width>20</width>
        <height>456</height>
       </rect>
@@ -1684,7 +1808,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>330</y>
+       <y>350</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1700,7 +1824,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>515</y>
+       <y>535</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1716,7 +1840,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>575</y>
+       <y>595</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1732,7 +1856,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>605</y>
+       <y>625</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1748,7 +1872,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>345</y>
+       <y>365</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1764,7 +1888,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>560</y>
+       <y>580</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1780,7 +1904,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>405</y>
+       <y>425</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1796,7 +1920,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>500</y>
+       <y>520</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1812,7 +1936,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>590</y>
+       <y>610</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1828,7 +1952,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>375</y>
+       <y>395</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1844,7 +1968,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>420</y>
+       <y>440</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1860,7 +1984,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>360</y>
+       <y>380</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1876,7 +2000,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>435</y>
+       <y>455</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1892,7 +2016,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>530</y>
+       <y>550</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1908,7 +2032,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>545</y>
+       <y>565</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1924,7 +2048,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>390</y>
+       <y>410</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -1940,7 +2064,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>435</y>
+       <y>455</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -1968,14 +2092,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.SVVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.SVVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_10">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>390</y>
+       <y>410</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2003,14 +2127,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.FRVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.FRVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_8">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>345</y>
+       <y>365</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2038,14 +2162,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.ONVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.ONVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_12">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>375</y>
+       <y>395</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2073,14 +2197,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.THVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.THVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_13">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>420</y>
+       <y>440</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2108,14 +2232,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.SXVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.SXVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_11">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>405</y>
+       <y>425</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2143,14 +2267,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.FVVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.FVVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_9">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>360</y>
+       <y>380</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2178,14 +2302,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.TWVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.TWVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_7">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>330</y>
+       <y>350</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2213,14 +2337,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.ZRVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.ZRVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_18">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>605</y>
+       <y>625</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2248,14 +2372,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.FFVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.FFVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_16">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>515</y>
+       <y>535</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2283,14 +2407,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.NIVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.NIVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_21">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>530</y>
+       <y>550</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2318,14 +2442,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.TEVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.TEVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_15">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>560</y>
+       <y>580</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2353,14 +2477,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.TVVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.TVVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_17">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>545</y>
+       <y>565</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2388,14 +2512,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.ELVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.ELVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_22">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>500</y>
+       <y>520</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2423,14 +2547,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.EIVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.EIVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_20">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>575</y>
+       <y>595</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2458,14 +2582,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.TTVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.TTVL</string>
      </property>
     </widget>
     <widget class="PyDMCheckbox" name="PyDMCheckbox_19">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>590</y>
+       <y>610</y>
        <width>14</width>
        <height>15</height>
       </rect>
@@ -2493,14 +2617,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.FTVL</string>
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.FTVL</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_96">
      <property name="geometry">
       <rect>
        <x>95</x>
-       <y>375</y>
+       <y>400</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2516,39 +2640,7 @@
      <property name="geometry">
       <rect>
        <x>95</x>
-       <y>390</y>
-       <width>211</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_100">
-     <property name="geometry">
-      <rect>
-       <x>95</x>
-       <y>345</y>
-       <width>211</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_101">
-     <property name="geometry">
-      <rect>
-       <x>95</x>
-       <y>360</y>
+       <y>415</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2564,7 +2656,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>330</y>
+       <y>350</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2580,7 +2672,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>345</y>
+       <y>365</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2596,7 +2688,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>375</y>
+       <y>395</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2612,7 +2704,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>360</y>
+       <y>380</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2628,7 +2720,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>405</y>
+       <y>425</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2644,7 +2736,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>390</y>
+       <y>410</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2660,7 +2752,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>435</y>
+       <y>455</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2676,7 +2768,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>420</y>
+       <y>440</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2692,7 +2784,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>515</y>
+       <y>535</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2708,7 +2800,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>500</y>
+       <y>520</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2724,7 +2816,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>590</y>
+       <y>610</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2740,7 +2832,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>605</y>
+       <y>625</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2756,7 +2848,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>545</y>
+       <y>565</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2772,7 +2864,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>530</y>
+       <y>550</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2788,7 +2880,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>575</y>
+       <y>595</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2804,7 +2896,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>560</y>
+       <y>580</y>
        <width>211</width>
        <height>16</height>
       </rect>
@@ -2820,7 +2912,7 @@
      <property name="geometry">
       <rect>
        <x>215</x>
-       <y>170</y>
+       <y>180</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -2838,14 +2930,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PNU-SP</string>
+      <string>ca://${IOC}:TURBOVAC:PNU-SP</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_114">
      <property name="geometry">
       <rect>
        <x>45</x>
-       <y>170</y>
+       <y>180</y>
        <width>121</width>
        <height>20</height>
       </rect>
@@ -2861,7 +2953,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>170</y>
+       <y>180</y>
        <width>36</width>
        <height>20</height>
       </rect>
@@ -2880,7 +2972,7 @@
      <property name="geometry">
       <rect>
        <x>45</x>
-       <y>195</y>
+       <y>205</y>
        <width>171</width>
        <height>20</height>
       </rect>
@@ -2896,7 +2988,7 @@
      <property name="geometry">
       <rect>
        <x>215</x>
-       <y>195</y>
+       <y>205</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -2914,14 +3006,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:AK-SP</string>
+      <string>ca://${IOC}:TURBOVAC:AK-SP</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_117">
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>195</y>
+       <y>205</y>
        <width>36</width>
        <height>20</height>
       </rect>
@@ -2940,7 +3032,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>220</y>
+       <y>230</y>
        <width>36</width>
        <height>20</height>
       </rect>
@@ -2959,7 +3051,7 @@
      <property name="geometry">
       <rect>
        <x>45</x>
-       <y>220</y>
+       <y>230</y>
        <width>171</width>
        <height>20</height>
       </rect>
@@ -2975,7 +3067,7 @@
      <property name="geometry">
       <rect>
        <x>215</x>
-       <y>220</y>
+       <y>230</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -2993,16 +3085,16 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:IND-SP</string>
+      <string>ca://${IOC}:TURBOVAC:IND-SP</string>
      </property>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
        <x>3</x>
-       <y>140</y>
+       <y>145</y>
        <width>531</width>
-       <height>21</height>
+       <height>26</height>
       </rect>
      </property>
      <property name="font">
@@ -3022,7 +3114,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>245</y>
+       <y>255</y>
        <width>36</width>
        <height>20</height>
       </rect>
@@ -3038,7 +3130,7 @@
      <property name="geometry">
       <rect>
        <x>45</x>
-       <y>245</y>
+       <y>255</y>
        <width>171</width>
        <height>20</height>
       </rect>
@@ -3054,7 +3146,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>110</y>
+       <y>115</y>
        <width>41</width>
        <height>20</height>
       </rect>
@@ -3070,7 +3162,7 @@
      <property name="geometry">
       <rect>
        <x>55</x>
-       <y>85</y>
+       <y>90</y>
        <width>151</width>
        <height>20</height>
       </rect>
@@ -3086,7 +3178,7 @@
      <property name="geometry">
       <rect>
        <x>55</x>
-       <y>60</y>
+       <y>65</y>
        <width>151</width>
        <height>20</height>
       </rect>
@@ -3102,7 +3194,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>60</y>
+       <y>65</y>
        <width>41</width>
        <height>20</height>
       </rect>
@@ -3118,7 +3210,7 @@
      <property name="geometry">
       <rect>
        <x>55</x>
-       <y>110</y>
+       <y>115</y>
        <width>151</width>
        <height>20</height>
       </rect>
@@ -3134,7 +3226,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>85</y>
+       <y>90</y>
        <width>41</width>
        <height>20</height>
       </rect>
@@ -3150,7 +3242,7 @@
      <property name="geometry">
       <rect>
        <x>215</x>
-       <y>110</y>
+       <y>115</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3171,7 +3263,7 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:ADR-SP</string>
+      <string>ca://${IOC}:TURBOVAC:ADR-SP</string>
      </property>
     </widget>
     <widget class="PyDMLineEdit" name="PyDMLineEdit_8">
@@ -3181,7 +3273,7 @@
      <property name="geometry">
       <rect>
        <x>215</x>
-       <y>60</y>
+       <y>65</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3205,7 +3297,7 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:STX-SP</string>
+      <string>ca://${IOC}:TURBOVAC:STX-SP</string>
      </property>
     </widget>
     <widget class="PyDMLineEdit" name="PyDMLineEdit_9">
@@ -3215,7 +3307,7 @@
      <property name="geometry">
       <rect>
        <x>215</x>
-       <y>85</y>
+       <y>90</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3236,14 +3328,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:LGE-SP</string>
+      <string>ca://${IOC}:TURBOVAC:LGE-SP</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_47">
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>85</y>
+       <y>90</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -3259,7 +3351,7 @@
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>60</y>
+       <y>65</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -3275,7 +3367,7 @@
      <property name="geometry">
       <rect>
        <x>485</x>
-       <y>85</y>
+       <y>90</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -3296,14 +3388,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:LGE-RB</string>
+      <string>ca://${IOC}:TURBOVAC:LGE-RB</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_49">
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>110</y>
+       <y>115</y>
        <width>141</width>
        <height>20</height>
       </rect>
@@ -3319,7 +3411,7 @@
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>110</y>
+       <y>115</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -3335,7 +3427,7 @@
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>60</y>
+       <y>65</y>
        <width>141</width>
        <height>20</height>
       </rect>
@@ -3351,7 +3443,7 @@
      <property name="geometry">
       <rect>
        <x>485</x>
-       <y>110</y>
+       <y>115</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -3372,14 +3464,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:ADR-RB</string>
+      <string>ca://${IOC}:TURBOVAC:ADR-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_35">
      <property name="geometry">
       <rect>
        <x>485</x>
-       <y>60</y>
+       <y>65</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -3400,14 +3492,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:STX-RB</string>
+      <string>ca://${IOC}:TURBOVAC:STX-RB</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_52">
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>85</y>
+       <y>90</y>
        <width>141</width>
        <height>20</height>
       </rect>
@@ -3423,15 +3515,82 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>140</y>
+       <y>145</y>
        <width>536</width>
-       <height>21</height>
+       <height>26</height>
       </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>211</red>
+           <green>211</green>
+           <blue>211</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>211</red>
+           <green>211</green>
+           <blue>211</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>211</red>
+           <green>211</green>
+           <blue>211</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>211</red>
+           <green>211</green>
+           <blue>211</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
      </property>
      <property name="font">
       <font>
        <pointsize>9</pointsize>
       </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -3440,33 +3599,11 @@
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_53">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>30</y>
-       <width>531</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Header</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="Line" name="line_13">
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>50</y>
+       <y>55</y>
        <width>20</width>
        <height>91</height>
       </rect>
@@ -3479,7 +3616,7 @@
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>160</y>
+       <y>170</y>
        <width>20</width>
        <height>116</height>
       </rect>
@@ -3492,7 +3629,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>220</y>
+       <y>230</y>
        <width>36</width>
        <height>20</height>
       </rect>
@@ -3511,7 +3648,7 @@
      <property name="geometry">
       <rect>
        <x>320</x>
-       <y>245</y>
+       <y>255</y>
        <width>171</width>
        <height>20</height>
       </rect>
@@ -3527,7 +3664,7 @@
      <property name="geometry">
       <rect>
        <x>320</x>
-       <y>195</y>
+       <y>205</y>
        <width>171</width>
        <height>20</height>
       </rect>
@@ -3543,7 +3680,7 @@
      <property name="geometry">
       <rect>
        <x>320</x>
-       <y>170</y>
+       <y>180</y>
        <width>121</width>
        <height>20</height>
       </rect>
@@ -3559,7 +3696,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>170</y>
+       <y>180</y>
        <width>36</width>
        <height>20</height>
       </rect>
@@ -3578,7 +3715,7 @@
      <property name="geometry">
       <rect>
        <x>320</x>
-       <y>220</y>
+       <y>230</y>
        <width>171</width>
        <height>20</height>
       </rect>
@@ -3594,7 +3731,7 @@
      <property name="geometry">
       <rect>
        <x>490</x>
-       <y>245</y>
+       <y>255</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3615,14 +3752,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PWE-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PWE-RB</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_136">
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>195</y>
+       <y>205</y>
        <width>36</width>
        <height>20</height>
       </rect>
@@ -3641,7 +3778,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>245</y>
+       <y>255</y>
        <width>41</width>
        <height>20</height>
       </rect>
@@ -3657,7 +3794,7 @@
      <property name="geometry">
       <rect>
        <x>165</x>
-       <y>645</y>
+       <y>660</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3675,14 +3812,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD2-SP</string>
+      <string>ca://${IOC}:TURBOVAC:PZD2-SP</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_25">
      <property name="geometry">
       <rect>
        <x>220</x>
-       <y>695</y>
+       <y>710</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -3700,14 +3837,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD4-SP.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD4-SP.EGU</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_54">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>670</y>
+       <y>685</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -3723,7 +3860,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>645</y>
+       <y>660</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -3739,7 +3876,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>720</y>
+       <y>735</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -3755,7 +3892,7 @@
      <property name="geometry">
       <rect>
        <x>65</x>
-       <y>695</y>
+       <y>710</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -3771,7 +3908,7 @@
      <property name="geometry">
       <rect>
        <x>65</x>
-       <y>645</y>
+       <y>660</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -3787,7 +3924,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>695</y>
+       <y>710</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -3803,7 +3940,7 @@
      <property name="geometry">
       <rect>
        <x>220</x>
-       <y>720</y>
+       <y>735</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -3821,14 +3958,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD6-SP.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD6-SP.EGU</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_60">
      <property name="geometry">
       <rect>
        <x>65</x>
-       <y>720</y>
+       <y>735</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -3844,7 +3981,7 @@
      <property name="geometry">
       <rect>
        <x>220</x>
-       <y>645</y>
+       <y>660</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -3862,14 +3999,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD2-SP.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD2-SP.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_28">
      <property name="geometry">
       <rect>
        <x>220</x>
-       <y>670</y>
+       <y>685</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -3887,14 +4024,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD3-SP.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD3-SP.EGU</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_61">
      <property name="geometry">
       <rect>
        <x>65</x>
-       <y>670</y>
+       <y>685</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -3910,7 +4047,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>625</y>
+       <y>640</y>
        <width>536</width>
        <height>21</height>
       </rect>
@@ -3923,7 +4060,7 @@
      <property name="geometry">
       <rect>
        <x>165</x>
-       <y>670</y>
+       <y>685</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3941,14 +4078,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD3-SP</string>
+      <string>ca://${IOC}:TURBOVAC:PZD3-SP</string>
      </property>
     </widget>
     <widget class="PyDMLineEdit" name="PyDMLineEdit_14">
      <property name="geometry">
       <rect>
        <x>165</x>
-       <y>695</y>
+       <y>710</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3966,14 +4103,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD4-SP</string>
+      <string>ca://${IOC}:TURBOVAC:PZD4-SP</string>
      </property>
     </widget>
     <widget class="PyDMLineEdit" name="PyDMLineEdit_15">
      <property name="geometry">
       <rect>
        <x>165</x>
-       <y>720</y>
+       <y>735</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -3991,14 +4128,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD6-SP</string>
+      <string>ca://${IOC}:TURBOVAC:PZD6-SP</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_36">
      <property name="geometry">
       <rect>
        <x>490</x>
-       <y>170</y>
+       <y>180</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -4019,14 +4156,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PNU-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PNU-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_56">
      <property name="geometry">
       <rect>
        <x>490</x>
-       <y>220</y>
+       <y>230</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -4047,14 +4184,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:IND-RB</string>
+      <string>ca://${IOC}:TURBOVAC:IND-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_59">
      <property name="geometry">
       <rect>
        <x>490</x>
-       <y>195</y>
+       <y>205</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -4075,14 +4212,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:AK-RB</string>
+      <string>ca://${IOC}:TURBOVAC:AK-RB</string>
      </property>
     </widget>
     <widget class="PyDMLineEdit" name="PyDMLineEdit_10">
      <property name="geometry">
       <rect>
        <x>215</x>
-       <y>245</y>
+       <y>255</y>
        <width>46</width>
        <height>21</height>
       </rect>
@@ -4100,7 +4237,7 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PWE-SP</string>
+      <string>ca://${IOC}:TURBOVAC:PWE-SP</string>
      </property>
     </widget>
     <widget class="Line" name="line_15">
@@ -4116,20 +4253,240 @@
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
+    <zorder>frame_13</zorder>
+    <zorder>label_13</zorder>
+    <zorder>label_14</zorder>
+    <zorder>label_15</zorder>
+    <zorder>label_16</zorder>
+    <zorder>label_17</zorder>
+    <zorder>label_18</zorder>
+    <zorder>label_19</zorder>
+    <zorder>label_20</zorder>
+    <zorder>label_21</zorder>
+    <zorder>label_22</zorder>
+    <zorder>label_23</zorder>
+    <zorder>label_24</zorder>
+    <zorder>label_28</zorder>
+    <zorder>label_25</zorder>
+    <zorder>label_26</zorder>
+    <zorder>label_27</zorder>
+    <zorder>label_37</zorder>
+    <zorder>label_38</zorder>
+    <zorder>label_35</zorder>
+    <zorder>label_30</zorder>
+    <zorder>PyDMLabel_20</zorder>
+    <zorder>label_34</zorder>
+    <zorder>PyDMLabel_18</zorder>
+    <zorder>PyDMLabel_21</zorder>
+    <zorder>PyDMLabel_52</zorder>
+    <zorder>PyDMLabel_51</zorder>
+    <zorder>PyDMLabel_34</zorder>
+    <zorder>PyDMLabel_19</zorder>
+    <zorder>label_36</zorder>
+    <zorder>label_29</zorder>
+    <zorder>label_31</zorder>
+    <zorder>PyDMLabel_53</zorder>
+    <zorder>label_33</zorder>
+    <zorder>label_32</zorder>
+    <zorder>line_4</zorder>
+    <zorder>line_5</zorder>
+    <zorder>line_11</zorder>
+    <zorder>label_72</zorder>
+    <zorder>label_73</zorder>
+    <zorder>label_74</zorder>
+    <zorder>label_75</zorder>
+    <zorder>label_76</zorder>
+    <zorder>label_77</zorder>
+    <zorder>label_78</zorder>
+    <zorder>label_79</zorder>
+    <zorder>label_80</zorder>
+    <zorder>label_81</zorder>
+    <zorder>label_82</zorder>
+    <zorder>label_84</zorder>
+    <zorder>label_85</zorder>
+    <zorder>label_86</zorder>
+    <zorder>label_87</zorder>
+    <zorder>label_91</zorder>
+    <zorder>label_92</zorder>
+    <zorder>label_93</zorder>
+    <zorder>PyDMCheckbox_14</zorder>
+    <zorder>PyDMCheckbox_10</zorder>
+    <zorder>PyDMCheckbox_8</zorder>
+    <zorder>PyDMCheckbox_12</zorder>
+    <zorder>PyDMCheckbox_13</zorder>
+    <zorder>PyDMCheckbox_11</zorder>
+    <zorder>PyDMCheckbox_9</zorder>
+    <zorder>PyDMCheckbox_7</zorder>
+    <zorder>PyDMCheckbox_18</zorder>
+    <zorder>PyDMCheckbox_16</zorder>
+    <zorder>PyDMCheckbox_21</zorder>
+    <zorder>PyDMCheckbox_15</zorder>
+    <zorder>PyDMCheckbox_17</zorder>
+    <zorder>PyDMCheckbox_22</zorder>
+    <zorder>PyDMCheckbox_20</zorder>
+    <zorder>PyDMCheckbox_19</zorder>
+    <zorder>label_96</zorder>
+    <zorder>label_97</zorder>
+    <zorder>label_83</zorder>
+    <zorder>label_90</zorder>
+    <zorder>label_94</zorder>
+    <zorder>label_95</zorder>
+    <zorder>label_102</zorder>
+    <zorder>label_103</zorder>
+    <zorder>label_104</zorder>
+    <zorder>label_105</zorder>
+    <zorder>label_106</zorder>
+    <zorder>label_107</zorder>
+    <zorder>label_108</zorder>
+    <zorder>label_109</zorder>
+    <zorder>label_110</zorder>
+    <zorder>label_111</zorder>
+    <zorder>label_112</zorder>
+    <zorder>label_113</zorder>
+    <zorder>PyDMLineEdit_3</zorder>
+    <zorder>label_114</zorder>
+    <zorder>label_115</zorder>
+    <zorder>label_116</zorder>
+    <zorder>PyDMLineEdit_5</zorder>
+    <zorder>label_117</zorder>
+    <zorder>label_118</zorder>
+    <zorder>label_119</zorder>
+    <zorder>PyDMLineEdit_6</zorder>
+    <zorder>label</zorder>
+    <zorder>label_122</zorder>
+    <zorder>label_123</zorder>
+    <zorder>label_124</zorder>
+    <zorder>label_125</zorder>
+    <zorder>label_126</zorder>
+    <zorder>label_127</zorder>
+    <zorder>label_128</zorder>
+    <zorder>label_129</zorder>
+    <zorder>PyDMLineEdit_7</zorder>
+    <zorder>PyDMLineEdit_8</zorder>
+    <zorder>PyDMLineEdit_9</zorder>
+    <zorder>label_47</zorder>
+    <zorder>label_48</zorder>
+    <zorder>PyDMLabel_54</zorder>
+    <zorder>label_49</zorder>
+    <zorder>label_50</zorder>
+    <zorder>label_51</zorder>
+    <zorder>PyDMLabel_55</zorder>
+    <zorder>PyDMLabel_35</zorder>
+    <zorder>label_52</zorder>
+    <zorder>line_13</zorder>
+    <zorder>line_14</zorder>
+    <zorder>label_130</zorder>
+    <zorder>label_131</zorder>
+    <zorder>label_132</zorder>
+    <zorder>label_133</zorder>
+    <zorder>label_134</zorder>
+    <zorder>label_135</zorder>
+    <zorder>PyDMLabel_58</zorder>
+    <zorder>label_136</zorder>
+    <zorder>label_137</zorder>
+    <zorder>PyDMLineEdit_4</zorder>
+    <zorder>PyDMLabel_25</zorder>
+    <zorder>label_54</zorder>
+    <zorder>label_55</zorder>
+    <zorder>label_56</zorder>
+    <zorder>label_57</zorder>
+    <zorder>label_58</zorder>
+    <zorder>label_59</zorder>
+    <zorder>PyDMLabel_26</zorder>
+    <zorder>label_60</zorder>
+    <zorder>PyDMLabel_27</zorder>
+    <zorder>PyDMLabel_28</zorder>
+    <zorder>label_61</zorder>
+    <zorder>line_7</zorder>
+    <zorder>PyDMLineEdit_13</zorder>
+    <zorder>PyDMLineEdit_14</zorder>
+    <zorder>PyDMLineEdit_15</zorder>
+    <zorder>PyDMLabel_36</zorder>
+    <zorder>PyDMLabel_56</zorder>
+    <zorder>PyDMLabel_59</zorder>
+    <zorder>PyDMLineEdit_10</zorder>
+    <zorder>line_15</zorder>
    </widget>
    <widget class="QFrame" name="frame_8">
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>15</y>
+      <y>20</y>
       <width>536</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -4163,7 +4520,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>195</y>
+      <y>285</y>
       <width>211</width>
       <height>21</height>
      </rect>
@@ -4195,7 +4552,7 @@
     <property name="geometry">
      <rect>
       <x>265</x>
-      <y>325</y>
+      <y>405</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -4216,14 +4573,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:ValveClosed</string>
+     <string>ca://${IOC}:BBB:ValveClosed</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_14">
     <property name="geometry">
      <rect>
       <x>265</x>
-      <y>255</y>
+      <y>340</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -4244,16 +4601,16 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:ValveOpen</string>
+     <string>ca://${IOC}:BBB:ValveOpen</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_10">
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>215</y>
+      <y>305</y>
       <width>111</width>
-      <height>141</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -4287,7 +4644,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>75</y>
+       <y>70</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -4308,7 +4665,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>60</y>
+       <y>55</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -4322,7 +4679,7 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>325</y>
+      <y>405</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -4344,7 +4701,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:ValveClosed</string>
+     <string>ca://${IOC}:BBB:ValveClosed</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -4367,7 +4724,7 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>255</y>
+      <y>340</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -4389,7 +4746,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:ValveOpen</string>
+     <string>ca://${IOC}:BBB:ValveOpen</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -4409,9 +4766,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>615</y>
+      <y>655</y>
       <width>321</width>
-      <height>181</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -4424,7 +4781,7 @@
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>100</y>
+       <y>85</y>
        <width>31</width>
        <height>21</height>
       </rect>
@@ -4442,42 +4799,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:Torr.EGU</string>
-     </property>
-    </widget>
-    <widget class="PyDMLabel" name="PyDMLabel_22">
-     <property name="geometry">
-      <rect>
-       <x>125</x>
-       <y>100</y>
-       <width>131</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Analog IN</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="alarmSensitiveBorder" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:Torr</string>
+      <string>ca://${IOC}:BBB:Torr.EGU</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>100</y>
+       <x>25</x>
+       <y>85</y>
        <width>101</width>
        <height>20</height>
       </rect>
@@ -4489,39 +4818,11 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="PyDMLabel" name="PyDMLabel_29">
-     <property name="geometry">
-      <rect>
-       <x>125</x>
-       <y>125</y>
-       <width>131</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Analog IN</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="alarmSensitiveBorder" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:mbar</string>
-     </property>
-    </widget>
     <widget class="PyDMLabel" name="PyDMLabel_30">
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>125</y>
+       <y>110</y>
        <width>31</width>
        <height>21</height>
       </rect>
@@ -4539,42 +4840,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:mbar.EGU</string>
-     </property>
-    </widget>
-    <widget class="PyDMLabel" name="PyDMLabel_31">
-     <property name="geometry">
-      <rect>
-       <x>125</x>
-       <y>150</y>
-       <width>131</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Analog IN</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="alarmSensitiveBorder" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:Pascal</string>
+      <string>ca://${IOC}:BBB:mbar.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_32">
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>150</y>
+       <y>135</y>
        <width>31</width>
        <height>21</height>
       </rect>
@@ -4592,14 +4865,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:Pascal.EGU</string>
+      <string>ca://${IOC}:BBB:Pascal.EGU</string>
      </property>
     </widget>
     <widget class="Line" name="line_8">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>80</y>
+       <y>70</y>
        <width>321</width>
        <height>21</height>
       </rect>
@@ -4608,20 +4881,198 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
+    <widget class="QLabel" name="label_69">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>110</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pressure:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_70">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>135</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pressure:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_48">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>125</y>
+       <width>36</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>exp</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="alarmSensitiveBorder" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:BBB:PascalExp</string>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_47">
+     <property name="geometry">
+      <rect>
+       <x>145</x>
+       <y>135</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>base</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="alarmSensitiveBorder" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:BBB:mbarBase</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_138">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>135</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>.10</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_12">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>585</y>
+      <y>625</y>
       <width>321</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -4644,7 +5095,7 @@
       </font>
      </property>
      <property name="text">
-      <string>835 VQM</string>
+      <string>390 Micro-Ion Gauge</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -4655,7 +5106,7 @@
     <property name="geometry">
      <rect>
       <x>165</x>
-      <y>650</y>
+      <y>685</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -4676,14 +5127,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Voltage</string>
+     <string>ca://${IOC}:BBB:Voltage</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_16">
     <property name="geometry">
      <rect>
       <x>295</x>
-      <y>650</y>
+      <y>685</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -4701,14 +5152,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Voltage.EGU</string>
+     <string>ca://${IOC}:BBB:Voltage.EGU</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>650</y>
+      <y>685</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -4724,7 +5175,7 @@
     <property name="geometry">
      <rect>
       <x>355</x>
-      <y>350</y>
+      <y>375</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -4745,7 +5196,7 @@
     <property name="geometry">
      <rect>
       <x>355</x>
-      <y>520</y>
+      <y>545</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -4766,7 +5217,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>465</y>
+      <y>525</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -4782,7 +5233,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>485</y>
+      <y>545</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -4798,7 +5249,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>515</y>
+      <y>570</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -4814,7 +5265,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>535</y>
+      <y>590</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -4830,7 +5281,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>525</y>
+      <y>575</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -4848,14 +5299,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:SpeedHz.EGU</string>
+     <string>ca://${IOC}:ACP:SpeedHz.EGU</string>
     </property>
    </widget>
    <widget class="PyDMLineEdit" name="PyDMLineEdit_2">
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>525</y>
+      <y>575</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -4873,14 +5324,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:SpeedHz</string>
+     <string>ca://${IOC}:ACP:SpeedHz</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_44">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>525</y>
+      <y>575</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -4896,7 +5347,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>365</y>
+      <y>390</y>
       <width>241</width>
       <height>141</height>
      </rect>
@@ -4918,7 +5369,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-RB0</string>
+     <string>ca://${IOC}:TURBOVAC:PZD1-RB0</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -4947,7 +5398,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>535</y>
+      <y>560</y>
       <width>211</width>
       <height>141</height>
      </rect>
@@ -4969,7 +5420,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-RB1</string>
+     <string>ca://${IOC}:TURBOVAC:PZD1-RB1</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -4998,7 +5449,7 @@
     <property name="geometry">
      <rect>
       <x>625</x>
-      <y>520</y>
+      <y>545</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -5019,7 +5470,7 @@
     <property name="geometry">
      <rect>
       <x>625</x>
-      <y>350</y>
+      <y>375</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -5040,7 +5491,7 @@
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>345</y>
+      <y>370</y>
       <width>221</width>
       <height>20</height>
      </rect>
@@ -5061,7 +5512,7 @@
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>515</y>
+      <y>540</y>
       <width>221</width>
       <height>20</height>
      </rect>
@@ -5082,15 +5533,82 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>75</y>
+      <y>80</y>
       <width>536</width>
-      <height>21</height>
+      <height>26</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -5098,20 +5616,109 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QLabel" name="label_53">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>536</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Header</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_15">
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>320</y>
+      <y>335</y>
       <width>536</width>
-      <height>21</height>
+      <height>26</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -5125,7 +5732,7 @@
        <x>0</x>
        <y>0</y>
        <width>536</width>
-       <height>21</height>
+       <height>26</height>
       </rect>
      </property>
      <property name="font">
@@ -5146,7 +5753,7 @@
     <property name="geometry">
      <rect>
       <x>165</x>
-      <y>675</y>
+      <y>710</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -5167,14 +5774,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:EquipmentVoltage</string>
+     <string>ca://${IOC}:BBB:EquipmentVoltage</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_33">
     <property name="geometry">
      <rect>
       <x>295</x>
-      <y>675</y>
+      <y>710</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -5192,14 +5799,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:EquipmentVoltage.EGU</string>
+     <string>ca://${IOC}:BBB:EquipmentVoltage.EGU</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_46">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>675</y>
+      <y>710</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -5215,7 +5822,7 @@
     <property name="geometry">
      <rect>
       <x>295</x>
-      <y>625</y>
+      <y>660</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -5233,14 +5840,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:ADC.EGU</string>
+     <string>ca://${IOC}:BBB:ADC.EGU</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_38">
     <property name="geometry">
      <rect>
       <x>165</x>
-      <y>625</y>
+      <y>660</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -5261,14 +5868,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:ADC</string>
+     <string>ca://${IOC}:BBB:ADC</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_62">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>625</y>
+      <y>660</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -5283,8 +5890,8 @@
    <widget class="QLabel" name="label_63">
     <property name="geometry">
      <rect>
-      <x>25</x>
-      <y>20</y>
+      <x>20</x>
+      <y>10</y>
       <width>111</width>
       <height>126</height>
      </rect>
@@ -5299,8 +5906,8 @@
    <widget class="QLabel" name="label_64">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>30</y>
+      <x>155</x>
+      <y>20</y>
       <width>180</width>
       <height>75</height>
      </rect>
@@ -5312,8 +5919,8 @@
    <widget class="QLabel" name="label_65">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>110</y>
+      <x>155</x>
+      <y>95</y>
       <width>181</width>
       <height>21</height>
      </rect>
@@ -5326,7 +5933,7 @@
     <property name="geometry">
      <rect>
       <x>145</x>
-      <y>130</y>
+      <y>115</y>
       <width>196</width>
       <height>16</height>
      </rect>
@@ -5728,12 +6335,524 @@
      <string>controle@cnpemcamp.onmicrosoft.com</string>
     </property>
    </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_40">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>730</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>exp</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:BBB:TorrExp</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_66">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>740</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>.10</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_41">
+    <property name="geometry">
+     <rect>
+      <x>165</x>
+      <y>740</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>base</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:BBB:TorrBase</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_45">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>755</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>exp</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:BBB:mbarExp</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_71">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>765</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>.10</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_46">
+    <property name="geometry">
+     <rect>
+      <x>165</x>
+      <y>765</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>base</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:BBB:mbarBase</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_140">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>150</y>
+      <width>155</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string> [ON] Stage 4 Pressure</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_142">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>215</y>
+      <width>155</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>[OFF] Stage 5 Pressure</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_143">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>185</y>
+      <width>155</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>[OFF] Stage 3 Frequency</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_31">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>215</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Torr</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:BBB:Torr.EGU</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_39">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>185</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Hz</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OffFrequency.EGU</string>
+    </property>
+   </widget>
+   <widget class="PyDMLineEdit" name="PyDMLineEdit_16">
+    <property name="geometry">
+     <rect>
+      <x>265</x>
+      <y>210</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OffPressureExp</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_29">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>150</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Torr</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:BBB:Torr.EGU</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_68">
+    <property name="geometry">
+     <rect>
+      <x>238</x>
+      <y>215</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>* 10</string>
+    </property>
+   </widget>
+   <widget class="PyDMLineEdit" name="PyDMLineEdit_12">
+    <property name="geometry">
+     <rect>
+      <x>198</x>
+      <y>150</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OnPressureBase</string>
+    </property>
+   </widget>
+   <widget class="PyDMLineEdit" name="PyDMLineEdit_17">
+    <property name="geometry">
+     <rect>
+      <x>265</x>
+      <y>145</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OnPressureExp</string>
+    </property>
+   </widget>
+   <widget class="PyDMLineEdit" name="PyDMLineEdit_18">
+    <property name="geometry">
+     <rect>
+      <x>198</x>
+      <y>185</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OffFrequency</string>
+    </property>
+   </widget>
+   <widget class="PyDMLineEdit" name="PyDMLineEdit_11">
+    <property name="geometry">
+     <rect>
+      <x>198</x>
+      <y>215</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OffPressureBase</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_141">
+    <property name="geometry">
+     <rect>
+      <x>238</x>
+      <y>150</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>* 10</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>321</width>
+      <height>103</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>321</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </widget>
    <zorder>frame_7</zorder>
+   <zorder>frame_5</zorder>
+   <zorder>frame_15</zorder>
    <zorder>frame_6</zorder>
    <zorder>frame_10</zorder>
    <zorder>frame</zorder>
    <zorder>frame_11</zorder>
-   <zorder>frame_2</zorder>
    <zorder>PyDMLabel</zorder>
    <zorder>PyDMByteIndicator</zorder>
    <zorder>PyDMCheckbox</zorder>
@@ -5784,8 +6903,6 @@
    <zorder>label_99</zorder>
    <zorder>label_88</zorder>
    <zorder>label_89</zorder>
-   <zorder>frame_14</zorder>
-   <zorder>frame_15</zorder>
    <zorder>PyDMLabel_17</zorder>
    <zorder>PyDMLabel_33</zorder>
    <zorder>label_46</zorder>
@@ -5796,13 +6913,34 @@
    <zorder>label_64</zorder>
    <zorder>label_65</zorder>
    <zorder>label_67</zorder>
+   <zorder>PyDMLabel_40</zorder>
+   <zorder>label_66</zorder>
+   <zorder>PyDMLabel_41</zorder>
+   <zorder>PyDMLabel_45</zorder>
+   <zorder>label_71</zorder>
+   <zorder>PyDMLabel_46</zorder>
+   <zorder>label_140</zorder>
+   <zorder>frame_2</zorder>
+   <zorder>label_142</zorder>
+   <zorder>label_143</zorder>
+   <zorder>PyDMLabel_31</zorder>
+   <zorder>PyDMLabel_39</zorder>
+   <zorder>PyDMLineEdit_16</zorder>
+   <zorder>PyDMLabel_29</zorder>
+   <zorder>label_68</zorder>
+   <zorder>PyDMLineEdit_12</zorder>
+   <zorder>PyDMLineEdit_17</zorder>
+   <zorder>PyDMLineEdit_18</zorder>
+   <zorder>PyDMLineEdit_11</zorder>
+   <zorder>label_141</zorder>
+   <zorder>frame_14</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>914</width>
+     <width>913</width>
      <height>19</height>
     </rect>
    </property>
@@ -5811,14 +6949,14 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMLabel</class>
@@ -5826,9 +6964,9 @@
    <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
   </customwidget>
  </customwidgets>
  <resources>

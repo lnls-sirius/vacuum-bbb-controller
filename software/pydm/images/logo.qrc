@@ -5,4 +5,10 @@
   <qresource>
     <file>CNPEM.jpg</file>
   </qresource>
+  <qresource>
+    <file>play_button.jpg</file>
+  </qresource>
+  <qresource>
+    <file>stop_button.png</file>
+  </qresource>
 </RCC>
