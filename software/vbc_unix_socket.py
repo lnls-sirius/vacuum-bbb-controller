@@ -18,25 +18,41 @@ from pcaspy import Driver, SimpleServer
 #-----------------------------------------------
 PVs = {}
 VBC = sys.argv[1]
-PVs["VBC" + sys.argv[1] + ":ProcessOn:Status1"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOn:Status2"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOn:Status3"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOn:Status4"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOn:Status5"] = {"type" : "int"}
 #-----------------------------------------------
-PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status1"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status2"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status3"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status4"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status5"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffFV:Status6"] = {"type" : "int"}
+# status PVs for "turning the system ON" process
+PVs["VBC" + VBC + ":ProcessOn:Status1"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOn:Status2"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOn:Status3"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOn:Status4"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOn:Status5"] = {"type" : "int"}
 #-----------------------------------------------
-PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status1"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status2"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status3"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status4"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status5"] = {"type" : "int"}
-PVs["VBC" + sys.argv[1] + ":ProcessOffNV:Status6"] = {"type" : "int"}
+# status PVs for "turning the system OFF" process (FV = full ventilation)
+PVs["VBC" + VBC + ":ProcessOffFV:Status1"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOffFV:Status2"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOffFV:Status3"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOffFV:Status4"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOffFV:Status5"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOffFV:Status6"] = {"type" : "int"}
+#-----------------------------------------------
+# status PVs for "turning the system OFF" process (NV = no ventilation)
+#PVs["VBC" + VBC + ":ProcessOffNV:Status1"] = {"type" : "int"}
+#PVs["VBC" + VBC + ":ProcessOffNV:Status2"] = {"type" : "int"}
+#PVs["VBC" + VBC + ":ProcessOffNV:Status3"] = {"type" : "int"}
+#PVs["VBC" + VBC + ":ProcessOffNV:Status4"] = {"type" : "int"}
+#PVs["VBC" + VBC + ":ProcessOffNV:Status5"] = {"type" : "int"}
+#PVs["VBC" + VBC + ":ProcessOffNV:Status6"] = {"type" : "int"}
+#-----------------------------------------------
+# status PVs for "recovering from pressurized system" process (5*10^-2 ~ 1*10^-8)
+PVs["VBC" + VBC + ":ProcessRecovery:Status1"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessRecovery:Status2"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessRecovery:Status3"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessRecovery:Status4"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessRecovery:Status5"] = {"type" : "int"}
+#-----------------------------------------------
+PVs["VBC" + VBC + ":Process:Bool"] = {"type" : "int"}
+PVs["VBC" + VBC + ":Process:RecBool"] = {"type" : "int"}
+PVs["VBC" + VBC + ":Process:TriggerOn"] = {"type" : "int"}
+PVs["VBC" + VBC + ":Process:TriggerPressurized"] = {"type" : "int"}
 #-----------------------------------------------
 # EPICS driver
 class PSDriver(Driver):
@@ -125,6 +141,11 @@ def acp_recv_msg(command):
 #==============================================================================
 # TURBOVAC functions support
 #==============================================================================
+PNU = 134
+IND = 2
+PWE = 36
+AK = 7
+#-------------------
 STX = "\x02"
 ADR = "\x00"
 # mirror telegram
@@ -333,6 +354,21 @@ except OSError:
 sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 sock.bind(server_address)
 sock.listen(1)
+#==============================================================================
+# Initial configuration
+#==============================================================================
+# write value 600 in parameter 247 ==> set frequency at which the venting valve
+# will open after a power failure
+STX = 0x02
+LGE = 0x16
+ADR = 0x00
+PNU = 247
+AK = 0b0010
+IND = 0
+PWE = 600
+PZD1_1 = PZD1_2 = PZD2 = 0
+response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+# unix socket is ready and the IOC can be started now
 print "unix socket running!"
 #==============================================================================
 # Main loop that pools the entries from .proto EPICS files
@@ -352,39 +388,87 @@ def thread_2():
                     #---------------------------------------
                     # switch relay 1 (P9_23)
                     elif (data[0] == "\x01"):
+                        # approach used with PyDMCheckbox GUI button
+                        #'''
                         if (int(data[1]) == 0):
                             #print "Switching Relay 1 OFF"
                             GPIO.output(relay1, GPIO.LOW)
                         if (int(data[1]) == 1):
                             #print "Switching Relay 1 ON"
                             GPIO.output(relay1, GPIO.HIGH)
+                        #'''
+                        # approach used with PyDMPushButton GUI button
+                        '''
+                        if (GPIO.input(relay1)):
+                            GPIO.output(relay1, GPIO.LOW)
+                            connection.sendall("0")
+                        else:
+                            GPIO.output(relay1, GPIO.HIGH)
+                            connection.sendall("1")
+                        '''
                     #---------------------------------------
                     # switch relay 2 (P9_21)
                     elif (data[0] == "\x02"):
+                        # approach used with PyDMCheckbox GUI button
+                        #'''
                         if (int(data[1]) == 0):
                             #print "Switching Relay 2 OFF"
                             GPIO.output(relay2, GPIO.LOW)
                         if (int(data[1]) == 1):
                             #print "Switching Relay 2 ON"
                             GPIO.output(relay2, GPIO.HIGH)
+                        #'''
+                        # approach used with PyDMPushButton GUI button
+                        '''
+                        if (GPIO.input(relay2)):
+                            GPIO.output(relay2, GPIO.LOW)
+                            connection.sendall("0")
+                        else:
+                            GPIO.output(relay2, GPIO.HIGH)
+                            connection.sendall("1")
+                        '''
                     #---------------------------------------
                     # switch relay 3 (P9_24)
                     elif (data[0] == "\x03"):
+                        # approach used with PyDMCheckbox GUI button
+                        #'''
                         if (int(data[1]) == 0):
                             #print "Switching Relay 3 OFF"
                             GPIO.output(relay3, GPIO.LOW)
                         if (int(data[1]) == 1):
                             #print "Switching Relay 3 ON"
                             GPIO.output(relay3, GPIO.HIGH)
+                        #'''
+                        # approach used with PyDMPushButton GUI button
+                        '''
+                        if (GPIO.input(relay3)):
+                            GPIO.output(relay3, GPIO.LOW)
+                            connection.sendall("0")
+                        else:
+                            GPIO.output(relay3, GPIO.HIGH)
+                            connection.sendall("1")
+                        '''
                     #---------------------------------------
                     # switch relay 4 (P9_12)
                     elif (data[0] == "\x04"):
+                        # approach used with PyDMCheckbox GUI button
+                        #'''
                         if (int(data[1]) == 0):
                             #print "Switching Relay 4 OFF"
                             GPIO.output(relay4, GPIO.LOW)
                         if (int(data[1]) == 1):
                             #print "Switching Relay 4 ON"
                             GPIO.output(relay4, GPIO.HIGH)
+                        #'''
+                        # approach used with PyDMPushButton GUI button
+                        '''
+                        if (GPIO.input(relay4)):
+                            GPIO.output(relay4, GPIO.LOW)
+                            connection.sendall("0")
+                        else:
+                            GPIO.output(relay4, GPIO.HIGH)
+                            connection.sendall("1")
+                        '''
                     #---------------------------------------
                     # read open VAT valve status (P8_7)
                     elif (data[0] == "\x05"):
@@ -548,20 +632,12 @@ def thread_2():
                         for j in range(digits):
                             ADR += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
                         #---------------------------------------
-                        # decoding and calculating the two bytes of PZD1
-                        #---------------------------------------
-                        OFFSET += digits + 1
-                        for i in range(8):
-                            PZD1_1 += (int(data[OFFSET + i]) << (7-i))
-                            PZD1_2 += (int(data[OFFSET + 8 + i]) << (7-i))
-                        #---------------------------------------
                         # decoding PNU field
                         #---------------------------------------
                         # the OFFSET represents the number of characters sent before
                         # the PKW data:
-                        #    1 character for the protocol: 0x10
-                        #   16 characters for status bits
-                        OFFSET += 16
+                        # the "+1" refers to the comma separator character
+                        OFFSET += digits + 1
                         i = OFFSET
                         digits = 0
                         # count number of digits of the field
@@ -609,11 +685,19 @@ def thread_2():
                         for j in range(digits):
                             PWE += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
                         #---------------------------------------
+                        # decoding and calculating the two bytes of PZD1
+                        #---------------------------------------
+                        OFFSET += digits + 1
+                        for i in range(8):
+                            PZD1_1 += (int(data[OFFSET + i]) << (7-i))
+                            PZD1_2 += (int(data[OFFSET + 8 + i]) << (7-i))
+                        #---------------------------------------
                         # Decoding PZD2 field
                         #---------------------------------------
                         # set the new OFFSET value for the PZD2 field
                         # the "+1" refers to the comma separator character
-                        OFFSET += digits + 1
+                        #   16 characters for status bits
+                        OFFSET += 16
                         digits = (len(data) - OFFSET)
                         for j in range(digits):
                             PZD2 += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
@@ -645,11 +729,61 @@ def thread_2():
                         else:
                             pass
                     #---------------------------------------
-                    # commands from 0x11 to 0x14 reserved
+                    # open/close TURBOVAC venting valve (X1)
+                    #---------------------------------------
+                    elif ((data[0] == "\x11")):
+                        # open X203 valve (TURBOVAC venting valve)
+                        if (data[1] == "1"):
+                            '''
+                            this must be done because we need to change the value of parameter 134
+                            from "36" to "18" in order to control the venting valve independently.
+                            from the manual:
+                                18: Fieldbus controlled (enabled via 24 V in X1 input)
+                                36: Venting valves ("frequent dependent")
+                            '''
+                            STX = 0x02
+                            LGE = 0x16
+                            ADR = 0x00
+                            PNU = 134
+                            AK = 7
+                            IND = 2
+                            PWE = 18
+                            PZD1_1 = 0x84
+                            PZD1_2 = 0x00
+                            PZD2 = 0
+                            response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+                        #---------------------------------------
+                        # close X203 valve (TURBOVAC venting valve)
+                        elif (data[1] == "0"):
+                            '''
+                            this must be done because we need to change the value of parameter 134
+                            from "36" to "18" in order to control the venting valve independently.
+                            from the manual:
+                                18: Fieldbus controlled (enabled via 24 V in X1 input)
+                                36: Venting valves ("frequent dependent")
+                            '''
+                            STX = 0x02
+                            LGE = 0x16
+                            ADR = 0x00
+                            PNU = 134
+                            AK = 7
+                            IND = 2
+                            PWE = 36
+                            PZD1_1 = 0x04
+                            PZD1_2 = 0x00
+                            PZD2 = 0
+                            response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+                    #---------------------------------------
+                    # commands from 0x12 to 0x14 reserved
                     # for future TURBOVAC implementations
                     #---------------------------------------
+                    elif (data[0] == "\xde"):
+                        pass
+                    #---------------------------------------
+
                     else:
                         break
+
         finally:
             connection.close()
 #==============================================================================
