@@ -6,9 +6,9 @@
 # SCAN_RATE: Record scan rate (time interval between two consecutive valve status readings).
 
 #==============================================================================
-# Binary Output records: they are responsible for switching the relays
+# Binary "Output" records: they are responsible for switching the relays
 #==============================================================================
-record(bo, "$(PREFIX):Relay1") {
+record(bo, "$(PREFIX):Relay1-SW") {
     field(DESC, "Switch Relay 1")
     field(OUT, "@VBC-BBB.proto relay_1 $(PORT)")
     field(DTYP, "stream")
@@ -16,17 +16,29 @@ record(bo, "$(PREFIX):Relay1") {
     field(ZNAM, "Off")                          # Zero Name
     field(ONAM, "On")                           # One Name
 }
+record(bo, "$(PREFIX):Relay1-UI") {
+    field(DESC, "Displays Relay 1 status in UI")
+    field(OUT, "@VBC-BBB.proto relay_1 $(PORT)")
+    field(DTYP, "stream")
+    field(SCAN, "Passive")
+}
 #------------------------------------------------------------------------------
-record(bo, "$(PREFIX):Relay2") {
+record(bo, "$(PREFIX):Relay2-SW") {
     field(DESC, "Switch Relay 2")
     field(OUT, "@VBC-BBB.proto relay_2 $(PORT)")
     field(DTYP, "stream")
     field(SCAN, "Passive")
-    field(ZNAM, "Off")                          # Zero Name
-    field(ONAM, "On")                           # One Name
+    field(ZNAM, "Closed")                          # Zero Name
+    field(ONAM, "Open")                           # One Name
+}
+record(bo, "$(PREFIX):Relay2-UI") {
+    field(DESC, "Displays Relay 2 status in UI")
+    field(OUT, "@VBC-BBB.proto dummy $(PORT)")
+    field(DTYP, "stream")
+    field(SCAN, "Passive")
 }
 #------------------------------------------------------------------------------
-record(bo, "$(PREFIX):Relay3") {
+record(bo, "$(PREFIX):Relay3-SW") {
     field(DESC, "Switch Relay 3")
     field(OUT, "@VBC-BBB.proto relay_3 $(PORT)")
     field(DTYP, "stream")
@@ -34,15 +46,35 @@ record(bo, "$(PREFIX):Relay3") {
     field(ZNAM, "Off")                          # Zero Name
     field(ONAM, "On")                           # One Name
 }
+record(bo, "$(PREFIX):Relay3-UI") {
+    field(DESC, "Displays Relay 3 status in UI")
+    field(OUT, "@VBC-BBB.proto dummy $(PORT)")
+    field(DTYP, "stream")
+    field(SCAN, "Passive")
+}
 #------------------------------------------------------------------------------
-record(bo, "$(PREFIX):Relay4") {
+record(bo, "$(PREFIX):Relay4-SW") {
     field(DESC, "Switch Relay 4")
     field(OUT, "@VBC-BBB.proto relay_4 $(PORT)")
     field(DTYP, "stream")
     field(SCAN, "Passive")
-    field(ZNAM, "Off")                          # Zero Name
-    field(ONAM, "On")                           # One Name
+    field(ZNAM, "Closed")                          # Zero Name
+    field(ONAM, "Open")                           # One Name
 }
+record(bo, "$(PREFIX):Relay4-UI") {
+    field(DESC, "Displays Relay 4 status in UI")
+    field(OUT, "@VBC-BBB.proto dummy $(PORT)")
+    field(DTYP, "stream")
+    field(SCAN, "Passive")
+}
+#------------------------------------------------------------------------------
+#record(bo, "$(PREFIX):RelayAux") {
+#    field(DESC, "Auxiliary variable for relays commuting")
+#    field(OUT, "@VBC-BBB.proto relay_aux $(PORT)")
+#    field(VAL, "0")
+#    field(DTYP, "stream")
+#    field(SCAN, "Passive")
+#}
 #==============================================================================
 # Binary Input records: they are responsible for reading the VAT valve status
 #==============================================================================
@@ -51,8 +83,8 @@ record(bi, "$(PREFIX):ValveOpen") {
     field(INP, "@VBC-BBB.proto valve_open $(PORT)")
     field(DTYP, "stream")
     field(SCAN, "$(SCAN_RATE)")
-    field(ZNAM, "SW Open")                         # Zero Name
-    field(ONAM, "SW Closed")                       # One Name
+    field(ZNAM, "SW con.")                     # Zero Name
+    field(ONAM, "SW discon.")                  # One Name
 }
 #------------------------------------------------------------------------------
 record(bi, "$(PREFIX):ValveClosed") {
@@ -60,15 +92,15 @@ record(bi, "$(PREFIX):ValveClosed") {
     field(INP, "@VBC-BBB.proto valve_closed $(PORT)")
     field(DTYP, "stream")
     field(SCAN, "$(SCAN_RATE)")
-    field(ZNAM, "SW Open")                         # Zero Name
-    field(ONAM, "SW Closed")                       # One Name
+    field(ZNAM, "SW con.")                     # Zero Name
+    field(ONAM, "SW discon.")                  # One Name
 }
 #==============================================================================
 # Analog Input record: it is responsible for reading the pressure (and voltage)
 #==============================================================================
 record(ai, "$(PREFIX):ADC") {
     field(DESC, "Read the ADC code")
-    field(INP, "@VBC-BBB.proto adc $(PORT)")
+    field(INP, "@VBC-BBB.proto adc($(PREFIX)) $(PORT)")
     field(EGU, "LSB")
     field(DTYP, "stream")
     field(SCAN, "$(SCAN_RATE)")
@@ -93,8 +125,10 @@ record(ai, "$(PREFIX):EquipmentVoltage") {
     field(PREC, "5")                            # Display Precision
 }
 #==============================================================================
+# Pressure value measured in Torr (raw value and power of 10 representation)
+#==============================================================================
 record(ai, "$(PREFIX):Torr") {
-    field(DESC, "Read the pressure in Torr")
+    field(DESC, "Pressure value in Torr")
     field(INP, "@VBC-BBB.proto torr $(PORT)")
     field(EGU, "Torr")
     field(DTYP, "stream")
@@ -102,8 +136,26 @@ record(ai, "$(PREFIX):Torr") {
     field(PREC, "11")                            # Display Precision
 }
 #------------------------------------------------------------------------------
+record(ai, "$(PREFIX):TorrBase") {
+    field(DESC, "Torr power of ten base value")
+    field(INP, "@VBC-BBB.proto torr_base $(PORT)")
+    field(EGU, "Torr")
+    field(DTYP, "stream")
+    field(SCAN, "I/O Intr")
+    field(PREC, "2")                            # Display Precision
+}
+record(ai, "$(PREFIX):TorrExp") {
+    field(DESC, "Torr power of ten exponent value")
+    field(INP, "@VBC-BBB.proto torr_exp $(PORT)")
+    field(DTYP, "stream")
+    field(SCAN, "I/O Intr")
+    field(PREC, "0")                            # Display Precision
+}
+#==============================================================================
+# Pressure value measured in mbar (raw value and power of 10 representation)
+#==============================================================================
 record(ai, "$(PREFIX):mbar") {
-    field(DESC, "Read the pressure in mbar")
+    field(DESC, "Pressure value in mbar")
     field(INP, "@VBC-BBB.proto mbar $(PORT)")
     field(EGU, "mbar")
     field(DTYP, "stream")
@@ -111,11 +163,54 @@ record(ai, "$(PREFIX):mbar") {
     field(PREC, "11")                            # Display Precision
 }
 #------------------------------------------------------------------------------
+record(ai, "$(PREFIX):mbarBase") {
+    field(DESC, "mbar power of ten base value")
+    field(INP, "@VBC-BBB.proto mbar_base $(PORT)")
+    field(EGU, "mbar")
+    field(DTYP, "stream")
+    field(SCAN, "I/O Intr")
+    field(PREC, "2")                            # Display Precision
+}
+record(ai, "$(PREFIX):mbarExp") {
+    field(DESC, "mbar power of ten exponent value")
+    field(INP, "@VBC-BBB.proto mbar_exp $(PORT)")
+    field(FLNK, "$(PREFIX):PascalExp")
+    field(DTYP, "stream")
+    field(SCAN, "I/O Intr")
+    field(PREC, "0")                            # Display Precision
+}
+#==============================================================================
+# Pressure value measured in Pascal (raw value and power of 10 representation)
+#==============================================================================
 record(ai, "$(PREFIX):Pascal") {
-    field(DESC, "Read the pressure in Pa")
+    field(DESC, "Pressure value in Pascal")
     field(INP, "@VBC-BBB.proto pascal $(PORT)")
     field(EGU, "Pa")
     field(DTYP, "stream")
     field(SCAN, "I/O Intr")
     field(PREC, "11")                            # Display Precision
 }
+#------------------------------------------------------------------------------
+record(calc, "$(PREFIX):PascalExp") {
+    field(DESC, "Pascal power of ten exponent value")
+    field(INPA, "$(PREFIX):BBB:mbarExp.VAL")
+    field(INPB, "2")
+    field(CALC, "A + B")
+    field(PREC, "0")                            # Display Precision
+    field(MDEL, "-1")
+}
+#==============================================================================
+# Pressure value measured in Pascal (raw value and power of 10 representation)
+#==============================================================================
+record(ai, "$(PREFIX):TorrBaseMsg") {
+    field(DESC, "Pressure showed in message (base)")
+    field(EGU, "Torr")
+    field(SCAN, "Passive")
+    field(PREC, "2")                            # Display Precision
+}
+record(ai, "$(PREFIX):TorrExpMsg") {
+    field(DESC, "Pressure showed in message (exponent)")
+    field(SCAN, "Passive")
+    field(PREC, "0")                            # Display Precision
+}
+#==============================================================================
