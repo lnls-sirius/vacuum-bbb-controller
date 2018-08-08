@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>964</width>
-    <height>984</height>
+    <width>762</width>
+    <height>666</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -138,17 +138,13 @@
     </string>
     </property>
     <property name="text">
-     <string>  ON</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../../../../../../../../root/.designer/backup/images/play_button.jpg</normaloff>../../../../../../../../root/.designer/backup/images/play_button.jpg</iconset>
+     <string> ON</string>
     </property>
     <property name="allowMultipleExecutions" stdset="0">
      <bool>false</bool>
     </property>
     <property name="command" stdset="0">
-     <string>python process_on.py ${IOC}</string>
+     <string>python check_pressure.py ${IOC} 0</string>
     </property>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
@@ -399,7 +395,7 @@
     <property name="geometry">
      <rect>
       <x>25</x>
-      <y>555</y>
+      <y>560</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -415,7 +411,7 @@
     <property name="geometry">
      <rect>
       <x>25</x>
-      <y>505</y>
+      <y>510</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -434,7 +430,7 @@
     <property name="geometry">
      <rect>
       <x>95</x>
-      <y>480</y>
+      <y>485</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -479,7 +475,7 @@
     <property name="geometry">
      <rect>
       <x>95</x>
-      <y>530</y>
+      <y>535</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -524,7 +520,7 @@
     <property name="geometry">
      <rect>
       <x>95</x>
-      <y>430</y>
+      <y>435</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -566,7 +562,7 @@
     <property name="geometry">
      <rect>
       <x>25</x>
-      <y>430</y>
+      <y>435</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -582,7 +578,7 @@
     <property name="geometry">
      <rect>
       <x>25</x>
-      <y>530</y>
+      <y>535</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -598,8 +594,8 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>480</y>
-      <width>276</width>
+      <y>485</y>
+      <width>281</width>
       <height>21</height>
      </rect>
     </property>
@@ -617,7 +613,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>505</y>
+      <y>510</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -639,7 +635,7 @@
     <property name="geometry">
      <rect>
       <x>95</x>
-      <y>505</y>
+      <y>510</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -681,7 +677,7 @@
     <property name="geometry">
      <rect>
       <x>25</x>
-      <y>480</y>
+      <y>485</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -697,7 +693,7 @@
     <property name="geometry">
      <rect>
       <x>25</x>
-      <y>455</y>
+      <y>460</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -713,7 +709,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>455</y>
+      <y>460</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -732,7 +728,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>530</y>
+      <y>535</y>
       <width>191</width>
       <height>21</height>
      </rect>
@@ -751,7 +747,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>430</y>
+      <y>435</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -773,7 +769,7 @@
     <property name="geometry">
      <rect>
       <x>95</x>
-      <y>455</y>
+      <y>460</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -818,7 +814,7 @@
     <property name="geometry">
      <rect>
       <x>95</x>
-      <y>555</y>
+      <y>560</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -860,7 +856,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>555</y>
+      <y>560</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -891,7 +887,7 @@
      <string/>
     </property>
     <property name="text">
-     <string>Wait gate valve to close</string>
+     <string>Open gate valve and pre-vacuum valve</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_32">
@@ -929,7 +925,7 @@
      <string/>
     </property>
     <property name="text">
-     <string>Open gate valve and pre-vacuum valve</string>
+     <string>Wait TURBOVAC pump stops completely</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_15">
@@ -956,7 +952,7 @@
      <rect>
       <x>120</x>
       <y>325</y>
-      <width>196</width>
+      <width>201</width>
       <height>21</height>
      </rect>
     </property>
@@ -975,7 +971,7 @@
      <rect>
       <x>90</x>
       <y>215</y>
-      <width>361</width>
+      <width>371</width>
       <height>31</height>
      </rect>
     </property>
@@ -1081,7 +1077,7 @@
      <rect>
       <x>85</x>
       <y>215</y>
-      <width>366</width>
+      <width>378</width>
       <height>31</height>
      </rect>
     </property>
@@ -1514,7 +1510,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>425</y>
+      <y>430</y>
       <width>68</width>
       <height>156</height>
      </rect>
@@ -1597,8 +1593,8 @@
     <property name="geometry">
      <rect>
       <x>85</x>
-      <y>395</y>
-      <width>366</width>
+      <y>400</y>
+      <width>378</width>
       <height>31</height>
      </rect>
     </property>
@@ -1675,34 +1671,34 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_33">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>395</y>
-      <width>361</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Turning the system OFF (full ventilation)</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
+    <widget class="QLabel" name="label_33">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>0</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Turning the system OFF</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>155</y>
       <width>241</width>
       <height>31</height>
@@ -1806,7 +1802,7 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_5">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>495</x>
       <y>610</y>
       <width>21</width>
       <height>21</height>
@@ -1851,7 +1847,7 @@
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>605</y>
       <width>241</width>
       <height>31</height>
@@ -1955,9 +1951,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_11">
     <property name="geometry">
      <rect>
-      <x>655</x>
+      <x>670</x>
       <y>220</y>
-      <width>31</width>
+      <width>45</width>
       <height>21</height>
      </rect>
     </property>
@@ -1977,13 +1973,13 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Relay3</string>
+     <string>ca://${IOC}:TURBOVAC:VentingValve-SW</string>
     </property>
    </widget>
    <widget class="Line" name="line_3">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>490</y>
       <width>241</width>
       <height>16</height>
@@ -1993,50 +1989,10 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="PyDMScaleIndicator" name="PyDMScaleIndicator">
-    <property name="geometry">
-     <rect>
-      <x>205</x>
-      <y>685</y>
-      <width>181</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A bar-shaped indicator for scalar value with support for Channels and
-    more from PyDM.
-    Configurable features include indicator type (bar/pointer), scale tick 
-    marks and orientation (horizontal/vertical).
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Scale
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Torr</string>
-    </property>
-    <property name="numDivisions" stdset="0">
-     <number>10</number>
-    </property>
-    <property name="scaleHeight" stdset="0">
-     <number>25</number>
-    </property>
-    <property name="originAtZero" stdset="0">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>525</x>
       <y>400</y>
       <width>12</width>
       <height>12</height>
@@ -2081,9 +2037,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_9">
     <property name="geometry">
      <rect>
-      <x>655</x>
+      <x>670</x>
       <y>245</y>
-      <width>31</width>
+      <width>45</width>
       <height>21</height>
      </rect>
     </property>
@@ -2103,13 +2059,13 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Relay4</string>
+     <string>ca://${IOC}:BBB:Relay4-SW</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_7">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>385</y>
       <width>241</width>
       <height>201</height>
@@ -2469,7 +2425,7 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>525</x>
       <y>450</y>
       <width>12</width>
       <height>12</height>
@@ -2514,7 +2470,7 @@
    <widget class="QFrame" name="frame_12">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>15</y>
       <width>241</width>
       <height>31</height>
@@ -2624,8 +2580,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>600</y>
-      <width>431</width>
+      <y>605</y>
+      <width>443</width>
       <height>36</height>
      </rect>
     </property>
@@ -2755,45 +2711,11 @@
     <property name="displayFilename" stdset="0">
      <string>advanced_tab.ui</string>
     </property>
+    <property name="macros" stdset="0">
+     <string>{&quot;IOC&quot;: &quot;${IOC}&quot;}</string>
+    </property>
     <property name="openInNewWindow" stdset="0">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>705</y>
-      <width>72</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A QComboBox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    Signals
-    -------
-    send_value_signal : int, float, str, bool or np.ndarray
-        Emitted when the user changes the value.
-    activated : int, str
-        Emitted when the user chooses an item in the combobox.
-    currentIndexChanged : int, str
-        Emitted when the index is changed in the combobox.
-    highlighted : int, str
-        Emitted when an item in the combobox popup list is highlighted
-        by the user.
-    </string>
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QFrame" name="frame">
@@ -2802,7 +2724,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>185</y>
       <width>241</width>
       <height>151</height>
@@ -5064,7 +4986,7 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
     <property name="geometry">
      <rect>
-      <x>625</x>
+      <x>640</x>
       <y>195</y>
       <width>21</width>
       <height>21</height>
@@ -5087,7 +5009,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Relay2</string>
+     <string>ca://${IOC}:BBB:Relay2-SW</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -5106,7 +5028,7 @@
    <widget class="QFrame" name="frame_11">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>45</y>
       <width>241</width>
       <height>91</height>
@@ -5121,7 +5043,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>88</x>
        <y>10</y>
        <width>61</width>
        <height>41</height>
@@ -5130,6 +5052,8 @@
      <property name="font">
       <font>
        <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -5139,7 +5063,7 @@
     <widget class="PyDMLabel" name="PyDMLabel_24">
      <property name="geometry">
       <rect>
-       <x>5</x>
+       <x>3</x>
        <y>10</y>
        <width>86</width>
        <height>41</height>
@@ -5204,9 +5128,9 @@
     <widget class="PyDMLabel" name="PyDMLabel_36">
      <property name="geometry">
       <rect>
-       <x>145</x>
+       <x>146</x>
        <y>5</y>
-       <width>21</width>
+       <width>26</width>
        <height>21</height>
       </rect>
      </property>
@@ -5357,7 +5281,7 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_3">
     <property name="geometry">
      <rect>
-      <x>625</x>
+      <x>640</x>
       <y>220</y>
       <width>21</width>
       <height>21</height>
@@ -5380,7 +5304,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:TURBOVAC:PZD1-SP.FFVL</string>
+     <string>ca://${IOC}:TURBOVAC:VentingValve-SW</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -5399,7 +5323,7 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_9">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>525</x>
       <y>425</y>
       <width>12</width>
       <height>12</height>
@@ -5444,7 +5368,7 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>525</x>
       <y>475</y>
       <width>12</width>
       <height>12</height>
@@ -5489,7 +5413,7 @@
    <widget class="QFrame" name="frame_8">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>485</x>
       <y>355</y>
       <width>241</width>
       <height>31</height>
@@ -5642,7 +5566,7 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_4">
     <property name="geometry">
      <rect>
-      <x>625</x>
+      <x>640</x>
       <y>245</y>
       <width>21</width>
       <height>21</height>
@@ -5665,7 +5589,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Relay4</string>
+     <string>ca://${IOC}:BBB:Relay4-SW</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -5684,9 +5608,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_8">
     <property name="geometry">
      <rect>
-      <x>655</x>
+      <x>670</x>
       <y>195</y>
-      <width>31</width>
+      <width>45</width>
       <height>21</height>
      </rect>
     </property>
@@ -5706,13 +5630,13 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Relay2</string>
+     <string>ca://${IOC}:BBB:Relay2-SW</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>150</x>
       <y>20</y>
       <width>201</width>
       <height>75</height>
@@ -5744,7 +5668,7 @@
    <widget class="QLabel" name="label_65">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>150</x>
       <y>100</y>
       <width>201</width>
       <height>21</height>
@@ -5760,7 +5684,7 @@
    <widget class="QLabel" name="label_67">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>150</x>
       <y>120</y>
       <width>201</width>
       <height>16</height>
@@ -6170,7 +6094,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>395</y>
+      <y>400</y>
       <width>68</width>
       <height>31</height>
      </rect>
@@ -6230,10 +6154,6 @@
     <property name="text">
      <string> OFF</string>
     </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../../../../../../../../root/.designer/backup/images/stop_button.png</normaloff>../../../../../../../../root/.designer/backup/images/stop_button.png</iconset>
-    </property>
     <property name="allowMultipleExecutions" stdset="0">
      <bool>false</bool>
     </property>
@@ -6246,7 +6166,7 @@
      <rect>
       <x>87</x>
       <y>245</y>
-      <width>364</width>
+      <width>376</width>
       <height>131</height>
      </rect>
     </property>
@@ -6259,7 +6179,7 @@
     <widget class="PyDMLabel" name="PyDMLabel_2">
      <property name="geometry">
       <rect>
-       <x>295</x>
+       <x>300</x>
        <y>75</y>
        <width>21</width>
        <height>16</height>
@@ -6288,8 +6208,8 @@
     <property name="geometry">
      <rect>
       <x>87</x>
-      <y>425</y>
-      <width>364</width>
+      <y>430</y>
+      <width>376</width>
       <height>156</height>
      </rect>
     </property>
@@ -6344,7 +6264,7 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://${IOC}:BBB:Torr.EGU</string>
+      <string>ca://${IOC}:SYSTEM:OffPressureBase.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_3">
@@ -6400,7 +6320,7 @@
    <widget class="QLabel" name="label_35">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>380</x>
       <y>20</y>
       <width>81</width>
       <height>101</height>
@@ -6428,9 +6348,9 @@
    <widget class="QLabel" name="label_36">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>380</x>
       <y>120</y>
-      <width>101</width>
+      <width>81</width>
       <height>16</height>
      </rect>
     </property>
@@ -6455,13 +6375,15 @@
      <rect>
       <x>185</x>
       <y>160</y>
-      <width>266</width>
+      <width>278</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
       <stylestrategy>PreferDefault</stylestrategy>
      </font>
     </property>
@@ -6533,13 +6455,13 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Torr.EGU</string>
+     <string>ca://${IOC}:SYSTEM:OnPressureBase.EGU</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_141">
     <property name="geometry">
      <rect>
-      <x>355</x>
+      <x>360</x>
       <y>325</y>
       <width>31</width>
       <height>21</height>
@@ -6557,7 +6479,7 @@
    <widget class="PyDMLabel" name="PyDMLabel">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>325</x>
       <y>325</y>
       <width>36</width>
       <height>21</height>
@@ -6576,66 +6498,11 @@
      <string>ca://${IOC}:SYSTEM:OnPressureBase</string>
     </property>
    </widget>
-   <widget class="PyDMLabel" name="PyDMLabel_41">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>745</y>
-      <width>36</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="text">
-     <string>Hz</string>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Torr.EGU</string>
-    </property>
-   </widget>
-   <widget class="PyDMLineEdit" name="PyDMLineEdit_18">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>745</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://${IOC}:SYSTEM:OffFrequency</string>
-    </property>
-   </widget>
    <widget class="PyDMLabel" name="PyDMLabel_42">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>480</y>
+      <x>440</x>
+      <y>485</y>
       <width>16</width>
       <height>21</height>
      </rect>
@@ -6658,15 +6525,15 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Torr.EGU</string>
+     <string>ca://${IOC}:SYSTEM:OffFrequency.EGU</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_6">
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>480</y>
-      <width>26</width>
+      <y>485</y>
+      <width>36</width>
       <height>21</height>
      </rect>
     </property>
@@ -6686,13 +6553,13 @@
      <string>ca://${IOC}:SYSTEM:OffFrequency</string>
     </property>
    </widget>
-   <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_2">
+   <widget class="PyDMShellCommand" name="PyDMShellCommand_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>375</y>
-      <width>28</width>
-      <height>24</height>
+      <x>430</x>
+      <y>405</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -6700,22 +6567,213 @@
     </property>
     <property name="whatsThis">
      <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
+    A QPushButton capable of execute shell commands.
+    </string>
+    </property>
+    <property name="command" stdset="0">
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;}' OK_message.ui</string>
+    </property>
+   </widget>
+   <widget class="PyDMCheckbox" name="PV_Trigger_OK_MESSAGE">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>405</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QCheckbox with support for Channels and more from PyDM
 
     Parameters
     ----------
+    parent : QWidget
+        The parent widget for the Label
     init_channel : str, optional
         The channel to be used by the widget.
 
-    filename : str, optional
-        The file to be opened
     </string>
     </property>
-    <property name="displayFilename" stdset="0">
-     <string>Ok_message.ui</string>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:Process:Bool</string>
     </property>
    </widget>
+   <widget class="PyDMShellCommand" name="PV_trigger_ON_2">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_ON</string>
+    </property>
+    <property name="command" stdset="0">
+     <string>python process_on.py ${IOC}</string>
+    </property>
+   </widget>
+   <widget class="PyDMCheckbox" name="PV_trigger_ON">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>105</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_ON</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:Process:TriggerOn</string>
+    </property>
+   </widget>
+   <widget class="PyDMShellCommand" name="PV_trigger_PRESSURIZED_2">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_PRESSURIZED</string>
+    </property>
+    <property name="command" stdset="0">
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;}' system_pressurized.ui</string>
+    </property>
+   </widget>
+   <widget class="PyDMCheckbox" name="PV_trigger_PRESSURIZED">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_PRESSURIZED</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:Process:TriggerPressurized</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_38">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>220</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;./images/play_button.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_39">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>405</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;./images/stop_button.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <zorder>PV_trigger_ON_2</zorder>
+   <zorder>PV_trigger_PRESSURIZED_2</zorder>
+   <zorder>PV_trigger_PRESSURIZED</zorder>
+   <zorder>PV_trigger_ON</zorder>
+   <zorder>PV_Trigger_OK_MESSAGE</zorder>
+   <zorder>PyDMShellCommand_3</zorder>
    <zorder>frame_3</zorder>
    <zorder>frame_10</zorder>
    <zorder>frame_6</zorder>
@@ -6749,24 +6807,20 @@
    <zorder>PyDMLabel_33</zorder>
    <zorder>PyDMLabel_15</zorder>
    <zorder>PyDMLabel_16</zorder>
-   <zorder>label_33</zorder>
    <zorder>frame_2</zorder>
    <zorder>PyDMLabel_11</zorder>
    <zorder>line_3</zorder>
-   <zorder>PyDMScaleIndicator</zorder>
    <zorder>PyDMByteIndicator_6</zorder>
    <zorder>PyDMLabel_9</zorder>
    <zorder>PyDMByteIndicator_11</zorder>
    <zorder>frame_12</zorder>
    <zorder>PyDMRelatedDisplayButton</zorder>
-   <zorder>PyDMEnumComboBox</zorder>
    <zorder>PyDMByteIndicator_2</zorder>
    <zorder>PyDMByteIndicator_3</zorder>
    <zorder>PyDMByteIndicator_9</zorder>
    <zorder>PyDMByteIndicator_12</zorder>
    <zorder>PyDMByteIndicator_4</zorder>
    <zorder>PyDMLabel_8</zorder>
-   <zorder>label_9</zorder>
    <zorder>label_8</zorder>
    <zorder>label_65</zorder>
    <zorder>label_67</zorder>
@@ -6792,18 +6846,18 @@
    <zorder>PyDMLabel_29</zorder>
    <zorder>label_141</zorder>
    <zorder>PyDMLabel</zorder>
-   <zorder>PyDMLabel_41</zorder>
-   <zorder>PyDMLineEdit_18</zorder>
    <zorder>PyDMLabel_42</zorder>
    <zorder>PyDMLabel_6</zorder>
-   <zorder>PyDMRelatedDisplayButton_2</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_39</zorder>
+   <zorder>label_38</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>964</width>
+     <width>762</width>
      <height>19</height>
     </rect>
    </property>
@@ -6815,21 +6869,6 @@
    <class>PyDMByteIndicator</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.byte</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMEnumComboBox</class>
-   <extends>QComboBox</extends>
-   <header>pydm.widgets.enum_combo_box</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMScaleIndicator</class>
-   <extends>QFrame</extends>
-   <header>pydm.widgets.scale</header>
   </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
@@ -6846,24 +6885,66 @@
    <extends>QPushButton</extends>
    <header>pydm.widgets.shell_command</header>
   </customwidget>
+  <customwidget>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
+  </customwidget>
  </customwidgets>
  <resources>
   <include location="images/logo.qrc"/>
  </resources>
  <connections>
   <connection>
-   <sender>PyDMByteIndicator_17</sender>
-   <signal>windowIconChanged(QIcon)</signal>
-   <receiver>PyDMRelatedDisplayButton_2</receiver>
-   <slot>click()</slot>
+   <sender>PV_trigger_PRESSURIZED</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PV_trigger_PRESSURIZED_2</receiver>
+   <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>107</x>
-     <y>380</y>
+     <x>415</x>
+     <y>228</y>
     </hint>
     <hint type="destinationlabel">
-     <x>101</x>
-     <y>402</y>
+     <x>437</x>
+     <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PV_trigger_ON</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PV_trigger_ON_2</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>228</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PV_Trigger_OK_MESSAGE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PyDMShellCommand_3</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>405</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>438</x>
+     <y>406</y>
     </hint>
    </hints>
   </connection>

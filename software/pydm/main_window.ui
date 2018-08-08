@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1058</width>
+    <width>918</width>
     <height>557</height>
    </rect>
   </property>
@@ -2821,7 +2821,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1058</width>
+     <width>918</width>
      <height>19</height>
     </rect>
    </property>
@@ -2829,6 +2829,11 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
    <extends>QPushButton</extends>
@@ -2838,11 +2843,6 @@
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
   </customwidget>
  </customwidgets>
  <resources>

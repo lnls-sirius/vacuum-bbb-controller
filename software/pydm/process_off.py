@@ -17,54 +17,87 @@ it is divided in 6 stages, described as follow:
 VBC = sys.argv[1]
 #------------------------------------------------------------------------------
 # valve names definition
-PRE_VACUUM_VALVE = VBC + ":BBB:Relay2"
-GATE_VALVE = VBC + ":BBB:Relay4"
+PRE_VACUUM_VALVE_SW = VBC + ":BBB:Relay2-SW"
+PRE_VACUUM_VALVE_UI = VBC + ":BBB:Relay2-UI"
+GATE_VALVE_SW = VBC + ":BBB:Relay4-SW"
+GATE_VALVE_UI = VBC + ":BBB:Relay4-UI"
 #------------------------------------------------------------------------------
 # clear all status PVs
-caput(VBC + ":ProcessOffFV:Status1", 1)
-caput(VBC + ":ProcessOffFV:Status1", 2)
-caput(VBC + ":ProcessOffFV:Status1", 3)
-caput(VBC + ":ProcessOffFV:Status1", 4)
-caput(VBC + ":ProcessOffFV:Status1", 5)
-caput(VBC + ":ProcessOffFV:Status1", 6)
+caput(VBC + ":ProcessOffFV:Status1", 0)
+caput(VBC + ":ProcessOffFV:Status2", 0)
+caput(VBC + ":ProcessOffFV:Status3", 0)
+caput(VBC + ":ProcessOffFV:Status4", 0)
+caput(VBC + ":ProcessOffFV:Status5", 0)
+caput(VBC + ":ProcessOffFV:Status6", 0)
 #==============================================================================
 # Stage 1:
 #==============================================================================
 # close pre-vacuum valve (and keeps gate valve open)
+caput(PRE_VACUUM_VALVE_SW, 0)
+# update UI checkbox status
+caput(PRE_VACUUM_VALVE_UI, 0)
+# wait until valve receives command to open
+while (caget(PRE_VACUUM_VALVE_SW)):
+    pass
 caput(VBC + ":ProcessOffFV:Status1", 1)
-caput(PRE_VACUUM_VALVE, 0)
 #==============================================================================
 # Stage 2:
 #==============================================================================
+# change venting valve to manual control
+caput(VBC + ":TURBOVAC:AK-SP", 0)
+caput(VBC + ":TURBOVAC:PNU-SP", 134)
+caput(VBC + ":TURBOVAC:IND-SP", 2)
+caput(VBC + ":TURBOVAC:PWE-SP", 18)
+caput(VBC + ":TURBOVAC:AK-SP", 7)
+
 # turn TURBOVAC and ACP15 pumps OFF
-caput(VBC + ":ProcessOffFV:Status2", 1)
 caput(VBC + ":TURBOVAC:PZD1-SP.ZRVL", 0)
 caput(VBC + ":ACP:OnOff", 0)
+# wait until pump receives command to turn off
+while (caget(VBC + ":ACP:OnOff")):
+    pass
+caput(VBC + ":ProcessOffFV:Status2", 1)
 #==============================================================================
 # Stage 3:
 #==============================================================================
 # wait until TURBOVAC frequency decrease to 600 Hz
-caput(VBC + ":ProcessOffFV:Status3", 1)
-while (caget(VBC + ":TURBOVAC:PZD2-RB") > caget(VBC + ":SYSTEM:OffFrequency"):
+while (caget(VBC + ":TURBOVAC:PZD2-RB") > caget(VBC + ":SYSTEM:OffFrequency")):
     pass
+caput(VBC + ":ProcessOffFV:Status3", 1)
 #==============================================================================
 # Stage 4:
 #==============================================================================
 # open X203 valve (TURBOVAC venting valve)
+caput(VBC + ":TURBOVAC:VentingValve-SW", 1)
+# update UI checkbox status
+caput(VBC + ":TURBOVAC:VentingValve-UI", 1)
+# wait until venting valve receives command to close
+while (caget(VBC + ":TURBOVAC:VentingValve-SW") == 0):
+    pass
 caput(VBC + ":ProcessOffFV:Status4", 1)
-caput(VBC + ":TURBOVAC:PZD1-SP.FFVL", 1)
 #==============================================================================
 # Stage 5:
 #==============================================================================
 # wait until pressure gets 760 Torr
-caput(VBC + ":ProcessOffFV:Status5", 1)
-while (caget(VBC + ":BBB:Torr") < (caget(VBC + ":SYSTEM:OffPressureBase") * 10 ** caget(VBC + ":SYSTEM:OffPressureExp")):
+while (caget(VBC + ":BBB:Torr") < (caget(VBC + ":SYSTEM:OffPressureBase") * 10 ** caget(VBC + ":SYSTEM:OffPressureExp"))):
     pass
+caput(VBC + ":ProcessOffFV:Status5", 1)
 #==============================================================================
 # Stage 6:
 #==============================================================================
 # close all the valves (gate valve is already closed)
+caput(PRE_VACUUM_VALVE_SW, 0)
+caput(VBC + ":TURBOVAC:VentingValve-SW", 0)       # close X203
+# update UI checkbox status
+caput(PRE_VACUUM_VALVE_UI, 0)
+caput(VBC + ":TURBOVAC:VentingValve-UI", 0)       # close X203
+# wait until venting valve receives command to close
+while ( caget(PRE_VACUUM_VALVE_SW) ):
+    pass
 caput(VBC + ":ProcessOffFV:Status6", 1)
-caput(VBC + ":TURBOVAC:PZD1-SP.FFVL", 0)       # close X203
-caput(PRE_VACUUM_VALVE, 0)
+#==============================================================================
+# complement value of PV to launch "Process Finished" window
+#caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
+caput(VBC + ":Process:Bool", 1)
+caput(VBC + ":Process:Bool", 0)
 #==============================================================================
