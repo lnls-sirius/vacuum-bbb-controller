@@ -34,8 +34,12 @@ caput(VBC + ":ProcessOffFV:Status6", 0)
 #==============================================================================
 # close pre-vacuum valve (and keeps gate valve open)
 caput(PRE_VACUUM_VALVE_SW, 0)
+
+
 # update UI checkbox status
-caput(PRE_VACUUM_VALVE_UI, 0)
+#caput(PRE_VACUUM_VALVE_UI, 0)
+
+
 # wait until valve receives command to open
 while (caget(PRE_VACUUM_VALVE_SW)):
     pass

@@ -40,9 +40,13 @@ while (caget(VBC + ":TURBOVAC:PZD2-RB") != 0):
 # open gate valve (VAT) and the pre-vacuum valve
 caput(GATE_VALVE_SW, 1)
 caput(PRE_VACUUM_VALVE_SW, 1)
+
+
 # update UI checkbox status
-caput(GATE_VALVE_UI, 1)
-caput(PRE_VACUUM_VALVE_UI, 1)
+#caput(GATE_VALVE_UI, 1)
+#caput(PRE_VACUUM_VALVE_UI, 1)
+
+
 #---------------------------------------
 # wait gate valve receives command to open
 while ( caget(PRE_VACUUM_VALVE_SW) == 0):

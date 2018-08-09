@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>414</width>
-    <height>120</height>
+    <width>332</width>
+    <height>125</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,14 +17,21 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>20</y>
-      <width>311</width>
+      <x>100</x>
+      <y>27</y>
+      <width>206</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>Are you sure you want to commute the valve?</string>
+     <string>Are you sure you really want to 
+open/close                                  </string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -43,7 +50,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;./images/warning.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/warning.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_40">
@@ -84,8 +91,8 @@
      <rect>
       <x>15</x>
       <y>15</y>
-      <width>386</width>
-      <height>81</height>
+      <width>301</width>
+      <height>86</height>
      </rect>
     </property>
     <property name="palette">
@@ -164,8 +171,8 @@
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="geometry">
       <rect>
-       <x>125</x>
-       <y>45</y>
+       <x>100</x>
+       <y>55</y>
        <width>166</width>
        <height>22</height>
       </rect>
@@ -199,8 +206,8 @@
    <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>80</y>
+      <x>230</x>
+      <y>75</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -217,19 +224,39 @@
      <string>python commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>175</x>
+      <y>42</y>
+      <width>136</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>${VALVE}</string>
+    </property>
+   </widget>
    <zorder>PyDMShellCommand_2</zorder>
    <zorder>PyDMShellCommand</zorder>
    <zorder>frame</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>PyDMLabel_40</zorder>
+   <zorder>label_3</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>414</width>
+     <width>332</width>
      <height>19</height>
     </rect>
    </property>

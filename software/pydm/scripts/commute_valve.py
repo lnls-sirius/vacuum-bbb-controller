@@ -13,6 +13,7 @@ VALVE = sys.argv[2]
 SW = VBC + ":BBB:Relay" + VALVE + "-SW"
 UI = VBC + ":BBB:Relay" + VALVE + "-UI"
 #------------------------------------------------------------------------------
+time.sleep(1)
 if (sys.argv[3] == "yes"):
     if (VALVE == "1"):
         caput(SW, not(caget(SW)))
@@ -25,14 +26,13 @@ if (sys.argv[3] == "yes"):
     elif (VALVE == "venting_valve"):
         caput(VBC + ":TURBOVAC:VentingValve-SW", not(caget(VBC + ":TURBOVAC:VentingValve-SW")))
 elif (sys.argv[3] == "no"):
-    time.sleep(3)
-    if (VALVE == "1"):
-        caput(UI, not(caget(UI)))
-    elif (VALVE == "2"):
-        caput(UI, not(caget(UI)))
-    elif (VALVE == "3"):
-        caput(UI, not(caget(UI)))
-    elif (VALVE == "4"):
-        caput(UI, not(caget(UI)))
-    elif (VALVE == "venting_valve"):
+    if (VALVE == "venting_valve"):
         caput(VBC + ":TURBOVAC:VentingValve-UI", not(caget(VBC + ":TURBOVAC:VentingValve-UI")))
+    #elif (VALVE == "1"):
+    #    caput(UI + ".RVAL", caget(SW))
+    #elif (VALVE == "2"):
+    #    caput(UI + ".RVAL", caget(SW))
+    #elif (VALVE == "3"):
+    #    caput(UI + ".RVAL", caget(SW))
+    #elif (VALVE == "4"):
+    #    caput(UI + ".RVAL", caget(SW))

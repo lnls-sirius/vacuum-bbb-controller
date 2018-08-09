@@ -33,20 +33,26 @@ caput(VBC + ":ProcessRecovery:Status6", 0)
 #==============================================================================
 # Stage 1:
 #==============================================================================
+caput(VBC + ":ProcessRecovery:Status1", 1)
 # turn ACP15 pump ON and wait 30 s
 caput(VBC + ":ACP:OnOff", 1)
+# set ACP15 speed to maximum (6000 rpm)
+caput(VBC + ":ACP:SpeedRPM", 6000)
 # wait until pump receives command to turn on
 while (caget(VBC + ":ACP:OnOff") == 0):
     pass
-caput(VBC + ":ProcessRecovery:Status1", 1)
 time.sleep(30)
 #==============================================================================
 # Stage 2:
 #==============================================================================
 # open pre-vacuum valve
 caput(PRE_VACUUM_VALVE_SW, 1)
+
+
 # update UI checkbox status
-caput(PRE_VACUUM_VALVE_UI, 1)
+#caput(PRE_VACUUM_VALVE_UI, 1)
+
+
 # wait gate valve receives command to open
 while ( caget(PRE_VACUUM_VALVE_SW) == 0 ):
     pass
@@ -67,7 +73,7 @@ caput(VBC + ":ProcessRecovery:Status3", 1)
 # wait TURBOVAC pump reaches 1200 Hz
 caput(VBC + ":TURBOVAC:PZD2-SP", 1200)
 caput(VBC + ":TURBOVAC:PZD1-SP.SXVL", 1)
-while (caget(VBC + ":TURBOVAC:PZD2-RB") != 1200):
+while (caget(VBC + ":TURBOVAC:PZD2-RB") < 1200):
     pass
 caput(VBC + ":TURBOVAC:PZD1-SP.SXVL", 0)
 caput(VBC + ":ProcessRecovery:Status4", 1)
@@ -76,8 +82,12 @@ caput(VBC + ":ProcessRecovery:Status4", 1)
 #==============================================================================
 # open gate valve (VAT)
 caput(GATE_VALVE_SW, 1)
+
+
 # update UI checkbox status
-caput(GATE_VALVE_UI, 1)
+#caput(GATE_VALVE_UI, 1)
+
+
 #---------------------------------------
 # read gate valve (VAT) status to check if it is really open
 loop = True

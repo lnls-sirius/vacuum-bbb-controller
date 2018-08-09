@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>913</width>
-    <height>919</height>
+    <height>852</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -242,7 +242,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;./images/CNPEM.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/CNPEM.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_65">
@@ -284,7 +284,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;./images/LNLS.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/LNLS.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -4645,8 +4645,6 @@
     <zorder>PyDMLabel_59</zorder>
     <zorder>PyDMLineEdit_10</zorder>
     <zorder>line_15</zorder>
-    <zorder>PyDMLabel_42</zorder>
-    <zorder>PyDMLabel_42</zorder>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
     <property name="geometry">
@@ -6700,7 +6698,7 @@
      </size>
     </property>
     <property name="command" stdset="0">
-     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;2&quot;}' valve_confirmation.ui</string>
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;2&quot;, &quot;VALVE&quot;:&quot;Pre-vacuum Valve?&quot;}' valve_confirmation.ui</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_6">
@@ -6727,7 +6725,7 @@
      </size>
     </property>
     <property name="command" stdset="0">
-     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;1&quot;}' valve_confirmation.ui</string>
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;1&quot;, &quot;VALVE&quot;:&quot;Valve 1?&quot;}' valve_confirmation.ui</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_7">
@@ -6754,7 +6752,7 @@
      </size>
     </property>
     <property name="command" stdset="0">
-     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;3&quot;}' valve_confirmation.ui</string>
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;3&quot;, &quot;VALVE&quot;:&quot;Valve 3?&quot;}' valve_confirmation.ui</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_8">
@@ -6781,7 +6779,7 @@
      </size>
     </property>
     <property name="command" stdset="0">
-     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;4&quot;}' valve_confirmation.ui</string>
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;4&quot;, &quot;VALVE&quot;:&quot;Gate Valve?&quot;}' valve_confirmation.ui</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_9">
@@ -6808,7 +6806,7 @@
      </size>
     </property>
     <property name="command" stdset="0">
-     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;venting_valve&quot;}' valve_confirmation.ui</string>
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;venting_valve&quot;,&quot;VALVE&quot;:&quot;Venting Valve?&quot;}' valve_confirmation.ui</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PyDMCheckbox_25">
@@ -6887,7 +6885,7 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://${IOC}:BBB:Relay2-UI</string>
+     <string>ca://${IOC}:BBB:Relay2-UI.RVAL</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PyDMCheckbox_26">
@@ -7063,21 +7061,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMShellCommand</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.shell_command</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
@@ -7086,6 +7069,21 @@
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMShellCommand</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.shell_command</header>
   </customwidget>
  </customwidgets>
  <resources>
@@ -7167,7 +7165,7 @@
      <y>685</y>
     </hint>
     <hint type="destinationlabel">
-     <x>354</x>
+     <x>334</x>
      <y>649</y>
     </hint>
    </hints>
