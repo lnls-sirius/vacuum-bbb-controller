@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>964</width>
-    <height>984</height>
+    <width>762</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>95</y>
+      <x>95</x>
+      <y>250</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -43,7 +43,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOn:Status1</string>
+     <string>ca://${IOC}:ProcessOn:Status1</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -62,8 +62,8 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>95</y>
+      <x>25</x>
+      <y>250</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -78,11 +78,56 @@
    <widget class="PyDMShellCommand" name="PyDMShellCommand">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>60</y>
+      <x>20</x>
+      <y>215</y>
       <width>68</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <underline>false</underline>
+     </font>
     </property>
     <property name="toolTip">
      <string/>
@@ -93,13 +138,13 @@
     </string>
     </property>
     <property name="text">
-     <string> RUN</string>
+     <string> ON</string>
     </property>
     <property name="allowMultipleExecutions" stdset="0">
      <bool>false</bool>
     </property>
     <property name="command" stdset="0">
-     <string>python process_on.py</string>
+     <string>python check_pressure.py ${IOC} 0</string>
     </property>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
@@ -108,8 +153,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>120</y>
+      <x>95</x>
+      <y>275</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -131,7 +176,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOn:Status2</string>
+     <string>ca://${IOC}:ProcessOn:Status2</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -150,8 +195,8 @@
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>120</y>
+      <x>25</x>
+      <y>275</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -166,8 +211,8 @@
    <widget class="QLabel" name="label_15">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>170</y>
+      <x>25</x>
+      <y>325</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -185,206 +230,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>170</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOn:Status4</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_16">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>145</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 3</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>595</x>
-      <y>145</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOn:Status3</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_18">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>195</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 5</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>595</x>
-      <y>195</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOn:Status5</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_19">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>400</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 6</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_20">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>350</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 4</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>595</x>
+      <x>95</x>
       <y>325</y>
       <width>21</width>
       <height>21</height>
@@ -407,7 +253,206 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffFV:Status3</string>
+     <string>ca://${IOC}:ProcessOn:Status4</string>
+    </property>
+    <property name="offColor" stdset="0">
+     <color>
+      <red>255</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="circles" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="labels" stdset="0">
+     <stringlist/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>300</y>
+      <width>56</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stage 3</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>95</x>
+      <y>300</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:ProcessOn:Status3</string>
+    </property>
+    <property name="offColor" stdset="0">
+     <color>
+      <red>255</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="circles" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="labels" stdset="0">
+     <stringlist/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>350</y>
+      <width>56</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stage 5</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>95</x>
+      <y>350</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:ProcessOn:Status5</string>
+    </property>
+    <property name="offColor" stdset="0">
+     <color>
+      <red>255</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="circles" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="labels" stdset="0">
+     <stringlist/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>560</y>
+      <width>56</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stage 6</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>510</y>
+      <width>56</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stage 4</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>95</x>
+      <y>485</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:ProcessOffFV:Status3</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -429,8 +474,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>375</y>
+      <x>95</x>
+      <y>535</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -452,7 +497,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffFV:Status5</string>
+     <string>ca://${IOC}:ProcessOffFV:Status5</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -474,8 +519,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>275</y>
+      <x>95</x>
+      <y>435</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -497,7 +542,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffFV:Status1</string>
+     <string>ca://${IOC}:ProcessOffFV:Status1</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -516,8 +561,8 @@
    <widget class="QLabel" name="label_21">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>275</y>
+      <x>25</x>
+      <y>435</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -532,8 +577,8 @@
    <widget class="QLabel" name="label_22">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>375</y>
+      <x>25</x>
+      <y>535</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -548,9 +593,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_13">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>325</y>
-      <width>320</width>
+      <x>120</x>
+      <y>485</y>
+      <width>281</width>
       <height>21</height>
      </rect>
     </property>
@@ -561,14 +606,14 @@
      <string/>
     </property>
     <property name="text">
-     <string>Wait TURBOVAC frequency decreases under 600 Hz</string>
+     <string>Wait TURBOVAC frequency decreases under</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_14">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>350</y>
+      <x>120</x>
+      <y>510</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -589,8 +634,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>350</y>
+      <x>95</x>
+      <y>510</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -612,7 +657,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffFV:Status4</string>
+     <string>ca://${IOC}:ProcessOffFV:Status4</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -631,8 +676,8 @@
    <widget class="QLabel" name="label_23">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>325</y>
+      <x>25</x>
+      <y>485</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -647,8 +692,8 @@
    <widget class="QLabel" name="label_24">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>300</y>
+      <x>25</x>
+      <y>460</y>
       <width>56</width>
       <height>21</height>
      </rect>
@@ -663,8 +708,8 @@
    <widget class="PyDMLabel" name="PyDMLabel_25">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>300</y>
+      <x>120</x>
+      <y>460</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -682,9 +727,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_26">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>375</y>
-      <width>320</width>
+      <x>120</x>
+      <y>535</y>
+      <width>191</width>
       <height>21</height>
      </rect>
     </property>
@@ -695,14 +740,14 @@
      <string/>
     </property>
     <property name="text">
-     <string>Wait pressure increase up to 760 Torr</string>
+     <string>Wait pressure increase up to</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_27">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>275</y>
+      <x>120</x>
+      <y>435</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -723,8 +768,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>300</y>
+      <x>95</x>
+      <y>460</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -746,7 +791,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffFV:Status2</string>
+     <string>ca://${IOC}:ProcessOffFV:Status2</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -768,8 +813,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>400</y>
+      <x>95</x>
+      <y>560</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -791,7 +836,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffFV:Status6</string>
+     <string>ca://${IOC}:ProcessOffFV:Status6</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -810,8 +855,8 @@
    <widget class="PyDMLabel" name="PyDMLabel_28">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>400</y>
+      <x>120</x>
+      <y>560</y>
       <width>320</width>
       <height>21</height>
      </rect>
@@ -829,8 +874,8 @@
    <widget class="PyDMLabel" name="PyDMLabel_31">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>120</y>
+      <x>120</x>
+      <y>275</y>
       <width>260</width>
       <height>21</height>
      </rect>
@@ -842,14 +887,14 @@
      <string/>
     </property>
     <property name="text">
-     <string>Wait gate valve to close</string>
+     <string>Open gate valve and pre-vacuum valve</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_32">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>195</y>
+      <x>120</x>
+      <y>350</y>
       <width>260</width>
       <height>21</height>
      </rect>
@@ -867,8 +912,8 @@
    <widget class="PyDMLabel" name="PyDMLabel_33">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>95</y>
+      <x>120</x>
+      <y>250</y>
       <width>260</width>
       <height>21</height>
      </rect>
@@ -880,14 +925,14 @@
      <string/>
     </property>
     <property name="text">
-     <string>Open gate valve and pre-vacuum valve</string>
+     <string>Wait TURBOVAC pump stops completely</string>
     </property>
    </widget>
    <widget class="PyDMLabel" name="PyDMLabel_15">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>145</y>
+      <x>120</x>
+      <y>300</y>
       <width>260</width>
       <height>21</height>
      </rect>
@@ -905,9 +950,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_16">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>170</y>
-      <width>260</width>
+      <x>120</x>
+      <y>325</y>
+      <width>201</width>
       <height>21</height>
      </rect>
     </property>
@@ -918,15 +963,15 @@
      <string/>
     </property>
     <property name="text">
-     <string>Wait pressure decrease under 0.05 Torr</string>
+     <string>Wait pressure decrease under</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_28">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>60</y>
-      <width>356</width>
+      <x>90</x>
+      <y>215</y>
+      <width>371</width>
       <height>31</height>
      </rect>
     </property>
@@ -947,11 +992,78 @@
    <widget class="QFrame" name="frame_9">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>90</y>
-      <width>426</width>
+      <x>20</x>
+      <y>245</y>
+      <width>68</width>
       <height>131</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -963,11 +1075,429 @@
    <widget class="QFrame" name="frame_4">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>60</y>
-      <width>426</width>
+      <x>85</x>
+      <y>215</y>
+      <width>378</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Midlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>247</red>
+          <green>245</green>
+          <blue>243</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Dark">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>119</red>
+          <green>117</green>
+          <blue>115</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Mid">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>159</red>
+          <green>157</green>
+          <blue>154</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>182</red>
+          <green>230</green>
+          <blue>176</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>247</red>
+          <green>245</green>
+          <blue>243</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>220</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Midlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>247</red>
+          <green>245</green>
+          <blue>243</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Dark">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>119</red>
+          <green>117</green>
+          <blue>115</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Mid">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>159</red>
+          <green>157</green>
+          <blue>154</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>182</red>
+          <green>230</green>
+          <blue>176</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>247</red>
+          <green>245</green>
+          <blue>243</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>220</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>119</red>
+          <green>117</green>
+          <blue>115</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Midlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>247</red>
+          <green>245</green>
+          <blue>243</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Dark">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>119</red>
+          <green>117</green>
+          <blue>115</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Mid">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>159</red>
+          <green>157</green>
+          <blue>154</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>119</red>
+          <green>117</green>
+          <blue>115</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>119</red>
+          <green>117</green>
+          <blue>115</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>182</red>
+          <green>230</green>
+          <blue>176</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>182</red>
+          <green>230</green>
+          <blue>176</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>220</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -976,27 +1506,81 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <widget class="Line" name="line_4">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>65</y>
-      <width>16</width>
-      <height>156</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame_13">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>270</y>
-      <width>426</width>
+      <x>20</x>
+      <y>430</y>
+      <width>68</width>
       <height>156</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -1008,11 +1592,78 @@
    <widget class="QFrame" name="frame_5">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>240</y>
-      <width>426</width>
+      <x>85</x>
+      <y>400</y>
+      <width>378</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>167</green>
+          <blue>167</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>167</green>
+          <blue>167</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>167</green>
+          <blue>167</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>167</green>
+          <blue>167</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -1020,659 +1671,105 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>68</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-     </property>
-     <property name="text">
-      <string> RUN</string>
-     </property>
-     <property name="allowMultipleExecutions" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="command" stdset="0">
-      <string>python process_off_full_ventilation.py</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="Line" name="line_5">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>245</y>
-      <width>16</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_33">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>240</y>
-      <width>356</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Turning the system OFF (full ventilation)</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="PyDMLabel" name="PyDMLabel_35">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>505</y>
-      <width>320</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame_14">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>475</y>
-      <width>426</width>
-      <height>156</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="PyDMLabel" name="PyDMLabel_38">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>105</y>
-       <width>320</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>75</x>
-       <y>130</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-     </property>
-     <property name="channel" stdset="0">
-      <string>ca://VBC:ProcessOffNV:Status6</string>
-     </property>
-     <property name="offColor" stdset="0">
-      <color>
-       <red>255</red>
-       <green>0</green>
-       <blue>0</blue>
-      </color>
-     </property>
-     <property name="circles" stdset="0">
-      <bool>true</bool>
-     </property>
-     <property name="labels" stdset="0">
-      <stringlist/>
-     </property>
-    </widget>
-    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>75</x>
-       <y>105</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-     </property>
-     <property name="channel" stdset="0">
-      <string>ca://VBC:ProcessOffNV:Status5</string>
-     </property>
-     <property name="offColor" stdset="0">
-      <color>
-       <red>255</red>
-       <green>0</green>
-       <blue>0</blue>
-      </color>
-     </property>
-     <property name="circles" stdset="0">
-      <bool>true</bool>
-     </property>
-     <property name="labels" stdset="0">
-      <stringlist/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_39">
+    <widget class="QLabel" name="label_33">
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>105</y>
-       <width>56</width>
-       <height>21</height>
+       <y>0</y>
+       <width>371</width>
+       <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>Stage 5</string>
+      <string>Turning the system OFF</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="PyDMLabel" name="PyDMLabel_36">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>130</y>
-       <width>320</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_36">
-     <property name="geometry">
-      <rect>
-       <x>5</x>
-       <y>130</y>
-       <width>56</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Stage 6</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <zorder>PyDMLabel_38</zorder>
-    <zorder>label_39</zorder>
-    <zorder>PyDMLabel_36</zorder>
-    <zorder>label_36</zorder>
-    <zorder>PyDMByteIndicator_29</zorder>
-    <zorder>PyDMByteIndicator_25</zorder>
-   </widget>
-   <widget class="PyDMLabel" name="PyDMLabel_17">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>530</y>
-      <width>320</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>595</x>
-      <y>555</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffNV:Status4</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
-    </property>
-   </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>595</x>
-      <y>505</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffNV:Status2</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
-    </property>
-   </widget>
-   <widget class="Line" name="line_6">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>445</y>
-      <width>16</width>
-      <height>186</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_27">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>595</x>
-      <y>480</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffNV:Status1</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
-    </property>
-   </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>595</x>
-      <y>530</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ProcessOffNV:Status3</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
-    </property>
-   </widget>
-   <widget class="PyDMLabel" name="PyDMLabel_24">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>555</y>
-      <width>320</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_34">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>505</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 2</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_35">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>480</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 1</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="PyDMLabel" name="PyDMLabel_37">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>480</y>
-      <width>320</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame_10">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>445</y>
-      <width>426</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="PyDMShellCommand" name="PyDMShellCommand_3">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>68</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-     </property>
-     <property name="text">
-      <string> RUN</string>
-     </property>
-     <property name="allowMultipleExecutions" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="command" stdset="0">
-      <string>python process_off_no_ventilation.py</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QLabel" name="label_37">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>555</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 4</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_38">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>530</y>
-      <width>56</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stage 3</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_40">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>445</y>
-      <width>356</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Turning the system OFF (no ventilation)</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>340</y>
+      <x>485</x>
+      <y>155</y>
       <width>241</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -1705,8 +1802,8 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_5">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>385</y>
+      <x>495</x>
+      <y>610</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -1727,8 +1824,11 @@
         The channel to be used by the widget.
     </string>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff</string>
+     <string>ca://${IOC}:ACP:OnOff</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -1747,11 +1847,78 @@
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>345</y>
-      <width>226</width>
+      <x>485</x>
+      <y>605</y>
+      <width>241</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -1762,9 +1929,9 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>30</x>
        <y>0</y>
-       <width>226</width>
+       <width>211</width>
        <height>31</height>
       </rect>
      </property>
@@ -1784,9 +1951,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_11">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>405</y>
-      <width>31</width>
+      <x>670</x>
+      <y>220</y>
+      <width>45</width>
       <height>21</height>
      </rect>
     </property>
@@ -1806,14 +1973,14 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay3</string>
+     <string>ca://${IOC}:TURBOVAC:VentingValve-SW</string>
     </property>
    </widget>
    <widget class="Line" name="line_3">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>225</y>
+      <x>485</x>
+      <y>490</y>
       <width>241</width>
       <height>16</height>
      </rect>
@@ -1822,53 +1989,13 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="PyDMScaleIndicator" name="PyDMScaleIndicator">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>795</y>
-      <width>181</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A bar-shaped indicator for scalar value with support for Channels and
-    more from PyDM.
-    Configurable features include indicator type (bar/pointer), scale tick 
-    marks and orientation (horizontal/vertical).
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Scale
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Torr</string>
-    </property>
-    <property name="numDivisions" stdset="0">
-     <number>10</number>
-    </property>
-    <property name="scaleHeight" stdset="0">
-     <number>25</number>
-    </property>
-    <property name="originAtZero" stdset="0">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
     <property name="geometry">
      <rect>
-      <x>275</x>
-      <y>130</y>
-      <width>21</width>
-      <height>21</height>
+      <x>525</x>
+      <y>400</y>
+      <width>12</width>
+      <height>12</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -1888,7 +2015,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-RB0</string>
+     <string>ca://${IOC}:TURBOVAC:PZD1-RB0</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -1898,7 +2025,7 @@
      </color>
     </property>
     <property name="circles" stdset="0">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="shift" stdset="0">
      <number>4</number>
@@ -1907,50 +2034,12 @@
      <stringlist/>
     </property>
    </widget>
-   <widget class="PyDMCheckbox" name="PyDMCheckbox_5">
-    <property name="geometry">
-     <rect>
-      <x>25</x>
-      <y>380</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>16</width>
-      <height>16</height>
-     </size>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff</string>
-    </property>
-   </widget>
    <widget class="PyDMLabel" name="PyDMLabel_9">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>430</y>
-      <width>31</width>
+      <x>670</x>
+      <y>245</y>
+      <width>45</width>
       <height>21</height>
      </rect>
     </property>
@@ -1970,16 +2059,16 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay4</string>
+     <string>ca://${IOC}:BBB:Relay4-SW</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_7">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>90</y>
+      <x>485</x>
+      <y>385</y>
       <width>241</width>
-      <height>231</height>
+      <height>201</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -1991,8 +2080,8 @@
     <widget class="QLabel" name="label_30">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>145</y>
+       <x>20</x>
+       <y>115</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -2007,8 +2096,8 @@
     <widget class="PyDMLabel" name="PyDMLabel_20">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>185</y>
+       <x>185</x>
+       <y>155</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2026,14 +2115,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD4-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD4-RB.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_18">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>145</y>
+       <x>185</x>
+       <y>115</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2051,14 +2140,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD2-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD2-RB.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_21">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>205</y>
+       <x>185</x>
+       <y>175</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2076,14 +2165,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD6-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD6-RB.EGU</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_52">
      <property name="geometry">
       <rect>
        <x>125</x>
-       <y>185</y>
+       <y>155</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2104,14 +2193,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD4-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD4-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_51">
      <property name="geometry">
       <rect>
        <x>125</x>
-       <y>165</y>
+       <y>135</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2132,14 +2221,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD3-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD3-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_34">
      <property name="geometry">
       <rect>
        <x>125</x>
-       <y>145</y>
+       <y>115</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2160,14 +2249,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD2-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD2-RB</string>
      </property>
     </widget>
     <widget class="PyDMLabel" name="PyDMLabel_19">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>165</y>
+       <x>185</x>
+       <y>135</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2185,14 +2274,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD3-RB.EGU</string>
+      <string>ca://${IOC}:TURBOVAC:PZD3-RB.EGU</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_29">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>165</y>
+       <x>20</x>
+       <y>135</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -2207,8 +2296,8 @@
     <widget class="QLabel" name="label_31">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>185</y>
+       <x>20</x>
+       <y>155</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -2224,7 +2313,7 @@
      <property name="geometry">
       <rect>
        <x>125</x>
-       <y>205</y>
+       <y>175</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -2245,14 +2334,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD6-RB</string>
+      <string>ca://${IOC}:TURBOVAC:PZD6-RB</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_32">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>205</y>
+       <x>20</x>
+       <y>175</y>
        <width>91</width>
        <height>20</height>
       </rect>
@@ -2264,62 +2353,11 @@
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="PyDMCheckbox" name="PyDMCheckbox_7">
-     <property name="geometry">
-      <rect>
-       <x>15</x>
-       <y>10</y>
-       <width>14</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-     </property>
-     <property name="autoRepeat">
-      <bool>false</bool>
-     </property>
-     <property name="alarmSensitiveBorder" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="channel" stdset="0">
-      <string>ca://VBC:TURBOVAC:PZD1-SP.ZRVL</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_83">
-     <property name="geometry">
-      <rect>
-       <x>45</x>
-       <y>10</y>
-       <width>150</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Start/Stop</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_27">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>115</y>
+       <x>70</x>
+       <y>85</y>
        <width>150</width>
        <height>21</height>
       </rect>
@@ -2331,8 +2369,8 @@
     <widget class="QLabel" name="label_26">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>90</y>
+       <x>70</x>
+       <y>60</y>
        <width>150</width>
        <height>21</height>
       </rect>
@@ -2344,8 +2382,8 @@
     <widget class="QLabel" name="label_17">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>40</y>
+       <x>70</x>
+       <y>10</y>
        <width>150</width>
        <height>21</height>
       </rect>
@@ -2357,8 +2395,8 @@
     <widget class="QLabel" name="label_25">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>65</y>
+       <x>70</x>
+       <y>35</y>
        <width>150</width>
        <height>21</height>
       </rect>
@@ -2380,8 +2418,6 @@
     <zorder>label_31</zorder>
     <zorder>PyDMLabel_53</zorder>
     <zorder>label_32</zorder>
-    <zorder>PyDMCheckbox_7</zorder>
-    <zorder>label_83</zorder>
     <zorder>label_27</zorder>
     <zorder>label_26</zorder>
     <zorder>label_17</zorder>
@@ -2389,10 +2425,10 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
     <property name="geometry">
      <rect>
-      <x>275</x>
-      <y>180</y>
-      <width>21</width>
-      <height>21</height>
+      <x>525</x>
+      <y>450</y>
+      <width>12</width>
+      <height>12</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -2412,7 +2448,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-RB1</string>
+     <string>ca://${IOC}:TURBOVAC:PZD1-RB1</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -2422,7 +2458,7 @@
      </color>
     </property>
     <property name="circles" stdset="0">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="shift" stdset="0">
      <number>3</number>
@@ -2431,47 +2467,86 @@
      <stringlist/>
     </property>
    </widget>
-   <widget class="PyDMLabel" name="PyDMLabel_5">
-    <property name="geometry">
-     <rect>
-      <x>45</x>
-      <y>380</y>
-      <width>121</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="text">
-     <string>On/Off</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff.DESC</string>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame_12">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>435</y>
-      <width>226</width>
+      <x>485</x>
+      <y>15</y>
+      <width>241</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -2484,7 +2559,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>226</width>
+       <width>241</width>
        <height>31</height>
       </rect>
      </property>
@@ -2494,7 +2569,7 @@
       </font>
      </property>
      <property name="text">
-      <string>VQM (Pressure)</string>
+      <string>Pressure</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -2504,11 +2579,108 @@
    <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>540</y>
-      <width>471</width>
+      <x>20</x>
+      <y>605</y>
+      <width>443</width>
       <height>36</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>211</red>
+          <green>211</green>
+          <blue>211</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="toolTip">
      <string/>
@@ -2527,6 +2699,9 @@
         The file to be opened
     </string>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="text">
      <string>Advanced tab...</string>
     </property>
@@ -2534,85 +2709,13 @@
      <bool>false</bool>
     </property>
     <property name="displayFilename" stdset="0">
-     <string>VBC.ui</string>
+     <string>advanced_tab.ui</string>
+    </property>
+    <property name="macros" stdset="0">
+     <string>{&quot;IOC&quot;: &quot;${IOC}&quot;}</string>
     </property>
     <property name="openInNewWindow" stdset="0">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="PyDMCheckbox" name="PyDMCheckbox_4">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>425</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>16</width>
-      <height>16</height>
-     </size>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay4</string>
-    </property>
-   </widget>
-   <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>815</y>
-      <width>72</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A QComboBox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    Signals
-    -------
-    send_value_signal : int, float, str, bool or np.ndarray
-        Emitted when the user changes the value.
-    activated : int, str
-        Emitted when the user chooses an item in the combobox.
-    currentIndexChanged : int, str
-        Emitted when the index is changed in the combobox.
-    highlighted : int, str
-        Emitted when an item in the combobox popup list is highlighted
-        by the user.
-    </string>
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QFrame" name="frame">
@@ -2621,8 +2724,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>370</y>
+      <x>485</x>
+      <y>185</y>
       <width>241</width>
       <height>151</height>
      </rect>
@@ -2636,7 +2739,7 @@
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>35</x>
+       <x>10</x>
        <y>5</y>
        <width>136</width>
        <height>30</height>
@@ -3064,7 +3167,7 @@
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>35</x>
+       <x>10</x>
        <y>30</y>
        <width>136</width>
        <height>30</height>
@@ -3492,7 +3595,7 @@
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>35</x>
+       <x>10</x>
        <y>55</y>
        <width>136</width>
        <height>30</height>
@@ -3959,7 +4062,7 @@
     </string>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:ValveOpen</string>
+      <string>ca://${IOC}:BBB:ValveOpen</string>
      </property>
      <property name="offColor" stdset="0">
       <color>
@@ -4001,7 +4104,7 @@
     </string>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:ValveClosed</string>
+      <string>ca://${IOC}:BBB:ValveClosed</string>
      </property>
      <property name="offColor" stdset="0">
       <color>
@@ -4020,7 +4123,7 @@
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>55</x>
+       <x>45</x>
        <y>95</y>
        <width>141</width>
        <height>21</height>
@@ -4442,7 +4545,7 @@
       </palette>
      </property>
      <property name="text">
-      <string>Valve Open</string>
+      <string>Gate Valve Open</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -4451,7 +4554,7 @@
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>55</x>
+       <x>45</x>
        <y>120</y>
        <width>141</width>
        <height>21</height>
@@ -4873,28 +4976,18 @@
       </palette>
      </property>
      <property name="text">
-      <string>Valve Closed</string>
+      <string>Gate Valve Closed</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <zorder>label_4</zorder>
-    <zorder>label_11</zorder>
-    <zorder>label_12</zorder>
-    <zorder>line</zorder>
-    <zorder>PyDMByteIndicator_8</zorder>
-    <zorder>PyDMByteIndicator_7</zorder>
-    <zorder>PyDMCheckbox_18</zorder>
-    <zorder>PyDMCheckbox_18</zorder>
-    <zorder>label_6</zorder>
-    <zorder>label_7</zorder>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>380</y>
+      <x>640</x>
+      <y>195</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -4916,7 +5009,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay2</string>
+     <string>ca://${IOC}:BBB:Relay2-SW</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -4932,54 +5025,13 @@
      <stringlist/>
     </property>
    </widget>
-   <widget class="PyDMLabel" name="PyDMLabel_12">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>385</y>
-      <width>31</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="text">
-     <string>P1</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:ACP:OnOff</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>115</y>
-      <width>241</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame_11">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>465</y>
-      <width>226</width>
-      <height>56</height>
+      <x>485</x>
+      <y>45</y>
+      <width>241</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -4988,14 +5040,74 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="PyDMLabel" name="PyDMLabel_23">
+    <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>5</y>
-       <width>31</width>
-       <height>21</height>
+       <x>88</x>
+       <y>10</y>
+       <width>61</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>* 10</string>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_24">
+     <property name="geometry">
+      <rect>
+       <x>3</x>
+       <y>10</y>
+       <width>86</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>base</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="alarmSensitiveBorder" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:BBB:TorrBase</string>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_35">
+     <property name="geometry">
+      <rect>
+       <x>175</x>
+       <y>10</y>
+       <width>56</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
      </property>
      <property name="toolTip">
       <string/>
@@ -5010,15 +5122,63 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:Torr.EGU</string>
+      <string>ca://${IOC}:BBB:Torr.EGU</string>
      </property>
     </widget>
-    <widget class="PyDMLabel" name="PyDMLabel_22">
+    <widget class="PyDMLabel" name="PyDMLabel_36">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>146</x>
        <y>5</y>
-       <width>131</width>
+       <width>26</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>exp</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="alarmSensitiveBorder" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:BBB:TorrExp</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>241</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_38">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>65</y>
+       <width>61</width>
        <height>21</height>
       </rect>
      </property>
@@ -5029,7 +5189,7 @@
       <string/>
      </property>
      <property name="text">
-      <string>Analog IN</string>
+      <string>base</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -5038,42 +5198,14 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:Torr</string>
+      <string>ca://${IOC}:BBB:mbarBase</string>
      </property>
     </widget>
-    <widget class="PyDMLabel" name="PyDMLabel_29">
+    <widget class="PyDMLabel" name="PyDMLabel_37">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>131</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Analog IN</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="alarmSensitiveBorder" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:mbar</string>
-     </property>
-    </widget>
-    <widget class="PyDMLabel" name="PyDMLabel_30">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>30</y>
+       <x>170</x>
+       <y>65</y>
        <width>31</width>
        <height>21</height>
       </rect>
@@ -5091,15 +5223,66 @@
       <bool>false</bool>
      </property>
      <property name="channel" stdset="0">
-      <string>ca://VBC:BBB:mbar.EGU</string>
+      <string>ca://${IOC}:BBB:mbar.EGU</string>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_39">
+     <property name="geometry">
+      <rect>
+       <x>115</x>
+       <y>55</y>
+       <width>36</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>exp</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="alarmSensitiveBorder" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:BBB:mbarExp</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_34">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>65</y>
+       <width>26</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>* 10</string>
      </property>
     </widget>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_3">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>405</y>
+      <x>640</x>
+      <y>220</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -5121,7 +5304,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-SP.FFVL</string>
+     <string>ca://${IOC}:TURBOVAC:VentingValve-SW</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -5137,68 +5320,13 @@
      <stringlist/>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_6">
-    <property name="geometry">
-     <rect>
-      <x>15</x>
-      <y>375</y>
-      <width>226</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <zorder>label_9</zorder>
-   </widget>
-   <widget class="PyDMCheckbox" name="PyDMCheckbox_2">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>375</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>16</width>
-      <height>16</height>
-     </size>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay2</string>
-    </property>
-   </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_9">
     <property name="geometry">
      <rect>
-      <x>275</x>
-      <y>155</y>
-      <width>21</width>
-      <height>21</height>
+      <x>525</x>
+      <y>425</y>
+      <width>12</width>
+      <height>12</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -5218,7 +5346,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-RB0</string>
+     <string>ca://${IOC}:TURBOVAC:PZD1-RB0</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -5228,7 +5356,7 @@
      </color>
     </property>
     <property name="circles" stdset="0">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="shift" stdset="0">
      <number>5</number>
@@ -5240,10 +5368,10 @@
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
     <property name="geometry">
      <rect>
-      <x>275</x>
-      <y>205</y>
-      <width>21</width>
-      <height>21</height>
+      <x>525</x>
+      <y>475</y>
+      <width>12</width>
+      <height>12</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -5263,7 +5391,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-RB0</string>
+     <string>ca://${IOC}:TURBOVAC:PZD1-RB0</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -5273,7 +5401,7 @@
      </color>
     </property>
     <property name="circles" stdset="0">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="shift" stdset="0">
      <number>7</number>
@@ -5285,16 +5413,83 @@
    <widget class="QFrame" name="frame_8">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>60</y>
+      <x>485</x>
+      <y>355</y>
       <width>241</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>187</red>
+          <green>187</green>
+          <blue>187</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -5305,9 +5500,9 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>30</x>
        <y>0</y>
-       <width>241</width>
+       <width>211</width>
        <height>31</height>
       </rect>
      </property>
@@ -5323,12 +5518,56 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:TURBOVAC:PZD1-SP.ZRVL</string>
+     </property>
+     <property name="offColor" stdset="0">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="circles" stdset="0">
+      <bool>true</bool>
+     </property>
+     <property name="labels" stdset="0">
+      <stringlist/>
+     </property>
+    </widget>
+    <zorder>PyDMByteIndicator_16</zorder>
+    <zorder>label_3</zorder>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_4">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>430</y>
+      <x>640</x>
+      <y>245</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -5350,7 +5589,7 @@
     </string>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay4</string>
+     <string>ca://${IOC}:BBB:Relay4-SW</string>
     </property>
     <property name="offColor" stdset="0">
      <color>
@@ -5369,9 +5608,9 @@
    <widget class="PyDMLabel" name="PyDMLabel_8">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>380</y>
-      <width>31</width>
+      <x>670</x>
+      <y>195</y>
+      <width>45</width>
       <height>21</height>
      </rect>
     </property>
@@ -5391,20 +5630,20 @@
      <bool>false</bool>
     </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:BBB:Relay2</string>
+     <string>ca://${IOC}:BBB:Relay2-SW</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>205</y>
-      <width>221</width>
+      <x>150</x>
+      <y>20</y>
+      <width>201</width>
       <height>75</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;./images/CNPEM.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/CNPEM.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -5413,60 +5652,25 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>221</width>
+      <x>25</x>
+      <y>15</y>
+      <width>101</width>
       <height>116</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;./images/LNLS.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/LNLS.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="PyDMCheckbox" name="PyDMCheckbox_18">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>400</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-    </property>
-    <property name="autoRepeat">
-     <bool>false</bool>
-    </property>
-    <property name="alarmSensitiveBorder" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-SP.FFVL</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_65">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>290</y>
-      <width>221</width>
+      <x>150</x>
+      <y>100</y>
+      <width>201</width>
       <height>21</height>
      </rect>
     </property>
@@ -5480,9 +5684,9 @@
    <widget class="QLabel" name="label_67">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>310</y>
-      <width>221</width>
+      <x>150</x>
+      <y>120</y>
+      <width>201</width>
       <height>16</height>
      </rect>
     </property>
@@ -5886,12 +6090,398 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16">
+   <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>95</y>
-      <width>21</width>
+      <x>20</x>
+      <y>400</y>
+      <width>68</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>239</red>
+          <green>235</green>
+          <blue>231</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+    </property>
+    <property name="text">
+     <string> OFF</string>
+    </property>
+    <property name="allowMultipleExecutions" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="command" stdset="0">
+     <string>python process_off.py ${IOC}</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_6">
+    <property name="geometry">
+     <rect>
+      <x>87</x>
+      <y>245</y>
+      <width>376</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="PyDMLabel" name="PyDMLabel_2">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>75</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>exp</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:SYSTEM:OnPressureExp</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_10">
+    <property name="geometry">
+     <rect>
+      <x>87</x>
+      <y>430</y>
+      <width>376</width>
+      <height>156</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_68">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>105</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>* 10</string>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_40">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>105</y>
+       <width>36</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Torr</string>
+     </property>
+     <property name="alarmSensitiveBorder" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:SYSTEM:OffPressureBase.EGU</string>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_3">
+     <property name="geometry">
+      <rect>
+       <x>225</x>
+       <y>105</y>
+       <width>36</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>base</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:SYSTEM:OffPressureBase</string>
+     </property>
+    </widget>
+    <widget class="PyDMLabel" name="PyDMLabel_4">
+     <property name="geometry">
+      <rect>
+       <x>285</x>
+       <y>100</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>exp</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string>ca://${IOC}:SYSTEM:OffPressureExp</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_35">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>20</y>
+      <width>81</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>DejaVu Serif</family>
+      <pointsize>72</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string>${CAR}</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_36">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>120</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Car system</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="PyDMLineEdit" name="PyDMLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>185</x>
+      <y>160</y>
+      <width>278</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferDefault</stylestrategy>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Car 1 Location</string>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="precision" stdset="0">
+     <number>0</number>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:Location</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_37">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>160</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="text">
+     <string>Car System Location:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_29">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>325</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Torr</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OnPressureBase.EGU</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_141">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>325</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>* 10</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel">
+    <property name="geometry">
+     <rect>
+      <x>325</x>
+      <y>325</y>
+      <width>36</width>
       <height>21</height>
      </rect>
     </property>
@@ -5899,9 +6489,109 @@
      <string/>
     </property>
     <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>base</string>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OnPressureBase</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_42">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>485</y>
+      <width>16</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Hz</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OffFrequency.EGU</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_6">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>485</y>
+      <width>36</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>freq</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:SYSTEM:OffFrequency</string>
+    </property>
+   </widget>
+   <widget class="PyDMShellCommand" name="PyDMShellCommand_3">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>405</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
      <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
+    A QPushButton capable of execute shell commands.
+    </string>
+    </property>
+    <property name="command" stdset="0">
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;}' OK_message.ui</string>
+    </property>
+   </widget>
+   <widget class="PyDMCheckbox" name="PV_Trigger_OK_MESSAGE">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>405</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QCheckbox with support for Channels and more from PyDM
 
     Parameters
     ----------
@@ -5909,34 +6599,191 @@
         The parent widget for the Label
     init_channel : str, optional
         The channel to be used by the widget.
+
     </string>
     </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
     <property name="channel" stdset="0">
-     <string>ca://VBC:TURBOVAC:PZD1-SP.ZRVL</string>
-    </property>
-    <property name="offColor" stdset="0">
-     <color>
-      <red>255</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="circles" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="labels" stdset="0">
-     <stringlist/>
+     <string>ca://${IOC}:Process:Bool</string>
     </property>
    </widget>
+   <widget class="PyDMShellCommand" name="PV_trigger_ON_2">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_ON</string>
+    </property>
+    <property name="command" stdset="0">
+     <string>python process_on.py ${IOC}</string>
+    </property>
+   </widget>
+   <widget class="PyDMCheckbox" name="PV_trigger_ON">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>105</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_ON</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:Process:TriggerOn</string>
+    </property>
+   </widget>
+   <widget class="PyDMShellCommand" name="PV_trigger_PRESSURIZED_2">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_PRESSURIZED</string>
+    </property>
+    <property name="command" stdset="0">
+     <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;}' system_pressurized.ui</string>
+    </property>
+   </widget>
+   <widget class="PyDMCheckbox" name="PV_trigger_PRESSURIZED">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>215</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+    </property>
+    <property name="text">
+     <string>PV_trigger_PRESSURIZED</string>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${IOC}:Process:TriggerPressurized</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_38">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>220</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/play_button.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_39">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>405</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/stop_button.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <zorder>PV_trigger_ON_2</zorder>
+   <zorder>PV_trigger_PRESSURIZED_2</zorder>
+   <zorder>PV_trigger_PRESSURIZED</zorder>
+   <zorder>PV_trigger_ON</zorder>
+   <zorder>PV_Trigger_OK_MESSAGE</zorder>
+   <zorder>PyDMShellCommand_3</zorder>
+   <zorder>frame_3</zorder>
+   <zorder>frame_10</zorder>
    <zorder>frame_6</zorder>
+   <zorder>frame_11</zorder>
+   <zorder>frame_4</zorder>
    <zorder>frame_13</zorder>
    <zorder>frame</zorder>
    <zorder>frame_7</zorder>
-   <zorder>frame_14</zorder>
    <zorder>frame_9</zorder>
-   <zorder>label_28</zorder>
    <zorder>frame_5</zorder>
-   <zorder>frame_4</zorder>
    <zorder>label_13</zorder>
    <zorder>PyDMShellCommand</zorder>
    <zorder>label_14</zorder>
@@ -5960,56 +6807,23 @@
    <zorder>PyDMLabel_33</zorder>
    <zorder>PyDMLabel_15</zorder>
    <zorder>PyDMLabel_16</zorder>
-   <zorder>label_5</zorder>
-   <zorder>line_4</zorder>
-   <zorder>line_5</zorder>
-   <zorder>label_33</zorder>
-   <zorder>PyDMLabel_35</zorder>
-   <zorder>PyDMLabel_17</zorder>
-   <zorder>line_6</zorder>
-   <zorder>PyDMLabel_24</zorder>
-   <zorder>label_34</zorder>
-   <zorder>label_35</zorder>
-   <zorder>PyDMLabel_37</zorder>
-   <zorder>frame_10</zorder>
-   <zorder>label_37</zorder>
-   <zorder>label_38</zorder>
-   <zorder>label_40</zorder>
    <zorder>frame_2</zorder>
-   <zorder>PyDMByteIndicator_5</zorder>
-   <zorder>frame_3</zorder>
    <zorder>PyDMLabel_11</zorder>
    <zorder>line_3</zorder>
-   <zorder>PyDMScaleIndicator</zorder>
    <zorder>PyDMByteIndicator_6</zorder>
-   <zorder>PyDMCheckbox_5</zorder>
    <zorder>PyDMLabel_9</zorder>
    <zorder>PyDMByteIndicator_11</zorder>
-   <zorder>PyDMLabel_5</zorder>
    <zorder>frame_12</zorder>
    <zorder>PyDMRelatedDisplayButton</zorder>
-   <zorder>PyDMCheckbox_4</zorder>
-   <zorder>PyDMEnumComboBox</zorder>
    <zorder>PyDMByteIndicator_2</zorder>
-   <zorder>PyDMLabel_12</zorder>
-   <zorder>line_2</zorder>
-   <zorder>frame_11</zorder>
    <zorder>PyDMByteIndicator_3</zorder>
-   <zorder>PyDMCheckbox_2</zorder>
    <zorder>PyDMByteIndicator_9</zorder>
    <zorder>PyDMByteIndicator_12</zorder>
-   <zorder>frame_8</zorder>
    <zorder>PyDMByteIndicator_4</zorder>
    <zorder>PyDMLabel_8</zorder>
-   <zorder>label_9</zorder>
    <zorder>label_8</zorder>
-   <zorder>PyDMCheckbox_18</zorder>
    <zorder>label_65</zorder>
    <zorder>label_67</zorder>
-   <zorder>PyDMByteIndicator_28</zorder>
-   <zorder>PyDMByteIndicator_24</zorder>
-   <zorder>PyDMByteIndicator_26</zorder>
-   <zorder>PyDMByteIndicator_27</zorder>
    <zorder>PyDMByteIndicator_23</zorder>
    <zorder>PyDMByteIndicator_20</zorder>
    <zorder>PyDMByteIndicator_21</zorder>
@@ -6021,14 +6835,29 @@
    <zorder>PyDMByteIndicator_13</zorder>
    <zorder>PyDMByteIndicator_14</zorder>
    <zorder>PyDMByteIndicator_10</zorder>
-   <zorder>PyDMByteIndicator_16</zorder>
+   <zorder>PyDMShellCommand_2</zorder>
+   <zorder>label_28</zorder>
+   <zorder>PyDMByteIndicator_5</zorder>
+   <zorder>frame_8</zorder>
+   <zorder>label_35</zorder>
+   <zorder>label_36</zorder>
+   <zorder>PyDMLineEdit</zorder>
+   <zorder>label_37</zorder>
+   <zorder>PyDMLabel_29</zorder>
+   <zorder>label_141</zorder>
+   <zorder>PyDMLabel</zorder>
+   <zorder>PyDMLabel_42</zorder>
+   <zorder>PyDMLabel_6</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_39</zorder>
+   <zorder>label_38</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>964</width>
+     <width>762</width>
      <height>19</height>
     </rect>
    </property>
@@ -6037,19 +6866,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMShellCommand</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.shell_command</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMEnumComboBox</class>
-   <extends>QComboBox</extends>
-   <header>pydm.widgets.enum_combo_box</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
   </customwidget>
   <customwidget>
    <class>PyDMCheckbox</class>
@@ -6062,18 +6881,72 @@
    <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMByteIndicator</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
-   <class>PyDMScaleIndicator</class>
-   <extends>QFrame</extends>
-   <header>pydm.widgets.scale</header>
+   <class>PyDMShellCommand</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.shell_command</header>
   </customwidget>
  </customwidgets>
  <resources>
   <include location="images/logo.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>PV_trigger_PRESSURIZED</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PV_trigger_PRESSURIZED_2</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>415</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>437</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PV_trigger_ON</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PV_trigger_ON_2</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PV_Trigger_OK_MESSAGE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PyDMShellCommand_3</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>425</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>438</x>
+     <y>426</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
