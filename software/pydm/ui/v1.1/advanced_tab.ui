@@ -8430,6 +8430,33 @@
              </property>
             </spacer>
            </item>
+           <item row="37" column="2">
+            <widget class="PyDMShellCommand" name="Shell5">
+             <property name="maximumSize">
+              <size>
+               <width>1</width>
+               <height>1</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="command" stdset="0">
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;venting_valve&quot;,&quot;VALVE&quot;:&quot;Venting Valve?&quot;}' valve_confirmation.ui</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </item>
         </layout>
@@ -8461,7 +8488,58 @@
          </property>
          <item row="0" column="0">
           <layout class="QGridLayout" name="Valves_3">
-           <item row="9" column="2">
+           <item row="6" column="8">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${IOC}:BBB:ValveOpen</string>
+             </property>
+             <property name="offColor" stdset="0">
+              <color>
+               <red>255</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="circles" stdset="0">
+              <bool>true</bool>
+             </property>
+             <property name="labels" stdset="0">
+              <stringlist/>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="3">
             <widget class="PyDMLabel" name="PyDMLabel_35">
              <property name="minimumSize">
               <size>
@@ -8495,7 +8573,7 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="7" colspan="2">
+           <item row="8" column="8" colspan="2">
             <widget class="QLabel" name="label_310">
              <property name="font">
               <font>
@@ -8510,48 +8588,7 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
-            <widget class="PyDMCheckbox" name="PyDMCheckbox_49">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string/>
-             </property>
-             <property name="whatsThis">
-              <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-             </property>
-             <property name="autoRepeat">
-              <bool>false</bool>
-             </property>
-             <property name="alarmSensitiveBorder" stdset="0">
-              <bool>false</bool>
-             </property>
-             <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay3-UI</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="10">
+           <item row="2" column="0" colspan="11">
             <widget class="QLabel" name="label_307">
              <property name="minimumSize">
               <size>
@@ -8999,7 +9036,7 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="5" rowspan="2">
+           <item row="6" column="6" rowspan="2">
             <widget class="PyDMLabel" name="PyDMLabel_53">
              <property name="minimumSize">
               <size>
@@ -9033,7 +9070,7 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="5">
+           <item row="8" column="6">
             <widget class="PyDMLabel" name="PyDMLabel_51">
              <property name="minimumSize">
               <size>
@@ -9067,7 +9104,7 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="2" rowspan="2">
+           <item row="6" column="3" rowspan="2">
             <widget class="PyDMLabel" name="PyDMLabel_26">
              <property name="minimumSize">
               <size>
@@ -9101,7 +9138,7 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="3">
+           <item row="6" column="4">
             <spacer name="horizontalSpacer_12">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -9114,7 +9151,7 @@
              </property>
             </spacer>
            </item>
-           <item row="6" column="8">
+           <item row="6" column="9">
             <widget class="PyDMLabel" name="PyDMLabel_25">
              <property name="minimumSize">
               <size>
@@ -9148,7 +9185,7 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="5">
+           <item row="5" column="6">
             <widget class="PyDMLabel" name="PyDMLabel_36">
              <property name="minimumSize">
               <size>
@@ -9182,7 +9219,7 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="2">
+           <item row="8" column="3">
             <widget class="PyDMLabel" name="PyDMLabel_52">
              <property name="minimumSize">
               <size>
@@ -9216,7 +9253,7 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="7" colspan="2">
+           <item row="5" column="8" colspan="2">
             <widget class="QLabel" name="label_311">
              <property name="font">
               <font>
@@ -9231,7 +9268,7 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="9">
+           <item row="6" column="10">
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -9263,54 +9300,7 @@
              </property>
             </spacer>
            </item>
-           <item row="5" column="1">
-            <widget class="PyDMCheckbox" name="PyDMCheckbox_48">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string/>
-             </property>
-             <property name="whatsThis">
-              <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>16</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="autoRepeat">
-              <bool>false</bool>
-             </property>
-             <property name="alarmSensitiveBorder" stdset="0">
-              <bool>false</bool>
-             </property>
-             <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay1-UI</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="2">
+           <item row="5" column="3">
             <widget class="PyDMLabel" name="PyDMLabel_8">
              <property name="minimumSize">
               <size>
@@ -9344,7 +9334,7 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="4">
+           <item row="5" column="5">
             <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23">
              <property name="enabled">
               <bool>true</bool>
@@ -9395,77 +9385,7 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="7" colspan="2">
-            <widget class="QLabel" name="label_309">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>15</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Status</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="4" rowspan="2">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string/>
-             </property>
-             <property name="whatsThis">
-              <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-             </property>
-             <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay2-SW</string>
-             </property>
-             <property name="offColor" stdset="0">
-              <color>
-               <red>255</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="circles" stdset="0">
-              <bool>true</bool>
-             </property>
-             <property name="labels" stdset="0">
-              <stringlist/>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="7">
+           <item row="9" column="8">
             <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28">
              <property name="minimumSize">
               <size>
@@ -9513,7 +9433,77 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="4">
+           <item row="3" column="8" colspan="2">
+            <widget class="QLabel" name="label_309">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Status</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="5" rowspan="2">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>20</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${IOC}:BBB:Relay2-SW</string>
+             </property>
+             <property name="offColor" stdset="0">
+              <color>
+               <red>255</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="circles" stdset="0">
+              <bool>true</bool>
+             </property>
+             <property name="labels" stdset="0">
+              <stringlist/>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="5">
             <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26">
              <property name="minimumSize">
               <size>
@@ -9561,23 +9551,7 @@
              </property>
             </widget>
            </item>
-           <item row="10" column="4">
-            <spacer name="verticalSpacer_12">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>5</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="4" column="7" colspan="3">
+           <item row="4" column="8" colspan="3">
             <widget class="Line" name="line_2">
              <property name="minimumSize">
               <size>
@@ -9599,7 +9573,23 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="1" colspan="5">
+           <item row="10" column="5">
+            <spacer name="verticalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>5</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="2" colspan="5">
             <widget class="QLabel" name="label_308">
              <property name="minimumSize">
               <size>
@@ -9621,92 +9611,20 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="1" rowspan="2">
-            <widget class="PyDMCheckbox" name="PyDMCheckbox_50">
-             <property name="enabled">
-              <bool>true</bool>
+           <item row="3" column="7" rowspan="7">
+            <widget class="Line" name="line_58">
+             <property name="windowModality">
+              <enum>Qt::NonModal</enum>
              </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>20</height>
-              </size>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
              </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string/>
-             </property>
-             <property name="whatsThis">
-              <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-             </property>
-             <property name="autoRepeat">
-              <bool>false</bool>
-             </property>
-             <property name="alarmSensitiveBorder" stdset="0">
-              <bool>false</bool>
-             </property>
-             <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay2-UI.RVAL</string>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </item>
-           <item row="9" column="1">
-            <widget class="PyDMCheckbox" name="PyDMCheckbox_51">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string/>
-             </property>
-             <property name="whatsThis">
-              <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-             </property>
-             <property name="autoRepeat">
-              <bool>false</bool>
-             </property>
-             <property name="alarmSensitiveBorder" stdset="0">
-              <bool>false</bool>
-             </property>
-             <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay4-UI</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="5">
+           <item row="9" column="6">
             <widget class="PyDMLabel" name="PyDMLabel_34">
              <property name="minimumSize">
               <size>
@@ -9740,7 +9658,7 @@
              </property>
             </widget>
            </item>
-           <item row="9" column="4">
+           <item row="9" column="5">
             <widget class="PyDMByteIndicator" name="PyDMByteIndicator_8">
              <property name="minimumSize">
               <size>
@@ -9788,20 +9706,7 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="6" rowspan="7">
-            <widget class="Line" name="line_58">
-             <property name="windowModality">
-              <enum>Qt::NonModal</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0" colspan="6">
+           <item row="4" column="0" colspan="7">
             <widget class="Line" name="line">
              <property name="minimumSize">
               <size>
@@ -9823,7 +9728,14 @@
              </property>
             </widget>
            </item>
-           <item row="9" column="8">
+           <item row="7" column="8" colspan="3">
+            <widget class="Line" name="line_59">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="9">
             <widget class="PyDMLabel" name="PyDMLabel_54">
              <property name="minimumSize">
               <size>
@@ -9857,8 +9769,55 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="7">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24">
+           <item row="5" column="1">
+            <widget class="PyDMCheckbox" name="PyDMCheckbox_48">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>20</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="autoRepeat">
+              <bool>false</bool>
+             </property>
+             <property name="alarmSensitiveBorder" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${IOC}:BBB:Relay1-UI</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" rowspan="2">
+            <widget class="PyDMCheckbox" name="PyDMCheckbox_50">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -9871,7 +9830,7 @@
              <property name="maximumSize">
               <size>
                <width>20</width>
-               <height>20</height>
+               <height>23</height>
               </size>
              </property>
              <property name="toolTip">
@@ -9879,8 +9838,7 @@
              </property>
              <property name="whatsThis">
               <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
+    A QCheckbox with support for Channels and more from PyDM
 
     Parameters
     ----------
@@ -9888,30 +9846,207 @@
         The parent widget for the Label
     init_channel : str, optional
         The channel to be used by the widget.
+
     </string>
              </property>
+             <property name="autoRepeat">
+              <bool>false</bool>
+             </property>
+             <property name="alarmSensitiveBorder" stdset="0">
+              <bool>false</bool>
+             </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:ValveOpen</string>
-             </property>
-             <property name="offColor" stdset="0">
-              <color>
-               <red>255</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="circles" stdset="0">
-              <bool>true</bool>
-             </property>
-             <property name="labels" stdset="0">
-              <stringlist/>
+              <string>ca://${IOC}:BBB:Relay2-UI.RVAL</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="7" colspan="3">
-            <widget class="Line" name="line_59">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+           <item row="8" column="1">
+            <widget class="PyDMCheckbox" name="PyDMCheckbox_49">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>20</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+             </property>
+             <property name="autoRepeat">
+              <bool>false</bool>
+             </property>
+             <property name="alarmSensitiveBorder" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${IOC}:BBB:Relay3-UI</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="PyDMCheckbox" name="PyDMCheckbox_51">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>20</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+             </property>
+             <property name="autoRepeat">
+              <bool>false</bool>
+             </property>
+             <property name="alarmSensitiveBorder" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${IOC}:BBB:Relay4-UI</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="PyDMShellCommand" name="Shell1">
+             <property name="maximumSize">
+              <size>
+               <width>1</width>
+               <height>1</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="command" stdset="0">
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;1&quot;, &quot;VALVE&quot;:&quot;Valve 1?&quot;}' valve_confirmation.ui</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="PyDMShellCommand" name="Shell2">
+             <property name="maximumSize">
+              <size>
+               <width>1</width>
+               <height>1</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="command" stdset="0">
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;2&quot;, &quot;VALVE&quot;:&quot;Pre-vacuum Valve?&quot;}' valve_confirmation.ui</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <widget class="PyDMShellCommand" name="Shell3">
+             <property name="maximumSize">
+              <size>
+               <width>1</width>
+               <height>1</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="command" stdset="0">
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;3&quot;, &quot;VALVE&quot;:&quot;Valve 3?&quot;}' valve_confirmation.ui</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="2">
+            <widget class="PyDMShellCommand" name="Shell4">
+             <property name="maximumSize">
+              <size>
+               <width>1</width>
+               <height>1</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="command" stdset="0">
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;4&quot;, &quot;VALVE&quot;:&quot;Gate Valve?&quot;}' valve_confirmation.ui</string>
              </property>
             </widget>
            </item>
@@ -9942,6 +10077,11 @@
    <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
+   <class>PyDMShellCommand</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.shell_command</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
@@ -9950,5 +10090,86 @@
  <resources>
   <include location="../../images/logo.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>PyDMCheckbox_48</sender>
+   <signal>clicked()</signal>
+   <receiver>Shell1</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>53</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PyDMCheckbox_50</sender>
+   <signal>clicked()</signal>
+   <receiver>Shell2</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>425</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PyDMCheckbox_49</sender>
+   <signal>clicked()</signal>
+   <receiver>Shell3</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>455</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>456</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PyDMCheckbox_51</sender>
+   <signal>clicked()</signal>
+   <receiver>Shell4</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>481</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PyDMCheckbox_70</sender>
+   <signal>clicked()</signal>
+   <receiver>Shell5</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>427</x>
+     <y>741</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>757</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

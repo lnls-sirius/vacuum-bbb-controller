@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>318</width>
-    <height>184</height>
+    <height>125</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -254,7 +254,7 @@
     <property name="geometry">
      <rect>
       <x>155</x>
-      <y>110</y>
+      <y>10</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -268,14 +268,14 @@
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
+     <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
     <property name="geometry">
      <rect>
       <x>225</x>
-      <y>110</y>
+      <y>10</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -289,7 +289,7 @@
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
+     <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
     </property>
    </widget>
    <zorder>PyDMShellCommand_2</zorder>
@@ -384,8 +384,8 @@
      <y>95</y>
     </hint>
     <hint type="destinationlabel">
-     <x>288</x>
-     <y>126</y>
+     <x>240</x>
+     <y>144</y>
     </hint>
    </hints>
   </connection>
