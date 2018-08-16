@@ -144,7 +144,7 @@
      <bool>false</bool>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/check_pressure.py ${IOC} 0</string>
+     <string>python ../../scripts/check_pressure.py ${IOC} 0</string>
     </property>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
@@ -6158,7 +6158,7 @@
      <bool>false</bool>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/process_off.py ${IOC}</string>
+     <string>python ../../scripts/process_off.py ${IOC}</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_6">
@@ -6633,7 +6633,7 @@
      <string>PV_trigger_ON</string>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/process_on.py ${IOC}</string>
+     <string>python ../../scripts/process_on.py ${IOC}</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PV_trigger_ON">

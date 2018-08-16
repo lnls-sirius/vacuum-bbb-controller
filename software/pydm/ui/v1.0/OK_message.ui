@@ -61,7 +61,7 @@
    <widget class="PyDMShellCommand" name="PyDMShellCommand">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>165</x>
       <y>60</y>
       <width>16</width>
       <height>16</height>
@@ -76,35 +76,13 @@
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/clean_status_PV.py ${IOC}</string>
-    </property>
-   </widget>
-   <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
-    <property name="geometry">
-     <rect>
-      <x>55</x>
-      <y>50</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="whatsThis">
-     <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-    </property>
-    <property name="command" stdset="0">
-     <string>ps -ef | grep &quot;/usr/local/bin/pydm --hide-nav-bar --hide-menu-bar --hide-status-bar OK_message.ui&quot; | grep -v grep | awk '{print $2}' | sudo xargs kill</string>
+     <string>python ../../scripts/clean_status_PV.py ${IOC}</string>
     </property>
    </widget>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>PyDMShellCommand</zorder>
    <zorder>pushButton</zorder>
-   <zorder>PyDMShellCommand_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -156,24 +134,8 @@
      <y>86</y>
     </hint>
     <hint type="destinationlabel">
-     <x>160</x>
-     <y>94</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>PyDMShellCommand_2</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>120</x>
-     <y>83</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>65</x>
-     <y>76</y>
+     <x>215</x>
+     <y>84</y>
     </hint>
    </hints>
   </connection>

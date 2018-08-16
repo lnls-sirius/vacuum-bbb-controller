@@ -200,7 +200,7 @@ open/close                                  </string>
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
+     <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
@@ -221,7 +221,7 @@ open/close                                  </string>
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python ../scripts/commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
+     <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
