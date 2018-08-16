@@ -6,53 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
-    <height>125</height>
+    <width>318</width>
+    <height>184</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>27</y>
-      <width>206</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Are you sure you really want to 
-open/close                                  </string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>52</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/warning.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
    <widget class="PyDMLabel" name="PyDMLabel_40">
     <property name="geometry">
      <rect>
@@ -89,10 +50,10 @@ open/close                                  </string>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>15</y>
-      <width>301</width>
-      <height>86</height>
+      <x>10</x>
+      <y>10</y>
+      <width>298</width>
+      <height>93</height>
      </rect>
     </property>
     <property name="palette">
@@ -168,25 +129,132 @@ open/close                                  </string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>55</y>
-       <width>166</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1" colspan="2">
+        <widget class="QLabel" name="label">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>14</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Are you sure you really want to</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_3">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>14</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>${VALVE}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_4">
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>14</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>open/close</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QDialogButtonBox" name="buttonBox">
+         <property name="standardButtons">
+          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+         </property>
+         <property name="centerButtons">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" rowspan="4">
+        <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/warning.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>3</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>80</y>
+      <x>155</x>
+      <y>110</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -200,14 +268,14 @@ open/close                                  </string>
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
+     <string>python ../scripts/commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>75</y>
+      <x>225</x>
+      <y>110</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -221,42 +289,20 @@ open/close                                  </string>
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>175</x>
-      <y>42</y>
-      <width>136</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>${VALVE}</string>
+     <string>python ../scripts/commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
     </property>
    </widget>
    <zorder>PyDMShellCommand_2</zorder>
    <zorder>PyDMShellCommand</zorder>
    <zorder>frame</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
    <zorder>PyDMLabel_40</zorder>
-   <zorder>label_3</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>332</width>
+     <width>318</width>
      <height>19</height>
     </rect>
    </property>
@@ -276,7 +322,7 @@ open/close                                  </string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="images/logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections>
   <connection>

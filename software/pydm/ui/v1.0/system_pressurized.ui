@@ -1340,7 +1340,7 @@ This might be happened due to a power failure. Proceed according to the steps di
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python process_recovery.py ${IOC}</string>
+     <string>python ../scripts/process_recovery.py ${IOC}</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_3">
@@ -1439,14 +1439,14 @@ This might be happened due to a power failure. Proceed according to the steps di
    <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMByteIndicator</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
    <class>PyDMShellCommand</class>
@@ -1455,7 +1455,7 @@ This might be happened due to a power failure. Proceed according to the steps di
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="images/logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections>
   <connection>

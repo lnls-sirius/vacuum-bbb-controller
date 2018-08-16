@@ -144,7 +144,7 @@
      <bool>false</bool>
     </property>
     <property name="command" stdset="0">
-     <string>python check_pressure.py ${IOC} 0</string>
+     <string>python ../scripts/check_pressure.py ${IOC} 0</string>
     </property>
    </widget>
    <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
@@ -6158,7 +6158,7 @@
      <bool>false</bool>
     </property>
     <property name="command" stdset="0">
-     <string>python process_off.py ${IOC}</string>
+     <string>python ../scripts/process_off.py ${IOC}</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_6">
@@ -6633,7 +6633,7 @@
      <string>PV_trigger_ON</string>
     </property>
     <property name="command" stdset="0">
-     <string>python process_on.py ${IOC}</string>
+     <string>python ../scripts/process_on.py ${IOC}</string>
     </property>
    </widget>
    <widget class="PyDMCheckbox" name="PV_trigger_ON">
@@ -6866,24 +6866,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
   </customwidget>
   <customwidget>
    <class>PyDMByteIndicator</class>
@@ -6891,13 +6876,28 @@
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMShellCommand</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.shell_command</header>
   </customwidget>
+  <customwidget>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
+  </customwidget>
  </customwidgets>
  <resources>
-  <include location="images/logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections>
   <connection>

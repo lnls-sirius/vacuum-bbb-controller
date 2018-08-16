@@ -2830,9 +2830,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
@@ -2840,13 +2840,13 @@
    <header>pydm.widgets.related_display_button</header>
   </customwidget>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../images/logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections/>
 </ui>
