@@ -5051,7 +5051,7 @@
       <string>Ready for operation</string>
       <string>No function</string>
       <string>Operation enabled</string>
-      <string>Error condition (all components)</string>
+      <string>Error condition (all components) </string>
       <string>Accelerating</string>
       <string>Decelerating</string>
       <string>Switch-on lock</string>
@@ -5540,27 +5540,6 @@
     </property>
     <property name="channel" stdset="0">
      <string>ca://${IOC}:BBB:ValveClosed</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_40">
-    <property name="geometry">
-     <rect>
-      <x>355</x>
-      <y>530</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <underline>false</underline>
-     </font>
-    </property>
-    <property name="text">
-     <string>Bit</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QFrame" name="frame_5">
@@ -6958,6 +6937,7 @@
      <string>ca://${IOC}:BBB:Relay3-UI</string>
     </property>
    </widget>
+   <zorder>frame_7</zorder>
    <zorder>PyDMShellCommand_9</zorder>
    <zorder>frame_10</zorder>
    <zorder>PyDMShellCommand_6</zorder>
@@ -6988,7 +6968,6 @@
    <zorder>label_39</zorder>
    <zorder>frame_15</zorder>
    <zorder>PyDMLabel_5</zorder>
-   <zorder>frame_7</zorder>
    <zorder>PyDMByteIndicator_2</zorder>
    <zorder>PyDMLabel_3</zorder>
    <zorder>PyDMLineEdit_17</zorder>
@@ -7007,7 +6986,6 @@
    <zorder>PyDMLabel_15</zorder>
    <zorder>label_99</zorder>
    <zorder>PyDMLabel_13</zorder>
-   <zorder>label_40</zorder>
    <zorder>PyDMLabel_9</zorder>
    <zorder>PyDMLabel_17</zorder>
    <zorder>PyDMCheckbox_5</zorder>
@@ -7061,19 +7039,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
    <class>PyDMByteIndicator</class>
@@ -7081,15 +7049,57 @@
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMShellCommand</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.shell_command</header>
   </customwidget>
+  <customwidget>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
+  </customwidget>
  </customwidgets>
  <resources>
-  <include location="images/logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections>
+  <connection>
+   <sender>PyDMCheckbox_26</sender>
+   <signal>clicked()</signal>
+   <receiver>PyDMShellCommand_8</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>35</x>
+     <y>418</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>42</x>
+     <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PyDMCheckbox_24</sender>
+   <signal>clicked()</signal>
+   <receiver>PyDMShellCommand_7</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>37</x>
+     <y>385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>42</x>
+     <y>391</y>
+    </hint>
+   </hints>
+  </connection>
   <connection>
    <sender>PyDMCheckbox_23</sender>
    <signal>clicked()</signal>
@@ -7119,38 +7129,6 @@
     <hint type="destinationlabel">
      <x>42</x>
      <y>331</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>PyDMCheckbox_24</sender>
-   <signal>clicked()</signal>
-   <receiver>PyDMShellCommand_7</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>37</x>
-     <y>385</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>42</x>
-     <y>391</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>PyDMCheckbox_26</sender>
-   <signal>clicked()</signal>
-   <receiver>PyDMShellCommand_8</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>35</x>
-     <y>418</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>42</x>
-     <y>421</y>
     </hint>
    </hints>
   </connection>

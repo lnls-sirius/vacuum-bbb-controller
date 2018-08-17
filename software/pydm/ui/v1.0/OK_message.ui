@@ -61,10 +61,10 @@
    <widget class="PyDMShellCommand" name="PyDMShellCommand">
     <property name="geometry">
      <rect>
-      <x>145</x>
-      <y>65</y>
-      <width>28</width>
-      <height>24</height>
+      <x>165</x>
+      <y>60</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -76,7 +76,7 @@
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python clean_status_PV.py ${IOC}</string>
+     <string>python ../../scripts/clean_status_PV.py ${IOC}</string>
     </property>
    </widget>
    <zorder>label</zorder>
@@ -104,7 +104,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="images/logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -134,8 +134,8 @@
      <y>86</y>
     </hint>
     <hint type="destinationlabel">
-     <x>172</x>
-     <y>105</y>
+     <x>215</x>
+     <y>84</y>
     </hint>
    </hints>
   </connection>

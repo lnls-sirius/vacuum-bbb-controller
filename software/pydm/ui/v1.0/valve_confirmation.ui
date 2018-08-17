@@ -186,7 +186,7 @@ open/close                                  </string>
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>80</y>
+      <y>15</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -200,14 +200,14 @@ open/close                                  </string>
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
+     <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
     </property>
    </widget>
    <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>75</y>
+      <y>15</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -221,7 +221,7 @@ open/close                                  </string>
     </string>
     </property>
     <property name="command" stdset="0">
-     <string>python commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
+     <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -276,7 +276,7 @@ open/close                                  </string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="images/logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections>
   <connection>
