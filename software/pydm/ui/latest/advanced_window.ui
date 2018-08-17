@@ -8431,7 +8431,7 @@
             </spacer>
            </item>
            <item row="37" column="2">
-            <widget class="PyDMShellCommand" name="Shell5">
+            <widget class="PyDMShellCommand" name="Relay5">
              <property name="maximumSize">
               <size>
                <width>1</width>
@@ -8453,7 +8453,7 @@
               </size>
              </property>
              <property name="command" stdset="0">
-              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;venting_valve&quot;,&quot;VALVE&quot;:&quot;Venting Valve?&quot;}' valve_confirmation.ui</string>
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_confirmation_message.py</string>
              </property>
             </widget>
            </item>
@@ -9943,7 +9943,7 @@
             </widget>
            </item>
            <item row="5" column="2">
-            <widget class="PyDMShellCommand" name="Shell1">
+            <widget class="PyDMShellCommand" name="Relay1">
              <property name="maximumSize">
               <size>
                <width>1</width>
@@ -9965,12 +9965,12 @@
               </size>
              </property>
              <property name="command" stdset="0">
-              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;1&quot;, &quot;VALVE&quot;:&quot;Valve 1?&quot;}' valve_confirmation.ui</string>
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_confirmation_message.py</string>
              </property>
             </widget>
            </item>
            <item row="6" column="2">
-            <widget class="PyDMShellCommand" name="Shell2">
+            <widget class="PyDMShellCommand" name="Relay2">
              <property name="maximumSize">
               <size>
                <width>1</width>
@@ -9992,12 +9992,12 @@
               </size>
              </property>
              <property name="command" stdset="0">
-              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;2&quot;, &quot;VALVE&quot;:&quot;Pre-vacuum Valve?&quot;}' valve_confirmation.ui</string>
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_confirmation_message.py</string>
              </property>
             </widget>
            </item>
            <item row="8" column="2">
-            <widget class="PyDMShellCommand" name="Shell3">
+            <widget class="PyDMShellCommand" name="Relay3">
              <property name="maximumSize">
               <size>
                <width>1</width>
@@ -10019,12 +10019,12 @@
               </size>
              </property>
              <property name="command" stdset="0">
-              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;3&quot;, &quot;VALVE&quot;:&quot;Valve 3?&quot;}' valve_confirmation.ui</string>
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_confirmation_message.py</string>
              </property>
             </widget>
            </item>
            <item row="9" column="2">
-            <widget class="PyDMShellCommand" name="Shell4">
+            <widget class="PyDMShellCommand" name="Relay4">
              <property name="maximumSize">
               <size>
                <width>1</width>
@@ -10046,7 +10046,7 @@
               </size>
              </property>
              <property name="command" stdset="0">
-              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;, &quot;RELAY&quot;:&quot;4&quot;, &quot;VALVE&quot;:&quot;Gate Valve?&quot;}' valve_confirmation.ui</string>
+              <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_confirmation_message.py</string>
              </property>
             </widget>
            </item>
@@ -10062,16 +10062,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
@@ -10080,6 +10070,16 @@
    <class>PyDMShellCommand</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.shell_command</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMLineEdit</class>
@@ -10094,7 +10094,7 @@
   <connection>
    <sender>PyDMCheckbox_48</sender>
    <signal>clicked()</signal>
-   <receiver>Shell1</receiver>
+   <receiver>Relay1</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -10102,15 +10102,15 @@
      <y>393</y>
     </hint>
     <hint type="destinationlabel">
-     <x>62</x>
-     <y>395</y>
+     <x>61</x>
+     <y>391</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>PyDMCheckbox_50</sender>
    <signal>clicked()</signal>
-   <receiver>Shell2</receiver>
+   <receiver>Relay2</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -10118,15 +10118,15 @@
      <y>425</y>
     </hint>
     <hint type="destinationlabel">
-     <x>65</x>
-     <y>421</y>
+     <x>61</x>
+     <y>417</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>PyDMCheckbox_49</sender>
    <signal>clicked()</signal>
-   <receiver>Shell3</receiver>
+   <receiver>Relay3</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -10134,15 +10134,15 @@
      <y>455</y>
     </hint>
     <hint type="destinationlabel">
-     <x>70</x>
-     <y>456</y>
+     <x>61</x>
+     <y>452</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>PyDMCheckbox_51</sender>
    <signal>clicked()</signal>
-   <receiver>Shell4</receiver>
+   <receiver>Relay4</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -10150,15 +10150,15 @@
      <y>479</y>
     </hint>
     <hint type="destinationlabel">
-     <x>66</x>
-     <y>481</y>
+     <x>61</x>
+     <y>478</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>PyDMCheckbox_70</sender>
    <signal>clicked()</signal>
-   <receiver>Shell5</receiver>
+   <receiver>Relay5</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -10166,8 +10166,8 @@
      <y>741</y>
     </hint>
     <hint type="destinationlabel">
-     <x>431</x>
-     <y>757</y>
+     <x>426</x>
+     <y>755</y>
     </hint>
    </hints>
   </connection>
