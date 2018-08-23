@@ -418,6 +418,11 @@
                <height>15</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="toolTip">
               <string/>
              </property>
@@ -1121,6 +1126,11 @@
                <width>16777215</width>
                <height>20</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
              </property>
              <property name="text">
               <string>developed by Controls Group</string>
@@ -2630,7 +2640,7 @@
             </widget>
            </item>
            <item row="2" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29" native="true">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -3514,7 +3524,7 @@
             </widget>
            </item>
            <item row="14" column="10" rowspan="10" colspan="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32" native="true">
              <property name="maximumSize">
               <size>
                <width>240</width>
@@ -8130,7 +8140,7 @@
             </spacer>
            </item>
            <item row="27" column="10" rowspan="11" colspan="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33" native="true">
              <property name="maximumSize">
               <size>
                <width>212</width>
@@ -8489,7 +8499,7 @@
          <item row="0" column="0">
           <layout class="QGridLayout" name="Valves_3">
            <item row="6" column="8">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24" native="true">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -9335,7 +9345,7 @@
             </widget>
            </item>
            <item row="5" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23" native="true">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -9386,7 +9396,7 @@
             </widget>
            </item>
            <item row="9" column="8">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28" native="true">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -9456,7 +9466,7 @@
             </widget>
            </item>
            <item row="6" column="5" rowspan="2">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25" native="true">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -9504,7 +9514,7 @@
             </widget>
            </item>
            <item row="8" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26" native="true">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -9659,7 +9669,7 @@
             </widget>
            </item>
            <item row="9" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_8">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_8" native="true">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -10062,6 +10072,16 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
@@ -10075,16 +10095,6 @@
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -390,10 +390,10 @@ def thread_2():
                     elif (data[0] == "\x01"):
                         # approach used with PyDMCheckbox GUI button
                         #'''
-                        if (int(data[1]) == 0):
+                        if (data[1] == "\x00"):
                             #print "Switching Relay 1 OFF"
                             GPIO.output(relay1, GPIO.LOW)
-                        if (int(data[1]) == 1):
+                        if (data[1] == "\x01"):
                             #print "Switching Relay 1 ON"
                             GPIO.output(relay1, GPIO.HIGH)
                         #'''
@@ -411,10 +411,10 @@ def thread_2():
                     elif (data[0] == "\x02"):
                         # approach used with PyDMCheckbox GUI button
                         #'''
-                        if (int(data[1]) == 0):
+                        if (data[1] == "\x00"):
                             #print "Switching Relay 2 OFF"
                             GPIO.output(relay2, GPIO.LOW)
-                        if (int(data[1]) == 1):
+                        if (data[1] == "\x01"):
                             #print "Switching Relay 2 ON"
                             GPIO.output(relay2, GPIO.HIGH)
                         #'''
@@ -432,10 +432,10 @@ def thread_2():
                     elif (data[0] == "\x03"):
                         # approach used with PyDMCheckbox GUI button
                         #'''
-                        if (int(data[1]) == 0):
+                        if (data[1] == "\x00"):
                             #print "Switching Relay 3 OFF"
                             GPIO.output(relay3, GPIO.LOW)
-                        if (int(data[1]) == 1):
+                        if (data[1] == "\x01"):
                             #print "Switching Relay 3 ON"
                             GPIO.output(relay3, GPIO.HIGH)
                         #'''
@@ -453,10 +453,10 @@ def thread_2():
                     elif (data[0] == "\x04"):
                         # approach used with PyDMCheckbox GUI button
                         #'''
-                        if (int(data[1]) == 0):
+                        if (data[1] == "\x00"):
                             #print "Switching Relay 4 OFF"
                             GPIO.output(relay4, GPIO.LOW)
-                        if (int(data[1]) == 1):
+                        if (data[1] == "\x01"):
                             #print "Switching Relay 4 ON"
                             GPIO.output(relay4, GPIO.HIGH)
                         #'''

@@ -439,7 +439,7 @@
      </widget>
     </item>
     <item row="10" column="7">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -738,7 +738,7 @@
      </widget>
     </item>
     <item row="9" column="7">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -832,6 +832,11 @@
         <width>16777215</width>
         <height>15</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>developed by Controls Group</string>
@@ -1007,7 +1012,7 @@
      </widget>
     </item>
     <item row="7" column="7">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -1105,7 +1110,7 @@
      </widget>
     </item>
     <item row="10" column="1">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_10">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_10" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -1161,7 +1166,7 @@
      </widget>
     </item>
     <item row="6" column="7">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -1382,7 +1387,7 @@
      </widget>
     </item>
     <item row="6" column="1">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -1625,7 +1630,7 @@
        <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
-       <string>System based on BeagleBone Black (BBB) used to control vaccum car system. Used to monitor nytrogen insertion during vacuum chamber ventilation process.</string>
+       <string>Project based on BeagleBone Black (BBB) used to control vaccum car system. Used to monitor nytrogen insertion during vacuum chamber ventilation process.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1636,7 +1641,7 @@
      </widget>
     </item>
     <item row="7" column="1">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_7">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_7" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -1692,7 +1697,7 @@
      </widget>
     </item>
     <item row="8" column="1">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_9">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_9" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -1748,7 +1753,7 @@
      </widget>
     </item>
     <item row="8" column="7">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -2830,7 +2835,7 @@
      </spacer>
     </item>
     <item row="9" column="1">
-     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_8">
+     <widget class="PyDMByteIndicator" name="PyDMByteIndicator_8" native="true">
       <property name="minimumSize">
        <size>
         <width>35</width>
@@ -3115,14 +3120,14 @@
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
   </customwidget>
  </customwidgets>
  <resources/>
