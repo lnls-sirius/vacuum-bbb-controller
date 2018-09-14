@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>808</width>
-    <height>688</height>
+    <width>806</width>
+    <height>704</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,32 +18,34 @@
     <rect>
      <x>10</x>
      <y>15</y>
-     <width>775</width>
-     <height>660</height>
+     <width>782</width>
+     <height>676</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Cantarell</family>
      <pointsize>11</pointsize>
     </font>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="8" column="0">
-     <spacer name="verticalSpacer_6">
+    <item row="3" column="1">
+     <spacer name="horizontalSpacer_5">
       <property name="font">
        <font>
+        <family>Cantarell</family>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="orientation">
-       <enum>Qt::Vertical</enum>
+       <enum>Qt::Horizontal</enum>
       </property>
       <property name="sizeType">
-       <enum>QSizePolicy::Expanding</enum>
+       <enum>QSizePolicy::Fixed</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>0</width>
+        <width>10</width>
         <height>5</height>
        </size>
       </property>
@@ -53,6 +55,7 @@
      <widget class="QFrame" name="frame_7">
       <property name="font">
        <font>
+        <family>Cantarell</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -93,6 +96,7 @@
           <widget class="PyDMLabel" name="PyDMLabel_83">
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -216,6 +220,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -272,6 +277,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -328,6 +334,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -369,6 +376,7 @@
           <widget class="PyDMLabel" name="PyDMLabel_74">
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -387,6 +395,7 @@
           <widget class="PyDMLabel" name="PyDMLabel_82">
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -426,6 +435,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -482,6 +492,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -523,6 +534,7 @@
           <widget class="PyDMLabel" name="PyDMLabel_76">
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -550,6 +562,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -586,28 +599,11 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="4" colspan="4">
-          <widget class="PyDMLabel" name="PyDMLabel_81">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Wait TURBOVAC frequency decreases under</string>
-           </property>
-          </widget>
-         </item>
          <item row="7" column="4" colspan="6">
           <widget class="PyDMLabel" name="PyDMLabel_80">
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -632,6 +628,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -650,7 +647,7 @@
             </size>
            </property>
            <property name="command" stdset="0">
-            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;}' OK_message.ui</string>
+            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar ../python/launch_ui_OK_message.py ${IOC}</string>
            </property>
           </widget>
          </item>
@@ -673,6 +670,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -707,6 +705,25 @@
            </property>
            <property name="labels" stdset="0">
             <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_40">
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/stop_button.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -763,6 +780,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
              <weight>75</weight>
              <bold>true</bold>
@@ -794,24 +812,6 @@
            </property>
            <property name="command" stdset="0">
             <string>python ../scripts/process_off.py ${IOC}</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="label_40">
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/stop_button.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -895,6 +895,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -927,6 +928,7 @@
              <widget class="QLabel" name="label_97">
               <property name="font">
                <font>
+                <family>Cantarell</family>
                 <pointsize>11</pointsize>
                </font>
               </property>
@@ -942,6 +944,7 @@
              <widget class="QLabel" name="label_98">
               <property name="font">
                <font>
+                <family>Cantarell</family>
                 <pointsize>11</pointsize>
                </font>
               </property>
@@ -957,6 +960,7 @@
              <widget class="QLabel" name="label_99">
               <property name="font">
                <font>
+                <family>Cantarell</family>
                 <pointsize>11</pointsize>
                </font>
               </property>
@@ -972,6 +976,7 @@
              <widget class="QLabel" name="label_100">
               <property name="font">
                <font>
+                <family>Cantarell</family>
                 <pointsize>11</pointsize>
                </font>
               </property>
@@ -987,6 +992,7 @@
              <widget class="QLabel" name="label_101">
               <property name="font">
                <font>
+                <family>Cantarell</family>
                 <pointsize>11</pointsize>
                </font>
               </property>
@@ -1002,6 +1008,7 @@
              <widget class="QLabel" name="label_102">
               <property name="font">
                <font>
+                <family>Cantarell</family>
                 <pointsize>11</pointsize>
                </font>
               </property>
@@ -1016,6 +1023,25 @@
            </layout>
           </widget>
          </item>
+         <item row="1" column="4" colspan="6">
+          <widget class="PyDMLabel" name="PyDMLabel_73">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Close pre-vacuum valve</string>
+           </property>
+          </widget>
+         </item>
          <item row="5" column="4" rowspan="2">
           <widget class="PyDMLabel" name="PyDMLabel_79">
            <property name="maximumSize">
@@ -1026,6 +1052,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -1040,6 +1067,81 @@
            </property>
           </widget>
          </item>
+         <item row="3" column="4" colspan="4">
+          <widget class="PyDMLabel" name="PyDMLabel_81">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Wait TURBOVAC frequency decreases under</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_78">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>base</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OffPressureBase</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="6" rowspan="2">
+          <widget class="QLabel" name="label_96">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>* 10</string>
+           </property>
+          </widget>
+         </item>
          <item row="5" column="7">
           <widget class="PyDMLabel" name="PyDMLabel_75">
            <property name="maximumSize">
@@ -1050,6 +1152,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>7</pointsize>
             </font>
            </property>
@@ -1067,51 +1170,6 @@
            </property>
           </widget>
          </item>
-         <item row="5" column="5" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_78">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>base</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OffPressureBase</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="6" rowspan="2">
-          <widget class="QLabel" name="label_96">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>* 10</string>
-           </property>
-          </widget>
-         </item>
          <item row="5" column="8" rowspan="2" colspan="2">
           <widget class="PyDMLabel" name="PyDMLabel_77">
            <property name="maximumSize">
@@ -1122,6 +1180,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -1142,24 +1201,6 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="4" colspan="6">
-          <widget class="PyDMLabel" name="PyDMLabel_73">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Close pre-vacuum valve</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
@@ -1169,6 +1210,7 @@
      <widget class="QFrame" name="frame_3">
       <property name="font">
        <font>
+        <family>Cantarell</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -1205,6 +1247,612 @@
          <property name="bottomMargin">
           <number>6</number>
          </property>
+         <item row="5" column="4" rowspan="2">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status4</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="PyDMCheckbox" name="Shell_PV_trigger_ON">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="precisionFromPV" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:Process:TriggerOn</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_101">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Wait TURBOVAC pump stops completely</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_105">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Turn ACP15 pump on</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status5</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="9" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_103">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Torr</string>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OnPressureBase.EGU</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" rowspan="6" colspan="2">
+          <widget class="QFrame" name="frame_12">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_130">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_131">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 2</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_132">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 3</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_133">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 4</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_134">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 5</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="3" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_107">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Open gate valve and pre-vacuum valve</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status1</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2" rowspan="2">
+          <widget class="QLabel" name="label_38">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/play_button.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="PyDMShellCommand" name="Shell_PV_trigger_ON_2">
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="command" stdset="0">
+            <string>python ../scripts/process_on.py ${IOC}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="6" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_104">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>base</string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OnPressureBase</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_108">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Wait pressure decrease under</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="3" rowspan="2">
           <widget class="PyDMShellCommand" name="Shell6">
            <property name="minimumSize">
@@ -1258,6 +1906,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
              <weight>75</weight>
              <bold>true</bold>
@@ -1293,26 +1942,8 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_101">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Wait TURBOVAC pump stops completely</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
+         <item row="3" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1330,6 +1961,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -1350,7 +1982,7 @@
     </string>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status1</string>
+            <string>ca://${IOC}:ProcessOn:Status2</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -1367,42 +1999,6 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_107">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Open gate valve and pre-vacuum valve</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_106">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Turn TURBOVAC pump on</string>
-           </property>
-          </widget>
-         </item>
          <item row="4" column="0">
           <widget class="PyDMCheckbox" name="Shell_PV_trigger_PRESSURIZED">
            <property name="enabled">
@@ -1416,6 +2012,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -1455,26 +2052,8 @@
            </property>
           </widget>
          </item>
-         <item row="5" column="5" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_108">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Wait pressure decrease under</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="4" rowspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66">
+         <item row="4" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1492,6 +2071,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -1512,7 +2092,7 @@
     </string>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status4</string>
+            <string>ca://${IOC}:ProcessOn:Status3</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -1529,10 +2109,43 @@
            </property>
           </widget>
          </item>
+         <item row="5" column="7" rowspan="2">
+          <widget class="QLabel" name="label_143">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>* 10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_106">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Turn TURBOVAC pump on</string>
+           </property>
+          </widget>
+         </item>
          <item row="5" column="8">
           <widget class="PyDMLabel" name="PyDMLabel_102">
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>7</pointsize>
             </font>
            </property>
@@ -1547,114 +2160,6 @@
            </property>
            <property name="channel" stdset="0">
             <string>ca://${IOC}:SYSTEM:OnPressureExp</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status2</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="PyDMCheckbox" name="Shell_PV_trigger_ON">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="precisionFromPV" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:Process:TriggerOn</string>
            </property>
           </widget>
          </item>
@@ -1742,169 +2247,6 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_105">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Turn ACP15 pump on</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status5</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status3</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="6" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_104">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>base</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OnPressureBase</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="7" rowspan="2">
-          <widget class="QLabel" name="label_143">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>* 10</string>
-           </property>
-          </widget>
-         </item>
          <item row="5" column="0">
           <widget class="PyDMShellCommand" name="Shell_PV_trigger_PRESSURIZED_2">
            <property name="maximumSize">
@@ -1915,6 +2257,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Cantarell</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -1936,282 +2279,7 @@
             </size>
            </property>
            <property name="command" stdset="0">
-            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{&quot;IOC&quot;: &quot;$IOC&quot;}' launch_ui_warning_message.py</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="PyDMShellCommand" name="Shell_PV_trigger_ON_2">
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>python ../scripts/process_on.py ${IOC}</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="2" rowspan="6" colspan="2">
-          <widget class="QFrame" name="frame_12">
-           <property name="minimumSize">
-            <size>
-             <width>70</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>70</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_130">
-              <property name="font">
-               <font>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 1</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_131">
-              <property name="font">
-               <font>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 2</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_132">
-              <property name="font">
-               <font>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 3</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_133">
-              <property name="font">
-               <font>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 4</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_134">
-              <property name="font">
-               <font>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 5</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="0" column="2" rowspan="2">
-          <widget class="QLabel" name="label_38">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/play_button.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="9" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_103">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Torr</string>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OnPressureBase.EGU</string>
+            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_warning_message.py ${IOC}</string>
            </property>
           </widget>
          </item>
@@ -2232,6 +2300,7 @@
         </property>
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -2248,6 +2317,11 @@
       </item>
       <item row="0" column="0" rowspan="3">
        <widget class="QLabel" name="label_116">
+        <property name="font">
+         <font>
+          <family>Cantarell</family>
+         </font>
+        </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/LNLS.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
@@ -2260,6 +2334,7 @@
        <widget class="PyDMLineEdit" name="PyDMLineEdit_3">
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
           <weight>75</weight>
           <bold>true</bold>
@@ -2312,7 +2387,7 @@
        <widget class="QLabel" name="label_119">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2359,6 +2434,11 @@
       </item>
       <item row="0" column="1" colspan="4">
        <widget class="QLabel" name="label_117">
+        <property name="font">
+         <font>
+          <family>Cantarell</family>
+         </font>
+        </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/CNPEM.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
@@ -2759,7 +2839,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2772,10 +2852,154 @@
       </item>
      </layout>
     </item>
-    <item row="5" column="0">
-     <spacer name="verticalSpacer_5">
+    <item row="9" column="0">
+     <widget class="PyDMRelatedDisplayButton" name="Advanced_tab">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
       <property name="font">
        <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>Advanced tab...</string>
+      </property>
+      <property name="showIcon" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="displayFilename" stdset="0">
+       <string>./advanced_window.ui</string>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{&quot;IOC&quot;:&quot;$IOC&quot;, &quot;CAR&quot;:&quot;$CAR&quot;}</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <spacer name="verticalSpacer_6">
+      <property name="font">
+       <font>
+        <family>Cantarell</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -2793,22 +3017,23 @@
       </property>
      </spacer>
     </item>
-    <item row="3" column="1">
-     <spacer name="horizontalSpacer_5">
+    <item row="5" column="0">
+     <spacer name="verticalSpacer_5">
       <property name="font">
        <font>
+        <family>Cantarell</family>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Vertical</enum>
       </property>
       <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
+       <enum>QSizePolicy::Expanding</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>10</width>
+        <width>0</width>
         <height>5</height>
        </size>
       </property>
@@ -2818,6 +3043,11 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
        <widget class="QFrame" name="frame">
+        <property name="font">
+         <font>
+          <family>Cantarell</family>
+         </font>
+        </property>
         <property name="frameShape">
          <enum>QFrame::Box</enum>
         </property>
@@ -3099,6 +3329,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>7</pointsize>
               </font>
              </property>
@@ -3124,6 +3355,11 @@
            </item>
            <item row="3" column="0" colspan="8">
             <widget class="Line" name="line_6">
+             <property name="font">
+              <font>
+               <family>Cantarell</family>
+              </font>
+             </property>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
@@ -3134,6 +3370,11 @@
            </item>
            <item row="4" column="0" rowspan="2" colspan="2">
             <spacer name="horizontalSpacer_2">
+             <property name="font">
+              <font>
+               <family>Cantarell</family>
+              </font>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -3150,6 +3391,11 @@
            </item>
            <item row="4" column="7" rowspan="2">
             <spacer name="horizontalSpacer">
+             <property name="font">
+              <font>
+               <family>Cantarell</family>
+              </font>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -3174,6 +3420,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3192,6 +3439,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3222,6 +3470,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3251,6 +3500,7 @@
        <widget class="QFrame" name="frame_5">
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -3291,6 +3541,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_92">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3327,6 +3578,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3371,6 +3623,7 @@
             <widget class="QLabel" name="label_106">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3383,6 +3636,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_97">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3407,6 +3661,7 @@
             <widget class="QLabel" name="label_114">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3422,6 +3677,7 @@
             <widget class="QLabel" name="label_108">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3434,6 +3690,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_96">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3461,6 +3718,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_93">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3488,6 +3746,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_90">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3515,6 +3774,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_91">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3551,6 +3811,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3595,6 +3856,7 @@
             <widget class="QLabel" name="label_109">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3607,6 +3869,7 @@
             <widget class="QLabel" name="label_111">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3619,6 +3882,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_94">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3646,6 +3910,7 @@
             <widget class="QLabel" name="label_107">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3673,6 +3938,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3729,6 +3995,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3773,6 +4040,7 @@
             <spacer name="horizontalSpacer_4">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3794,6 +4062,7 @@
             <widget class="QLabel" name="label_110">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3809,6 +4078,7 @@
             <widget class="QLabel" name="label_112">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3836,6 +4106,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3971,6 +4242,7 @@
             <widget class="Line" name="line_9">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -3986,6 +4258,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_95">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -4010,6 +4283,7 @@
             <spacer name="horizontalSpacer_6">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -4036,6 +4310,7 @@
        <widget class="QFrame" name="frame_2">
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -4076,6 +4351,7 @@
             <spacer name="horizontalSpacer_8">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -4512,6 +4788,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -4939,6 +5216,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -5369,6 +5647,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -5381,6 +5660,7 @@
             <widget class="Line" name="line_10">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -5408,6 +5688,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -5958,6 +6239,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -5973,6 +6255,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_98">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6000,6 +6283,7 @@
             <spacer name="horizontalSpacer_3">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6036,6 +6320,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6077,6 +6362,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_99">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6104,6 +6390,7 @@
             <widget class="PyDMLabel" name="PyDMLabel_100">
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6546,6 +6833,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6570,6 +6858,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6623,6 +6912,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6676,6 +6966,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6722,6 +7013,7 @@
        <spacer name="verticalSpacer_9">
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -6743,6 +7035,7 @@
        <spacer name="verticalSpacer_8">
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -6770,6 +7063,7 @@
         </property>
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -6916,6 +7210,7 @@
              </property>
              <property name="font">
               <font>
+               <family>Cantarell</family>
                <pointsize>11</pointsize>
               </font>
              </property>
@@ -6965,6 +7260,7 @@
        <spacer name="verticalSpacer_7">
         <property name="font">
          <font>
+          <family>Cantarell</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -6988,6 +7284,7 @@
      <spacer name="verticalSpacer_4">
       <property name="font">
        <font>
+        <family>Cantarell</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -7005,173 +7302,10 @@
       </property>
      </spacer>
     </item>
-    <item row="9" column="0">
-     <widget class="PyDMRelatedDisplayButton" name="Advanced_tab">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>211</red>
-            <green>211</green>
-            <blue>211</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>211</red>
-            <green>211</green>
-            <blue>211</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>211</red>
-            <green>211</green>
-            <blue>211</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>211</red>
-            <green>211</green>
-            <blue>211</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>211</red>
-            <green>211</green>
-            <blue>211</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>211</red>
-            <green>211</green>
-            <blue>211</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>211</red>
-            <green>211</green>
-            <blue>211</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-      </property>
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-      <property name="text">
-       <string>Advanced tab...</string>
-      </property>
-      <property name="showIcon" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="displayFilename" stdset="0">
-       <string>./advanced_window.ui</string>
-      </property>
-      <property name="macros" stdset="0">
-       <string/>
-      </property>
-      <property name="openInNewWindow" stdset="0">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
-  </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
    <extends>QPushButton</extends>
@@ -7181,6 +7315,26 @@
    <class>PyDMShellCommand</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.shell_command</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
  </customwidgets>
  <resources>
@@ -7195,11 +7349,27 @@
    <hints>
     <hint type="sourcelabel">
      <x>19</x>
-     <y>238</y>
+     <y>244</y>
     </hint>
     <hint type="destinationlabel">
      <x>19</x>
-     <y>254</y>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PV_Trigger_OK_MESSAGE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>Shell3</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>19</x>
+     <y>471</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>19</x>
+     <y>497</y>
     </hint>
    </hints>
   </connection>
@@ -7211,27 +7381,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>19</x>
-     <y>306</y>
+     <y>312</y>
     </hint>
     <hint type="destinationlabel">
      <x>19</x>
-     <y>328</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>PV_Trigger_OK_MESSAGE</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Shell3</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>25</x>
-     <y>460</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>24</x>
-     <y>479</y>
+     <y>334</y>
     </hint>
    </hints>
   </connection>

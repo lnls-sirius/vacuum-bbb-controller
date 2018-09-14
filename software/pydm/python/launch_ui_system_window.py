@@ -11,6 +11,8 @@ class DeviceMenu(Display):
 
         # defining macro for PyDMRelatedDisplayButton (for opening "advanced_window.ui")
         self.Advance_tab.macros = json.dumps({"IOC":"$IOC"})
+        # defining macro for PyDMRelatedDisplayButton (for opening "warning_message.ui")
+        self.Shell_warning_message.macros = json.dumps({"IOC":"$IOC"})
 
     def ui_filename(self):
         return '../ui/latest/system_window.ui'

@@ -18,10 +18,10 @@ It is divided in 5 stages, described as follow:
 VBC = sys.argv[1]
 #------------------------------------------------------------------------------
 # valve names definition
-PRE_VACUUM_VALVE_SW = VBC + ":BBB:Relay2-SW"
-PRE_VACUUM_VALVE_UI = VBC + ":BBB:Relay2-UI"
-GATE_VALVE_SW = VBC + ":BBB:Relay4-SW"
-GATE_VALVE_UI = VBC + ":BBB:Relay4-UI"
+PRE_VACUUM_VALVE_SW = VBC + ":BBB:Relay1-SW"
+PRE_VACUUM_VALVE_UI = VBC + ":BBB:Relay1-UI"
+GATE_VALVE_SW = VBC + ":BBB:Relay2-SW"
+GATE_VALVE_UI = VBC + ":BBB:Relay2-UI"
 #------------------------------------------------------------------------------
 # clear all status PVs
 caput(VBC + ":ProcessRecovery:Status1", 0)

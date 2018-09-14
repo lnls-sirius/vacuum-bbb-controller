@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>290</width>
-    <height>227</height>
+    <height>144</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -98,7 +98,7 @@
        </layout>
       </item>
       <item row="2" column="0">
-       <widget class="PyDMShellCommand" name="Shell">
+       <widget class="PyDMShellCommand" name="Shell_clean_PVs">
         <property name="maximumSize">
          <size>
           <width>1</width>
@@ -128,27 +128,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>140</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string/>
-   </property>
-   <property name="whatsThis">
-    <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-   </property>
-   <property name="command" stdset="0">
-    <string>ps -ef | grep &quot;/usr/local/bin/pydm --hide-nav-bar --hide-menu-bar --hide-status-bar OK_message.ui&quot; | grep -v grep | awk '{print $2}' | sudo xargs kill</string>
-   </property>
-  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -162,7 +141,7 @@
   <connection>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
-   <receiver>Shell</receiver>
+   <receiver>Shell_clean_PVs</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -187,7 +166,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>152</x>
-     <y>146</y>
+     <y>143</y>
     </hint>
    </hints>
   </connection>

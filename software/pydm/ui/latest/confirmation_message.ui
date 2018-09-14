@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>315</width>
+    <width>326</width>
     <height>113</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="PyDMShellCommand" name="PyDMShellCommand">
+  <widget class="PyDMShellCommand" name="PyDMShellCommand_yes">
    <property name="geometry">
     <rect>
      <x>153</x>
@@ -31,7 +31,7 @@
     </string>
    </property>
    <property name="command" stdset="0">
-    <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;yes&quot;</string>
+    <string>&quot;python ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; yes&quot;</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
@@ -39,7 +39,7 @@
     <rect>
      <x>8</x>
      <y>10</y>
-     <width>298</width>
+     <width>308</width>
      <height>93</height>
     </rect>
    </property>
@@ -151,7 +151,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="VALVE">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -187,6 +187,12 @@
       </item>
       <item row="3" column="1" colspan="2">
        <widget class="QDialogButtonBox" name="buttonBox">
+        <property name="minimumSize">
+         <size>
+          <width>210</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="standardButtons">
          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
         </property>
@@ -237,7 +243,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="PyDMShellCommand" name="PyDMShellCommand_2">
+  <widget class="PyDMShellCommand" name="PyDMShellCommand_no">
    <property name="geometry">
     <rect>
      <x>223</x>
@@ -255,7 +261,7 @@
     </string>
    </property>
    <property name="command" stdset="0">
-    <string>python ../../scripts/commute_valve.py ${IOC} ${RELAY} &quot;no&quot;</string>
+    <string>&quot;python ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; no&quot;</string>
    </property>
   </widget>
   <widget class="PyDMLabel" name="PyDMLabel_40">
@@ -291,8 +297,8 @@
     <string>ca://${IOC}:BBB:TorrExp</string>
    </property>
   </widget>
-  <zorder>PyDMShellCommand</zorder>
-  <zorder>PyDMShellCommand_2</zorder>
+  <zorder>PyDMShellCommand_yes</zorder>
+  <zorder>PyDMShellCommand_no</zorder>
   <zorder>PyDMLabel_40</zorder>
   <zorder>frame</zorder>
  </widget>
@@ -345,7 +351,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>PyDMShellCommand</receiver>
+   <receiver>PyDMShellCommand_no</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -353,15 +359,15 @@
      <y>78</y>
     </hint>
     <hint type="destinationlabel">
-     <x>161</x>
-     <y>7</y>
+     <x>230</x>
+     <y>17</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>PyDMShellCommand_2</receiver>
+   <receiver>PyDMShellCommand_yes</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -369,8 +375,8 @@
      <y>76</y>
     </hint>
     <hint type="destinationlabel">
-     <x>230</x>
-     <y>5</y>
+     <x>160</x>
+     <y>17</y>
     </hint>
    </hints>
   </connection>
