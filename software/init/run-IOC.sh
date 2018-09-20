@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # start socket unix
-python /root/vacuum-bbb-controller/software/init/vbc_unix_socket.py 1 &
+python /root/vacuum-bbb-controller/software/ioc/vbc_unix_socket.py 1 &
 sleep 5
 
 # start IOC

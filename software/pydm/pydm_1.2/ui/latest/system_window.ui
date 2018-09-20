@@ -202,7 +202,7 @@
           </widget>
          </item>
          <item row="4" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -259,7 +259,7 @@
           </widget>
          </item>
          <item row="2" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -316,7 +316,7 @@
           </widget>
          </item>
          <item row="7" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -417,7 +417,7 @@
           </widget>
          </item>
          <item row="1" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -474,7 +474,7 @@
           </widget>
          </item>
          <item row="5" column="3" rowspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -652,7 +652,7 @@
           </widget>
          </item>
          <item row="3" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1248,7 +1248,7 @@
           <number>6</number>
          </property>
          <item row="5" column="4" rowspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1396,7 +1396,7 @@
           </widget>
          </item>
          <item row="7" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1695,7 +1695,7 @@
           </widget>
          </item>
          <item row="2" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1943,7 +1943,7 @@
           </widget>
          </item>
          <item row="3" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -2053,7 +2053,7 @@
           </widget>
          </item>
          <item row="4" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69" native="true">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -3563,7 +3563,7 @@
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -3796,7 +3796,7 @@
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -3923,7 +3923,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -3980,7 +3980,7 @@
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -4091,7 +4091,7 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -5673,7 +5673,7 @@
             </widget>
            </item>
            <item row="2" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6275,7 +6275,7 @@
               <bool>false</bool>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay4-SW</string>
+              <string>ca://${IOC}:BBB:Relay2-SW</string>
              </property>
             </widget>
            </item>
@@ -6302,7 +6302,7 @@
             </spacer>
            </item>
            <item row="5" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_62">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_62" native="true">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -6410,7 +6410,7 @@
               <bool>false</bool>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay2-SW</string>
+              <string>ca://${IOC}:BBB:Relay1-SW</string>
              </property>
             </widget>
            </item>
@@ -6843,7 +6843,7 @@
             </widget>
            </item>
            <item row="3" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_61">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_61" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6879,7 +6879,7 @@
     </string>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay4-SW</string>
+              <string>ca://${IOC}:BBB:Relay2-SW</string>
              </property>
              <property name="offColor" stdset="0">
               <color>
@@ -6897,7 +6897,7 @@
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_60">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_60" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6951,7 +6951,7 @@
             </widget>
            </item>
            <item row="1" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6987,7 +6987,7 @@
     </string>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay2-SW</string>
+              <string>ca://${IOC}:BBB:Relay1-SW</string>
              </property>
              <property name="offColor" stdset="0">
               <color>
@@ -7195,7 +7195,7 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_59">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_59" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -7307,11 +7307,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMShellCommand</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.shell_command</header>
@@ -7335,6 +7330,11 @@
    <class>PyDMByteIndicator</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
   </customwidget>
  </customwidgets>
  <resources>
