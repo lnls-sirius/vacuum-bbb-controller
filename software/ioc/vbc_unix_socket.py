@@ -80,10 +80,10 @@ def thread_1():
 # BBB functions support (for valves controls)
 #==============================================================================
 # defining pins used for valves controls
-relay1 = "P8_18"
+relay1 = "P9_12"
 relay2 = "P9_24"
 relay3 = "P8_16"
-relay4 = "P9_12"
+relay4 = "P8_18"
 valve_open = "P9_16"
 valve_closed = "P9_14"
 #------------------------------------------------------------------------------
@@ -386,89 +386,61 @@ def thread_2():
                     if (data[0] == "\x00"):
                         pass
                     #---------------------------------------
-                    # switch relay 1 (P9_23)
+                    # switches relay
+                    #--------------------------------------
                     elif (data[0] == "\x01"):
-                        # approach used with PyDMCheckbox GUI button
-                        #'''
-                        if (data[1] == "\x00"):
-                            #print "Switching Relay 1 OFF"
-                            GPIO.output(relay1, GPIO.LOW)
+                        #---------------------------------------
+                        # switch relay 1 (P8_18)
                         if (data[1] == "\x01"):
-                            #print "Switching Relay 1 ON"
-                            GPIO.output(relay1, GPIO.HIGH)
-                        #'''
-                        # approach used with PyDMPushButton GUI button
-                        '''
-                        if (GPIO.input(relay1)):
-                            GPIO.output(relay1, GPIO.LOW)
-                            connection.sendall("0")
-                        else:
-                            GPIO.output(relay1, GPIO.HIGH)
-                            connection.sendall("1")
-                        '''
+                            # switches OFF
+                            if (data[2] == "0"):
+                                GPIO.output(relay1, GPIO.LOW)
+                            # switches ON
+                            elif (data[2] == "1"):
+                                GPIO.output(relay1, GPIO.HIGH)
+                        #--------------------------------------
+                        # switches relay 2 (P9_24)
+                        elif (data[1] == "\x02"):
+                            # switches OFF
+                            if (data[2] == "0"):
+                                GPIO.output(relay2, GPIO.LOW)
+                            # switches ON
+                            elif (data[2] == "1"):
+                                GPIO.output(relay2, GPIO.HIGH)
+                        #--------------------------------------
+                        # switches relay 3 (P8_16)
+                        elif (data[1] == "\x03"):
+                            # switches OFF
+                            if (data[2] == "0"):
+                                GPIO.output(relay3, GPIO.LOW)
+                            # switches ON
+                            elif (data[2] == "1"):
+                                GPIO.output(relay3, GPIO.HIGH)
+                        #--------------------------------------
+                        # switches relay 4 (P9_12)
+                        elif (data[1] == "\x04"):
+                            # switches OFF
+                            if (data[2] == "0"):
+                                GPIO.output(relay4, GPIO.LOW)
+                            # switches ON
+                            elif (data[2] == "1"):
+                                GPIO.output(relay4, GPIO.HIGH)
                     #---------------------------------------
-                    # switch relay 2 (P9_21)
+                    # reads relays status
+                    #--------------------------------------
                     elif (data[0] == "\x02"):
-                        # approach used with PyDMCheckbox GUI button
-                        #'''
-                        if (data[1] == "\x00"):
-                            #print "Switching Relay 2 OFF"
-                            GPIO.output(relay2, GPIO.LOW)
+                        # read relay 1 status
                         if (data[1] == "\x01"):
-                            #print "Switching Relay 2 ON"
-                            GPIO.output(relay2, GPIO.HIGH)
-                        #'''
-                        # approach used with PyDMPushButton GUI button
-                        '''
-                        if (GPIO.input(relay2)):
-                            GPIO.output(relay2, GPIO.LOW)
-                            connection.sendall("0")
-                        else:
-                            GPIO.output(relay2, GPIO.HIGH)
-                            connection.sendall("1")
-                        '''
-                    #---------------------------------------
-                    # switch relay 3 (P9_24)
-                    elif (data[0] == "\x03"):
-                        # approach used with PyDMCheckbox GUI button
-                        #'''
-                        if (data[1] == "\x00"):
-                            #print "Switching Relay 3 OFF"
-                            GPIO.output(relay3, GPIO.LOW)
-                        if (data[1] == "\x01"):
-                            #print "Switching Relay 3 ON"
-                            GPIO.output(relay3, GPIO.HIGH)
-                        #'''
-                        # approach used with PyDMPushButton GUI button
-                        '''
-                        if (GPIO.input(relay3)):
-                            GPIO.output(relay3, GPIO.LOW)
-                            connection.sendall("0")
-                        else:
-                            GPIO.output(relay3, GPIO.HIGH)
-                            connection.sendall("1")
-                        '''
-                    #---------------------------------------
-                    # switch relay 4 (P9_12)
-                    elif (data[0] == "\x04"):
-                        # approach used with PyDMCheckbox GUI button
-                        #'''
-                        if (data[1] == "\x00"):
-                            #print "Switching Relay 4 OFF"
-                            GPIO.output(relay4, GPIO.LOW)
-                        if (data[1] == "\x01"):
-                            #print "Switching Relay 4 ON"
-                            GPIO.output(relay4, GPIO.HIGH)
-                        #'''
-                        # approach used with PyDMPushButton GUI button
-                        '''
-                        if (GPIO.input(relay4)):
-                            GPIO.output(relay4, GPIO.LOW)
-                            connection.sendall("0")
-                        else:
-                            GPIO.output(relay4, GPIO.HIGH)
-                            connection.sendall("1")
-                        '''
+                            connection.sendall(str(GPIO.input(relay1)))
+                        # read relay 2 status
+                        elif (data[1] == "\x02"):
+                            connection.sendall(str(GPIO.input(relay2)))
+                        # read relay 3 status
+                        elif (data[1] == "\x03"):
+                            connection.sendall(str(GPIO.input(relay3)))
+                        # read relay 4 status
+                        elif (data[1] == "\x04"):
+                            connection.sendall(str(GPIO.input(relay4)))
                     #---------------------------------------
                     # read open VAT valve status (P8_7)
                     elif (data[0] == "\x05"):
@@ -480,9 +452,8 @@ def thread_2():
                         vclosed = str(GPIO.input(valve_closed))
                         connection.sendall(vclosed)
                     #---------------------------------------
-                    # read analog in corresponding to the pressure (P9_36)
                     elif (data[0] == "\x07"):
-                        ADC_code = ADC.read_raw(analog_in)
+                        ADC_code = int(ADC.read_raw(analog_in))
                         voltage_ADC = ADC.read(analog_in) * 1.8
                         voltage_equipment = voltage_ADC * 6
                         #-----------------------------------------------------------
@@ -501,9 +472,9 @@ def thread_2():
                                 torr_base *= 10
                         #-----------------------------------------------------------
                         # reading vacuum pressure in mbar
-                        pressure_mbar = 1.33 * 10 ** ((2 * voltage_equipment) - 11)
+                        mbar = 1.33 * 10 ** ((2 * voltage_equipment) - 11)
                         # converting it into base and exponent
-                        mbar_base = pressure_mbar
+                        mbar_base = mbar
                         mbar_exp = 0
                         if (mbar_base >= 1):
                             while ((mbar_base / 10) >= 1):
@@ -515,7 +486,7 @@ def thread_2():
                                 mbar_base *= 10
                         #-----------------------------------------------------------
                         # reading vacuum pressure in Pascal
-                        pressure_pascal = 100 * pressure_mbar
+                        pressure_pascal = 100 * mbar
                         # converting it into base and exponent
                         #pascal_base = mbar_base
                         #pascal_exp = mbar_exp + 2
@@ -526,16 +497,16 @@ def thread_2():
                         #pressure_pascal = 133 * 250 * (voltage_equipment - 4)
                         #-----------------------------------------------------------
                         connection.sendall(
-                            "adc = "+ str(ADC_code) +
-                            ", voltage = "+ str(voltage_ADC) +
-                            ", equipment = "+ str(voltage_equipment) +
-                            ", torr = " + str(pressure_torr) +
-                            ", torr_base = " + str(torr_base) +
-                            ", torr_exp = " + str(torr_exp) +
-                            ", mbar = " + str(pressure_mbar) +
-                            ", mbar_base = " + str(mbar_base) +
-                            ", mbar_exp = " + str(mbar_exp) +
-                            ", pascal = " + str(pressure_pascal)
+                            str(ADC_code) + ";" +
+                            str(voltage_ADC) + ";" +
+                            str(voltage_equipment) + ";" +
+                            str(pressure_torr) + ";" +
+                            str(torr_base) + ";" +
+                            str(torr_exp) + ";" +
+                            str(mbar) + ";" +
+                            str(mbar_base) + ";" +
+                            str(mbar_exp) + ";" +
+                            str(pressure_pascal)
                         )
                     #---------------------------------------
                     # commands from 0x08 to 0x0A reserved
@@ -691,6 +662,14 @@ def thread_2():
                         for i in range(8):
                             PZD1_1 += (int(data[OFFSET + i]) << (7-i))
                             PZD1_2 += (int(data[OFFSET + 8 + i]) << (7-i))
+                            # check if venting valve is set
+                            if (data[OFFSET] == "1"):
+                                PNU = 134
+                                AK = 7
+                                IND = 2
+                                PWE = 18
+                                PZD1_1 = 0x84
+                                PZD1_2 = 0x00
                         #---------------------------------------
                         # Decoding PZD2 field
                         #---------------------------------------
@@ -708,23 +687,21 @@ def thread_2():
                             pass
                         elif (len(response) == 13):
                             connection.sendall(
-                                #-------------------------------
-                                  "STX=" + str(response[0]) +
-                                ", LGE=" + str(response[1]) +
-                                ", ADR=" + str(response[2]) +
-                                #-------------------------------
-                                ", PNU=" + str(response[3]) +
-                                ", AK=" + str(response[4]) +
-                                ", IND=" + str(response[5]) +
-                                ", PWE=" + str(response[6]) +
-                                #-------------------------------
-                                ", PZD1_1=" + str(response[7]) +
-                                ", PZD1_2=" + str(response[8]) +
-                                ", PZD2=" + str(response[9]) +
-                                ", PZD3=" + str(response[10]) +
-                                ", PZD4=" + str(response[11]) +
-                                ", PZD6=" + str(response[12])
-                                #-------------------------------
+                                str(response[0]) + ";" +    # STX
+                                str(response[1]) + ";" +    # LGE
+                                str(response[2]) + ";" +    # ADR
+
+                                str(response[3]) + ";" +    # PNU
+                                str(response[4]) + ";" +    # AK
+                                str(response[5]) + ";" +    # IND
+                                str(response[6]) + ";" +    # PWE
+
+                                str(response[7]) + ";" +    # PZD1_1
+                                str(response[8]) + ";" +    # PZD1_2
+                                str(response[9]) + ";" +    # PZD2
+                                str(response[10]) + ";" +   # PZD3
+                                str(response[11]) + ";" +   # PZD4
+                                str(response[12])           # PZD6
                             )
                         else:
                             pass
