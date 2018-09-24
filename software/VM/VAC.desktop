@@ -4,7 +4,7 @@ Version=1.2
 Name=VBC
 Comment=Vacuum BBB Controller
 #Icon=/home/controle-lnls/Desktop/vacuum-bbb-controller/software/pydm/pydm 1.2/images/icon.jpg
-Exec=bash -c 'cd /home/controle-lnls/Desktop/vacuum-bbb-controller/software/pydm/pydm_1.2/python/ && export PYEPICS_LIBCA=/opt/epics-R3.15.5/base/lib/linux-x86_64/libca.so && pydm --hide-nav-bar --hide-status-bar --hide-menu-bar launch_ui_main_window.py'
+Exec=bash -c 'cd /home/controle-lnls/Desktop/vacuum-bbb-controller/software/pydm/pydm_1.2/python/ && export PYEPICS_LIBCA=/opt/epics-R3.15.5/base/lib/linux-x86_64/libca.so && export EPICS_CA_ADDR_LIST="10.128.40.1:5064 10.128.40.1:5068" && pydm --hide-nav-bar --hide-status-bar --hide-menu-bar launch_ui_main_window.py'
 Terminal=false
 Type=Application
 Categories=Application;

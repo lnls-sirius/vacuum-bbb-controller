@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # start socket unix
-python /root/vacuum-bbb-controller/software/ioc/vbc_unix_socket.py 1 &
+cd /root/vacuum-bbb-controller/software/ioc
+EPICS_CAS_SERVER_PORT=5068 ./vbc_unix_socket.py 1 &
 sleep 5
 
 # start IOC
