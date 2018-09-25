@@ -11,6 +11,9 @@ class DeviceMenu(Display):
         super(DeviceMenu, self).__init__(parent=parent, args=args, macros=macros)
 
         # defining macro for PyDMShellCommand (for launching "warning_message.ui")
+        self.Shell_rec_script.command = "python ../scripts/process_recovery.py " + IOC
+        self.Shell_PV_Trigger_OK_MESSAGE.channel = "ca://" + IOC + ":ProcessRec:Bool"
+        self.Shell_pop_up_OK_message.command = "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar ../python/launch_ui_OK_message.py " + IOC + " REC"
         self.Stage_1.channel = "ca://" + IOC + ":ProcessRecovery:Status1"
         self.Stage_2.channel = "ca://" + IOC + ":ProcessRecovery:Status2"
         self.Stage_3.channel = "ca://" + IOC + ":ProcessRecovery:Status3"

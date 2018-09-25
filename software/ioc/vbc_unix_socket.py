@@ -49,8 +49,9 @@ PVs["VBC" + VBC + ":ProcessRecovery:Status3"] = {"type" : "int"}
 PVs["VBC" + VBC + ":ProcessRecovery:Status4"] = {"type" : "int"}
 PVs["VBC" + VBC + ":ProcessRecovery:Status5"] = {"type" : "int"}
 #-----------------------------------------------
-PVs["VBC" + VBC + ":Process:Bool"] = {"type" : "int"}
-PVs["VBC" + VBC + ":Process:RecBool"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOn:Bool"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessOff:Bool"] = {"type" : "int"}
+PVs["VBC" + VBC + ":ProcessRec:Bool"] = {"type" : "int"}
 PVs["VBC" + VBC + ":Process:TriggerOn"] = {"type" : "int"}
 PVs["VBC" + VBC + ":Process:TriggerPressurized"] = {"type" : "int"}
 #-----------------------------------------------

@@ -11,7 +11,7 @@ class DeviceMenu(Display):
         super(DeviceMenu, self).__init__(parent=parent, args=args, macros=macros)
 
         # defining macro for PyDMShellCommand (when running "clean_status_PV.py")
-        self.Shell_clean_PVs.command = "python ../scripts/clean_status_PV.py " + str(sys.argv[5])
+        self.Shell_clean_PVs.command = "python ../scripts/clean_status_PV.py " + str(sys.argv[5]) + " " + str(sys.argv[6])
 
     def ui_filename(self):
         return '../ui/latest/OK_message.ui'

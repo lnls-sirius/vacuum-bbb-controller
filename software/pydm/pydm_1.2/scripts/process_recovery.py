@@ -29,7 +29,6 @@ caput(VBC + ":ProcessRecovery:Status2", 0)
 caput(VBC + ":ProcessRecovery:Status3", 0)
 caput(VBC + ":ProcessRecovery:Status4", 0)
 caput(VBC + ":ProcessRecovery:Status5", 0)
-caput(VBC + ":ProcessRecovery:Status6", 0)
 #==============================================================================
 # Stage 1:
 #==============================================================================
@@ -100,6 +99,6 @@ caput(VBC + ":ProcessRecovery:Status5", 1)
 #==============================================================================
 # complement value of PV to launch "Process Finished" window
 #caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
-caput(VBC + ":Process:RecBool", 1)
-caput(VBC + ":Process:RecBool", 0)
+caput(VBC + ":ProcessRec:Bool", 1)
+caput(VBC + ":ProcessRec:Bool", 0)
 #==============================================================================

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>451</width>
+    <width>464</width>
     <height>409</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>428</width>
+     <width>441</width>
      <height>386</height>
     </rect>
    </property>
@@ -142,7 +142,7 @@
           </spacer>
          </item>
          <item row="7" column="2">
-          <widget class="PyDMCheckbox" name="PV_Trigger_OK_MESSAGE">
+          <widget class="PyDMCheckbox" name="Shell_PV_Trigger_OK_MESSAGE">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -189,7 +189,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${IOC}:Process:RecBool</string>
+            <string>ca://${IOC}:ProcessRec:Bool</string>
            </property>
           </widget>
          </item>
@@ -245,7 +245,7 @@
           </spacer>
          </item>
          <item row="0" column="3">
-          <widget class="PyDMShellCommand" name="pop_up_OK_message">
+          <widget class="PyDMShellCommand" name="Shell_pop_up_OK_message">
            <property name="maximumSize">
             <size>
              <width>1</width>
@@ -278,7 +278,7 @@
             </size>
            </property>
            <property name="command" stdset="0">
-            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_OK_message.py</string>
+            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar ../python/launch_ui_OK_message.py ${IOC} REC</string>
            </property>
           </widget>
          </item>
@@ -330,61 +330,6 @@
            </property>
            <property name="text">
             <string>Torr was</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="PyDMCheckbox" name="PV_process_finished">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="precisionFromPV" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessRecovery:Bool</string>
            </property>
           </widget>
          </item>
@@ -527,7 +472,7 @@
           </widget>
          </item>
          <item row="7" column="5">
-          <widget class="PyDMShellCommand" name="Shell">
+          <widget class="PyDMShellCommand" name="Shell_rec_script">
            <property name="maximumSize">
             <size>
              <width>1</width>
@@ -799,6 +744,12 @@
           <widget class="PyDMByteIndicator" name="Stage_3">
            <property name="enabled">
             <bool>true</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
            </property>
            <property name="font">
             <font>
@@ -1208,6 +1159,12 @@
            <property name="enabled">
             <bool>true</bool>
            </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>Cantarell</family>
@@ -1275,6 +1232,12 @@
           <widget class="PyDMByteIndicator" name="Stage_4">
            <property name="enabled">
             <bool>true</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
            </property>
            <property name="font">
             <font>
@@ -1344,6 +1307,12 @@
            <property name="enabled">
             <bool>true</bool>
            </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>Cantarell</family>
@@ -1410,6 +1379,12 @@
            <property name="enabled">
             <bool>true</bool>
            </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>Cantarell</family>
@@ -1462,9 +1437,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMShellCommand</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.shell_command</header>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMLabel</class>
@@ -1472,14 +1447,14 @@
    <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
+   <class>PyDMShellCommand</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.shell_command</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -1501,25 +1476,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>PV_process_finished</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>pop_up_OK_message</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>119</x>
-     <y>24</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>246</x>
-     <y>24</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>buttonBox_2</sender>
    <signal>accepted()</signal>
-   <receiver>Shell</receiver>
+   <receiver>Shell_rec_script</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1527,36 +1486,20 @@
      <y>157</y>
     </hint>
     <hint type="destinationlabel">
-     <x>315</x>
-     <y>127</y>
+     <x>320</x>
+     <y>146</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>PV_process_finished</sender>
+   <sender>Shell_PV_Trigger_OK_MESSAGE</sender>
    <signal>toggled(bool)</signal>
    <receiver>Form</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>119</x>
-     <y>24</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>4</x>
-     <y>27</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>PV_Trigger_OK_MESSAGE</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Form</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>119</x>
-     <y>127</y>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -1565,17 +1508,17 @@
    </hints>
   </connection>
   <connection>
-   <sender>PV_Trigger_OK_MESSAGE</sender>
+   <sender>Shell_PV_Trigger_OK_MESSAGE</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pop_up_OK_message</receiver>
+   <receiver>Shell_pop_up_OK_message</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>119</x>
-     <y>127</y>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
-     <x>246</x>
+     <x>251</x>
      <y>24</y>
     </hint>
    </hints>
