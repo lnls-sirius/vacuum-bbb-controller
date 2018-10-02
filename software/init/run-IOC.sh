@@ -11,4 +11,4 @@ procServ --chdir /root/stream-ioc/iocBoot 20400 ./VBC.cmd
 
 # check if system is pressurized. If yes, run "process_recovery" script
 sleep 10
-python /root/vacuum-bbb-controller/software/pydm/pydm_1.2/scripts/initialization.py VBC10
+EPICS_CAS_SERVER_PORT=5068 python /root/vacuum-bbb-controller/software/pydm/pydm_1.2/scripts/initialization.py VBC1

@@ -52,7 +52,7 @@ caput(PRE_VACUUM_VALVE_SW, 1)
 #caput(PRE_VACUUM_VALVE_UI, 1)
 
 
-# wait gate valve receives command to open
+# wait pre-vacuum valve receives value to open
 while ( caget(PRE_VACUUM_VALVE_SW) == 0 ):
     pass
 caput(VBC + ":ProcessRecovery:Status2", 1)

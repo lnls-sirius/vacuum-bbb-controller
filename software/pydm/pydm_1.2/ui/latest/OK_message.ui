@@ -170,5 +170,37 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>frame</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>268</x>
+     <y>105</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>deleteLater()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>291</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
 </ui>
