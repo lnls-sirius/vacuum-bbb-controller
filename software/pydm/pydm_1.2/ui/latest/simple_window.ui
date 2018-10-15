@@ -1134,7 +1134,7 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item row="2" column="5">
+         <item row="2" column="6">
           <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64">
            <property name="minimumSize">
             <size>
@@ -1237,11 +1237,11 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${IOC}:BBB:Relay1-SW.RVAL</string>
+            <string>ca://${IOC}:BBB:Relay1-UI</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="2" colspan="2">
+         <item row="2" column="3" colspan="2">
           <widget class="QLabel" name="label_125">
            <property name="palette">
             <palette>
@@ -1715,7 +1715,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${IOC}:BBB:Relay2-SW.RVAL</string>
+            <string>ca://${IOC}:BBB:Relay2-UI</string>
            </property>
           </widget>
          </item>
@@ -1761,11 +1761,11 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${IOC}:TURBOVAC:VentingValve-SW.RVAL</string>
+            <string>ca://${IOC}:TURBOVAC:VentingValve-UI</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="2" colspan="2">
+         <item row="3" column="3" colspan="2">
           <widget class="QLabel" name="label_124">
            <property name="maximumSize">
             <size>
@@ -2199,7 +2199,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="5">
+         <item row="1" column="6">
           <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63">
            <property name="minimumSize">
             <size>
@@ -2253,7 +2253,7 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="6">
+         <item row="2" column="7">
           <widget class="PyDMLabel" name="PyDMLabel_99">
            <property name="font">
             <font>
@@ -2281,7 +2281,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="6">
+         <item row="1" column="7">
           <widget class="PyDMLabel" name="PyDMLabel_100">
            <property name="font">
             <font>
@@ -2309,7 +2309,7 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="6">
+         <item row="3" column="7">
           <widget class="PyDMLabel" name="PyDMLabel_98">
            <property name="maximumSize">
             <size>
@@ -2343,7 +2343,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="2" colspan="2">
+         <item row="1" column="3" colspan="2">
           <widget class="QLabel" name="label_123">
            <property name="palette">
             <palette>
@@ -2771,7 +2771,7 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="5">
+         <item row="3" column="6">
           <widget class="PyDMByteIndicator" name="PyDMByteIndicator_62">
            <property name="enabled">
             <bool>false</bool>
@@ -2828,7 +2828,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="1" colspan="6">
+         <item row="0" column="1" colspan="7">
           <widget class="QLabel" name="label_126">
            <property name="minimumSize">
             <size>
@@ -2922,7 +2922,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="4" rowspan="3">
+         <item row="1" column="5" rowspan="3">
           <spacer name="horizontalSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -2937,6 +2937,104 @@
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="1" column="2">
+          <widget class="PyDMShellCommand" name="Relay1">
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="command" stdset="0">
+            <string>python ../scripts/commute_valve.py $IOC 1 yes</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="PyDMShellCommand" name="Relay1_2">
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="command" stdset="0">
+            <string>python ../scripts/commute_valve.py $IOC 2 yes</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="PyDMShellCommand" name="Relay5">
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="command" stdset="0">
+            <string>python ../scripts/commute_valve.py $IOC 5 yes</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -2996,9 +3094,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
    <class>PyDMByteIndicator</class>
@@ -3006,13 +3104,67 @@
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMShellCommand</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.shell_command</header>
   </customwidget>
  </customwidgets>
  <resources>
   <include location="../../images/logo.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>PyDMCheckbox_48</sender>
+   <signal>clicked()</signal>
+   <receiver>Relay1</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>27</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>46</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PyDMCheckbox_50</sender>
+   <signal>clicked()</signal>
+   <receiver>Relay1_2</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>36</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>49</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PyDMCheckbox_70</sender>
+   <signal>clicked()</signal>
+   <receiver>Relay5</receiver>
+   <slot>execute_command()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>30</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>49</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -370,8 +370,7 @@ PWE = 600
 PZD1_1 = PZD1_2 = PZD2 = 0
 response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
 #------------------------------------------------------------------------------
-# write value 600 in parameter 247 ==> set frequency at which the venting valve
-# will open after a power failure
+# write value 600 in parameter 28 ==> set upper frequency switching threshold
 STX = 0x02
 LGE = 0x16
 ADR = 0x00
