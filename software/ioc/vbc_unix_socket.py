@@ -371,15 +371,15 @@ PZD1_1 = PZD1_2 = PZD2 = 0
 response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
 #------------------------------------------------------------------------------
 # write value 600 in parameter 28 ==> set upper frequency switching threshold
-STX = 0x02
-LGE = 0x16
-ADR = 0x00
-PNU = 28
-AK = 0b0111
-IND = 2
-PWE = 600
-PZD1_1 = PZD1_2 = PZD2 = 0
-response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+#STX = 0x02
+#LGE = 0x16
+#ADR = 0x00
+#PNU = 28
+#AK = 0b0111
+#IND = 2
+#PWE = 600
+#PZD1_1 = PZD1_2 = PZD2 = 0
+#response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
 # unix socket is ready and the IOC can be started now
 print "unix socket running!"
 #==============================================================================
