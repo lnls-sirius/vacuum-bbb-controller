@@ -125,10 +125,15 @@ description:
     command to the pump and receiving the answer back.
 '''
 def acp_recv_msg(command):
-    con1 = serial.Serial(PORT, 9600, timeout=1)
-    #print "con1 = 9600"
-    con1.write(command)
+    while(True):
+        try:
+            con1 = serial.Serial(PORT, 9600, timeout=1)
+            #print "con1 = 9600"
+            break
+        except:
+            print "error in con1"
 
+    con1.write(command)
     message_received = ""
     next_byte = con1.read(1)
     # after read the first byte, set the timeout to 100ms
@@ -189,14 +194,19 @@ description:
     TURBOVAC pump and returns the response telegram as an output parameter.
 '''
 def turbovac_recv_msg(task_telegram):
-    con2 = serial.Serial(
-        port=PORT,
-        baudrate=19200,
-        parity=serial.PARITY_EVEN,
-    #    stopbits=serial.STOPBITS_ONE,
-    #    bytesize=serial.EIGHTBITS,
-        timeout=1
-    )
+    while(True):
+        try:
+            con2 = serial.Serial(
+                port=PORT,
+                baudrate=19200,
+                parity=serial.PARITY_EVEN,
+            #    stopbits=serial.STOPBITS_ONE,
+            #    bytesize=serial.EIGHTBITS,
+                timeout=1
+            )
+            break
+        except:
+            print "error in con2"
     #-----------------------------------------------------
     #print "con2 = 19200"
     con2.write(task_telegram)
@@ -382,403 +392,446 @@ PZD1_1 = PZD1_2 = PZD2 = 0
 response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
 # unix socket is ready and the IOC can be started now
 print "unix socket running!"
+
 #==============================================================================
 # Main loop that pools the entries from .proto EPICS files
 #==============================================================================
-# thread_2 is responsible for decoding/answering messages from/to IOC
-def thread_2():
-    while(True):
-        connection, client_address = sock.accept()
-        try:
-            while(True):
-                data = connection.recv(512)
-                if(data):
-                    #==============================================================
-                    # reserved
-                    if (data[0] == "\x00"):
-                        pass
-                    #---------------------------------------
-                    # switches relay
-                    #--------------------------------------
-                    elif (data[0] == "\x01"):
-                        #---------------------------------------
-                        # switch relay 1 (P8_18)
-                        if (data[1] == "\x01"):
-                            # switches OFF
-                            if (data[2] == "0"):
-                                GPIO.output(relay1, GPIO.LOW)
-                            # switches ON
-                            elif (data[2] == "1"):
-                                GPIO.output(relay1, GPIO.HIGH)
-                        #--------------------------------------
-                        # switches relay 2 (P9_24)
-                        elif (data[1] == "\x02"):
-                            # switches OFF
-                            if (data[2] == "0"):
-                                GPIO.output(relay2, GPIO.LOW)
-                            # switches ON
-                            elif (data[2] == "1"):
-                                GPIO.output(relay2, GPIO.HIGH)
-                        #--------------------------------------
-                        # switches relay 3 (P8_16)
-                        elif (data[1] == "\x03"):
-                            # switches OFF
-                            if (data[2] == "0"):
-                                GPIO.output(relay3, GPIO.LOW)
-                            # switches ON
-                            elif (data[2] == "1"):
-                                GPIO.output(relay3, GPIO.HIGH)
-                        #--------------------------------------
-                        # switches relay 4 (P9_12)
-                        elif (data[1] == "\x04"):
-                            # switches OFF
-                            if (data[2] == "0"):
-                                GPIO.output(relay4, GPIO.LOW)
-                            # switches ON
-                            elif (data[2] == "1"):
-                                GPIO.output(relay4, GPIO.HIGH)
-                    #---------------------------------------
-                    # reads relays status
-                    #--------------------------------------
-                    elif (data[0] == "\x02"):
-                        # read relay 1 status
-                        if (data[1] == "\x01"):
-                            connection.sendall(str(GPIO.input(relay1)))
-                        # read relay 2 status
-                        elif (data[1] == "\x02"):
-                            connection.sendall(str(GPIO.input(relay2)))
-                        # read relay 3 status
-                        elif (data[1] == "\x03"):
-                            connection.sendall(str(GPIO.input(relay3)))
-                        # read relay 4 status
-                        elif (data[1] == "\x04"):
-                            connection.sendall(str(GPIO.input(relay4)))
-                    #---------------------------------------
-                    # read open VAT valve status (P8_7)
-                    elif (data[0] == "\x05"):
-                        vopen = str(GPIO.input(valve_open))
-                        connection.sendall(vopen)
-                    #---------------------------------------
-                    # read closed VAT valve status (P8_9)
-                    elif (data[0] == "\x06"):
-                        vclosed = str(GPIO.input(valve_closed))
-                        connection.sendall(vclosed)
-                    #---------------------------------------
-                    elif (data[0] == "\x07"):
-                        ADC_code = int(ADC.read_raw(analog_in))
-                        voltage_ADC = ADC.read(analog_in) * 1.8
-                        voltage_equipment = voltage_ADC * 6
-                        #-----------------------------------------------------------
-                        # reading vacuum pressure in Torr
-                        pressure_torr = 10 ** ((2 * voltage_equipment) - 11)
-                        # converting it into base and exponent
-                        torr_base = pressure_torr
-                        torr_exp = 0
-                        if (torr_base >= 1):
-                            while ((torr_base / 10) >= 1):
-                                torr_exp += 1
-                                torr_base /= 10
-                        else:
-                            while ((torr_base) * 10 < 10):
-                                torr_exp -= 1
-                                torr_base *= 10
-                        #-----------------------------------------------------------
-                        # reading vacuum pressure in mbar
-                        mbar = 1.33 * 10 ** ((2 * voltage_equipment) - 11)
-                        # converting it into base and exponent
-                        mbar_base = mbar
-                        mbar_exp = 0
-                        if (mbar_base >= 1):
-                            while ((mbar_base / 10) >= 1):
-                                mbar_exp += 1
-                                mbar_base /= 10
-                        else:
-                            while ((mbar_base) * 10 < 10):
-                                mbar_exp -= 1
-                                mbar_base *= 10
-                        #-----------------------------------------------------------
-                        # reading vacuum pressure in Pascal
-                        pressure_pascal = 100 * mbar
-                        # converting it into base and exponent
-                        #pascal_base = mbar_base
-                        #pascal_exp = mbar_exp + 2
-                        #-----------------------------------------------------------
-                        # reading differential pressure
-                        #pressure_torr = 250 * (voltage_equipment - 4)
-                        #pressure_mbar = 1.33 * 250 * (voltage_equipment - 4)
-                        #pressure_pascal = 133 * 250 * (voltage_equipment - 4)
-                        #-----------------------------------------------------------
-                        connection.sendall(
-                            str(ADC_code) + ";" +
-                            str(voltage_ADC) + ";" +
-                            str(voltage_equipment) + ";" +
-                            str(pressure_torr) + ";" +
-                            str(torr_base) + ";" +
-                            str(torr_exp) + ";" +
-                            str(mbar) + ";" +
-                            str(mbar_base) + ";" +
-                            str(mbar_exp) + ";" +
-                            str(pressure_pascal)
-                        )
-                    #---------------------------------------
-                    # commands from 0x08 to 0x0A reserved
-                    # for future BBB implementations
-                    #---------------------------------------
-                    # turns ACP15 pump On/Off
-                    elif (data[0] == "\x0B"):
-                        ACP_OnOff(int(data[1]))
-                    #---------------------------------------
-                    # set ACP15 pump speed in rpm
-                    elif ((data[0] == "\x0C")):
-                        # the first character is a form feed ('\f' or 0x0C in ASCII)
-                        # the last character is a carriage return ('\r' or 0x0D in ASCII)
-                        speed = 0
-                        for i in range(len(data)-2):
-                            digit = int(data[i+1])
-                            exponent = 10**(len(data)-i-3)
-                            speed += digit * exponent
-                        ACP_SetSpeed(speed)
-                    #---------------------------------------
-                    # set ACP15 pump speed in Hz
-                    elif ((data[0] == "\x0D")):
-                        # the first character is a form feed ('\f' or 0x0C in ASCII)
-                        # the last character is a carriage return ('\r' or 0x0D in ASCII)
-                        speed = 0
-                        for i in range(len(data)-2):
-                            digit = int(data[i+1])
-                            exponent = 10**(len(data)-i-3)
-                            speed += digit * exponent
-                        speed *= 60
-                        ACP_SetSpeed(speed)
-                    #---------------------------------------
-                    # commands from 0x0E to 0x0F reserved
-                    # for future ACP15 implementations
-                    #---------------------------------------
-                    # send a task telegram to TURBOVAC
-                    elif ((data[0] == "\x10")):
-                        #---------------------------------------
-                        # fields initialized
-                        #---------------------------------------
-                        STX = 0
-                        LGE = 0
-                        ADR = 0
-                        #----------
-                        IND = 0
-                        PNU = 0
-                        PWE = 0
-                        #----------
-                        PZD1_1 = 0
-                        PZD1_2 = 0
-                        PZD2 = 0
-                        #---------------------------------------
-                        # decoding the header (STX)
-                        #---------------------------------------
-                        # OFFSET is one because of the first character used in the protocol: 0x10
-                        OFFSET = 1
-                        i = OFFSET
-                        digits = 0
-                        # count number of digits of the field
-                        while (data[i] != ","):
-                            digits += 1
-                            i += 1
-                        # now that we now the number of digits, we can decode the field
-                        for j in range(digits):
-                            STX += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
-                        #---------------------------------------
-                        # decoding the header (LGE)
-                        #---------------------------------------
-                        # set the new OFFSET value for the LGE field
-                        # the "+1" refers to the comma separator character
-                        OFFSET += digits + 1
-                        i = OFFSET
-                        digits = 0
-                        # count number of digits of the field
-                        while (data[i] != ","):
-                            digits += 1
-                            i += 1
-                        # now that we now the number of digits, we can decode the field
-                        for j in range(digits):
-                            LGE += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
-                        #---------------------------------------
-                        # decoding the header (ADR)
-                        #---------------------------------------
-                        # set the new OFFSET value for the ADR field
-                        # the "+1" refers to the comma separator character
-                        OFFSET += digits + 1
-                        i = OFFSET
-                        digits = 0
-                        # count number of digits of the field
-                        while (data[i] != ","):
-                            digits += 1
-                            i += 1
-                        # now that we now the number of digits, we can decode the field
-                        for j in range(digits):
-                            ADR += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
-                        #---------------------------------------
-                        # decoding PNU field
-                        #---------------------------------------
-                        # the OFFSET represents the number of characters sent before
-                        # the PKW data:
-                        # the "+1" refers to the comma separator character
-                        OFFSET += digits + 1
-                        i = OFFSET
-                        digits = 0
-                        # count number of digits of the field
-                        while (data[i] != ","):
-                            digits += 1
-                            i += 1
-                        # now that we now the number of digits, we can decode the field
-                        for j in range(digits):
-                            PNU += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
-                        #---------------------------------------
-                        # decoding AK field
-                        #---------------------------------------
-                        # set the new OFFSET value for the AK field
-                        # the "+1" refers to the comma separator character
-                        OFFSET += digits + 1
-                        AK = int(data[OFFSET])
-                        #---------------------------------------
-                        # decoding IND field
-                        #---------------------------------------
-                        # set the new OFFSET value for the IND field
-                        # the "+2" refers to the comma separator character and next character
-                        OFFSET += 2
-                        i = OFFSET
-                        digits = 0
-                        # count number of digits of the field
-                        while (data[i] != ","):
-                            digits += 1
-                            i += 1
-                        # now that we now the number of digits, we can decode the field
-                        for j in range(digits):
-                            IND += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
-                        #---------------------------------------
-                        # decoding PWE field
-                        #---------------------------------------
-                        # set the new OFFSET value for the PWE field
-                        # the "+1" refers to the comma separator character
-                        OFFSET += digits + 1
-                        i = OFFSET
-                        digits = 0
-                        # count number of digits of the field
-                        while (data[i] != ","):
-                            digits += 1
-                            i += 1
-                        # now that we now the number of digits, we can decode the field
-                        for j in range(digits):
-                            PWE += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
-                        #---------------------------------------
-                        # decoding and calculating the two bytes of PZD1
-                        #---------------------------------------
-                        OFFSET += digits + 1
-                        for i in range(8):
-                            PZD1_1 += (int(data[OFFSET + i]) << (7-i))
-                            PZD1_2 += (int(data[OFFSET + 8 + i]) << (7-i))
-                            # check if venting valve is set
-                            if (data[OFFSET] == "1"):
-                                PNU = 134
-                                AK = 7
-                                IND = 2
-                                PWE = 18
-                                PZD1_1 = 0x84
-                                PZD1_2 = 0x00
-                        #---------------------------------------
-                        # Decoding PZD2 field
-                        #---------------------------------------
-                        # set the new OFFSET value for the PZD2 field
-                        # the "+1" refers to the comma separator character
-                        #   16 characters for status bits
-                        OFFSET += 16
-                        digits = (len(data) - OFFSET)
-                        for j in range(digits):
-                            PZD2 += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
-                        #---------------------------------------
-                        response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
-                        if (response == 0):
-                            # message corrupted!
-                            pass
-                        elif (len(response) == 13):
-                            connection.sendall(
-                                str(response[0]) + ";" +    # STX
-                                str(response[1]) + ";" +    # LGE
-                                str(response[2]) + ";" +    # ADR
+# thread_2 and thread_3 are responsible for decoding/answering messages from/to IOC
+import logging
+from logging.handlers import RotatingFileHandler
+import traceback
 
-                                str(response[3]) + ";" +    # PNU
-                                str(response[4]) + ";" +    # AK
-                                str(response[5]) + ";" +    # IND
-                                str(response[6]) + ";" +    # PWE
+# initializing the logger:
+logger = logging.getLogger("Rotating Log")
+logger.setLevel(logging.ERROR)
+handler = RotatingFileHandler("log.txt", maxBytes=10000, backupCount=5)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
-                                str(response[7]) + ";" +    # PZD1_1
-                                str(response[8]) + ";" +    # PZD1_2
-                                str(response[9]) + ";" +    # PZD2
-                                str(response[10]) + ";" +   # PZD3
-                                str(response[11]) + ";" +   # PZD4
-                                str(response[12])           # PZD6
-                            )
-                        else:
-                            pass
+import threading
+import Queue
+
+try:
+    # initializing the queue list:
+    list = Queue.Queue()
+    #---------------------------------------------------------
+
+    # thread_2 inserts a command to the list:
+    def thread_2():
+        global connection
+        while(True):
+            connection, client_address = sock.accept()
+            try:
+                while(True):
+                    data = connection.recv(512)
+                    if(data):
+                        list.put(data)
+
+            finally:
+                connection.close()
+
+    # thread_3 withdraw and process a command from the list:
+    def thread_3():
+        global connection
+        while(True):
+            # check if queue is not empty
+            if (list.empty() == False):
+                # gettint element from list
+                data = list.get()
+                #==============================================================
+                # reserved
+                if (data[0] == "\x00"):
+                    pass
+                #---------------------------------------
+                # switches relay
+                #--------------------------------------
+                elif (data[0] == "\x01"):
                     #---------------------------------------
-                    # open/close TURBOVAC venting valve (X1)
+                    # switch relay 1 (P8_18)
+                    if (data[1] == "\x01"):
+                        # switches OFF
+                        if (data[2] == "0"):
+                            GPIO.output(relay1, GPIO.LOW)
+                        # switches ON
+                        elif (data[2] == "1"):
+                            GPIO.output(relay1, GPIO.HIGH)
+                    #--------------------------------------
+                    # switches relay 2 (P9_24)
+                    elif (data[1] == "\x02"):
+                        # switches OFF
+                        if (data[2] == "0"):
+                            GPIO.output(relay2, GPIO.LOW)
+                        # switches ON
+                        elif (data[2] == "1"):
+                            GPIO.output(relay2, GPIO.HIGH)
+                    #--------------------------------------
+                    # switches relay 3 (P8_16)
+                    elif (data[1] == "\x03"):
+                        # switches OFF
+                        if (data[2] == "0"):
+                            GPIO.output(relay3, GPIO.LOW)
+                        # switches ON
+                        elif (data[2] == "1"):
+                            GPIO.output(relay3, GPIO.HIGH)
+                    #--------------------------------------
+                    # switches relay 4 (P9_12)
+                    elif (data[1] == "\x04"):
+                        # switches OFF
+                        if (data[2] == "0"):
+                            GPIO.output(relay4, GPIO.LOW)
+                        # switches ON
+                        elif (data[2] == "1"):
+                            GPIO.output(relay4, GPIO.HIGH)
+                #---------------------------------------
+                # reads relays status
+                #--------------------------------------
+                elif (data[0] == "\x02"):
+                    # read relay 1 status
+                    if (data[1] == "\x01"):
+                        connection.sendall(str(GPIO.input(relay1)))
+                    # read relay 2 status
+                    elif (data[1] == "\x02"):
+                        connection.sendall(str(GPIO.input(relay2)))
+                    # read relay 3 status
+                    elif (data[1] == "\x03"):
+                        connection.sendall(str(GPIO.input(relay3)))
+                    # read relay 4 status
+                    elif (data[1] == "\x04"):
+                        connection.sendall(str(GPIO.input(relay4)))
+                #---------------------------------------
+                # read open VAT valve status (P8_7)
+                elif (data[0] == "\x05"):
+                    vopen = str(GPIO.input(valve_open))
+                    connection.sendall(vopen)
+                #---------------------------------------
+                # read closed VAT valve status (P8_9)
+                elif (data[0] == "\x06"):
+                    vclosed = str(GPIO.input(valve_closed))
+                    connection.sendall(vclosed)
+                #---------------------------------------
+                elif (data[0] == "\x07"):
+                    ADC_code = int(ADC.read_raw(analog_in))
+                    voltage_ADC = ADC.read(analog_in) * 1.8
+                    voltage_equipment = voltage_ADC * 6
+                    #-----------------------------------------------------------
+                    # reading vacuum pressure in Torr
+                    pressure_torr = 10 ** ((2 * voltage_equipment) - 11)
+                    # converting it into base and exponent
+                    torr_base = pressure_torr
+                    torr_exp = 0
+                    if (torr_base >= 1):
+                        while ((torr_base / 10) >= 1):
+                            torr_exp += 1
+                            torr_base /= 10
+                    else:
+                        while ((torr_base) * 10 < 10):
+                            torr_exp -= 1
+                            torr_base *= 10
+                    #-----------------------------------------------------------
+                    # reading vacuum pressure in mbar
+                    mbar = 1.33 * 10 ** ((2 * voltage_equipment) - 11)
+                    # converting it into base and exponent
+                    mbar_base = mbar
+                    mbar_exp = 0
+                    if (mbar_base >= 1):
+                        while ((mbar_base / 10) >= 1):
+                            mbar_exp += 1
+                            mbar_base /= 10
+                    else:
+                        while ((mbar_base) * 10 < 10):
+                            mbar_exp -= 1
+                            mbar_base *= 10
+                    #-----------------------------------------------------------
+                    # reading vacuum pressure in Pascal
+                    pressure_pascal = 100 * mbar
+                    # converting it into base and exponent
+                    #pascal_base = mbar_base
+                    #pascal_exp = mbar_exp + 2
+                    #-----------------------------------------------------------
+                    # reading differential pressure
+                    #pressure_torr = 250 * (voltage_equipment - 4)
+                    #pressure_mbar = 1.33 * 250 * (voltage_equipment - 4)
+                    #pressure_pascal = 133 * 250 * (voltage_equipment - 4)
+                    #-----------------------------------------------------------
+                    connection.sendall(
+                        str(ADC_code) + ";" +
+                        str(voltage_ADC) + ";" +
+                        str(voltage_equipment) + ";" +
+                        str(pressure_torr) + ";" +
+                        str(torr_base) + ";" +
+                        str(torr_exp) + ";" +
+                        str(mbar) + ";" +
+                        str(mbar_base) + ";" +
+                        str(mbar_exp) + ";" +
+                        str(pressure_pascal)
+                    )
+                #---------------------------------------
+                # commands from 0x08 to 0x0A reserved
+                # for future BBB implementations
+                #---------------------------------------
+                # turns ACP15 pump On/Off
+                elif (data[0] == "\x0B"):
+                    ACP_OnOff(int(data[1]))
+                #---------------------------------------
+                # set ACP15 pump speed in rpm
+                elif ((data[0] == "\x0C")):
+                    # the first character is a form feed ('\f' or 0x0C in ASCII)
+                    # the last character is a carriage return ('\r' or 0x0D in ASCII)
+                    speed = 0
+                    for i in range(len(data)-2):
+                        digit = int(data[i+1])
+                        exponent = 10**(len(data)-i-3)
+                        speed += digit * exponent
+                    ACP_SetSpeed(speed)
+                #---------------------------------------
+                # set ACP15 pump speed in Hz
+                elif ((data[0] == "\x0D")):
+                    # the first character is a form feed ('\f' or 0x0C in ASCII)
+                    # the last character is a carriage return ('\r' or 0x0D in ASCII)
+                    speed = 0
+                    for i in range(len(data)-2):
+                        digit = int(data[i+1])
+                        exponent = 10**(len(data)-i-3)
+                        speed += digit * exponent
+                    speed *= 60
+                    ACP_SetSpeed(speed)
+                #---------------------------------------
+                # commands from 0x0E to 0x0F reserved
+                # for future ACP15 implementations
+                #---------------------------------------
+                # send a task telegram to TURBOVAC
+                elif ((data[0] == "\x10")):
                     #---------------------------------------
-                    elif ((data[0] == "\x11")):
-                        # open X203 valve (TURBOVAC venting valve)
-                        if (data[1] == "1"):
-                            '''
-                            this must be done because we need to change the value of parameter 134
-                            from "36" to "18" in order to control the venting valve independently.
-                            from the manual:
-                                18: Fieldbus controlled (enabled via 24 V in X1 input)
-                                36: Venting valves ("frequent dependent")
-                            '''
-                            STX = 0x02
-                            LGE = 0x16
-                            ADR = 0x00
+                    # fields initialized
+                    #---------------------------------------
+                    STX = 0
+                    LGE = 0
+                    ADR = 0
+                    #----------
+                    IND = 0
+                    PNU = 0
+                    PWE = 0
+                    #----------
+                    PZD1_1 = 0
+                    PZD1_2 = 0
+                    PZD2 = 0
+                    #---------------------------------------
+                    # decoding the header (STX)
+                    #---------------------------------------
+                    # OFFSET is one because of the first character used in the protocol: 0x10
+                    OFFSET = 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        STX += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding the header (LGE)
+                    #---------------------------------------
+                    # set the new OFFSET value for the LGE field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        LGE += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding the header (ADR)
+                    #---------------------------------------
+                    # set the new OFFSET value for the ADR field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        ADR += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding PNU field
+                    #---------------------------------------
+                    # the OFFSET represents the number of characters sent before
+                    # the PKW data:
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        PNU += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding AK field
+                    #---------------------------------------
+                    # set the new OFFSET value for the AK field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    AK = int(data[OFFSET])
+                    #---------------------------------------
+                    # decoding IND field
+                    #---------------------------------------
+                    # set the new OFFSET value for the IND field
+                    # the "+2" refers to the comma separator character and next character
+                    OFFSET += 2
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        IND += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding PWE field
+                    #---------------------------------------
+                    # set the new OFFSET value for the PWE field
+                    # the "+1" refers to the comma separator character
+                    OFFSET += digits + 1
+                    i = OFFSET
+                    digits = 0
+                    # count number of digits of the field
+                    while (data[i] != ","):
+                        digits += 1
+                        i += 1
+                    # now that we now the number of digits, we can decode the field
+                    for j in range(digits):
+                        PWE += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    # decoding and calculating the two bytes of PZD1
+                    #---------------------------------------
+                    OFFSET += digits + 1
+                    for i in range(8):
+                        PZD1_1 += (int(data[OFFSET + i]) << (7-i))
+                        PZD1_2 += (int(data[OFFSET + 8 + i]) << (7-i))
+                        # check if venting valve is set
+                        if (data[OFFSET] == "1"):
                             PNU = 134
                             AK = 7
                             IND = 2
                             PWE = 18
                             PZD1_1 = 0x84
                             PZD1_2 = 0x00
-                            PZD2 = 0
-                            response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
-                        #---------------------------------------
-                        # close X203 valve (TURBOVAC venting valve)
-                        elif (data[1] == "0"):
-                            '''
-                            this must be done because we need to change the value of parameter 134
-                            from "36" to "18" in order to control the venting valve independently.
-                            from the manual:
-                                18: Fieldbus controlled (enabled via 24 V in X1 input)
-                                36: Venting valves ("frequent dependent")
-                            '''
-                            STX = 0x02
-                            LGE = 0x16
-                            ADR = 0x00
-                            PNU = 134
-                            AK = 7
-                            IND = 2
-                            PWE = 36
-                            PZD1_1 = 0x04
-                            PZD1_2 = 0x00
-                            PZD2 = 0
-                            response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
                     #---------------------------------------
-                    # commands from 0x12 to 0x14 reserved
-                    # for future TURBOVAC implementations
+                    # Decoding PZD2 field
                     #---------------------------------------
-                    elif (data[0] == "\xde"):
+                    # set the new OFFSET value for the PZD2 field
+                    # the "+1" refers to the comma separator character
+                    #   16 characters for status bits
+                    OFFSET += 16
+                    digits = (len(data) - OFFSET)
+                    for j in range(digits):
+                        PZD2 += (int(data[OFFSET + j]) * (10 ** (digits - j - 1)))
+                    #---------------------------------------
+                    response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+                    if (response == 0):
+                        # message corrupted!
                         pass
-                    #---------------------------------------
+                    elif (len(response) == 13):
+                        connection.sendall(
+                            str(response[0]) + ";" +    # STX
+                            str(response[1]) + ";" +    # LGE
+                            str(response[2]) + ";" +    # ADR
 
+                            str(response[3]) + ";" +    # PNU
+                            str(response[4]) + ";" +    # AK
+                            str(response[5]) + ";" +    # IND
+                            str(response[6]) + ";" +    # PWE
+
+                            str(response[7]) + ";" +    # PZD1_1
+                            str(response[8]) + ";" +    # PZD1_2
+                            str(response[9]) + ";" +    # PZD2
+                            str(response[10]) + ";" +   # PZD3
+                            str(response[11]) + ";" +   # PZD4
+                            str(response[12])           # PZD6
+                        )
                     else:
-                        break
+                        pass
+                #---------------------------------------
+                # open/close TURBOVAC venting valve (X1)
+                #---------------------------------------
+                elif ((data[0] == "\x11")):
+                    # open X203 valve (TURBOVAC venting valve)
+                    if (data[1] == "1"):
+                        '''
+                        this must be done because we need to change the value of parameter 134
+                        from "36" to "18" in order to control the venting valve independently.
+                        from the manual:
+                            18: Fieldbus controlled (enabled via 24 V in X1 input)
+                            36: Venting valves ("frequent dependent")
+                        '''
+                        STX = 0x02
+                        LGE = 0x16
+                        ADR = 0x00
+                        PNU = 134
+                        AK = 7
+                        IND = 2
+                        PWE = 18
+                        PZD1_1 = 0x84
+                        PZD1_2 = 0x00
+                        PZD2 = 0
+                        response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+                    #---------------------------------------
+                    # close X203 valve (TURBOVAC venting valve)
+                    elif (data[1] == "0"):
+                        '''
+                        this must be done because we need to change the value of parameter 134
+                        from "36" to "18" in order to control the venting valve independently.
+                        from the manual:
+                            18: Fieldbus controlled (enabled via 24 V in X1 input)
+                            36: Venting valves ("frequent dependent")
+                        '''
+                        STX = 0x02
+                        LGE = 0x16
+                        ADR = 0x00
+                        PNU = 134
+                        AK = 7
+                        IND = 2
+                        PWE = 36
+                        PZD1_1 = 0x04
+                        PZD1_2 = 0x00
+                        PZD2 = 0
+                        response = task_telegram(chr(STX), chr(LGE), chr(ADR), PNU, AK, IND, PWE, PZD1_1, PZD1_2, PZD2)
+                #---------------------------------------
+                # commands from 0x12 to 0x14 reserved
+                # for future TURBOVAC implementations
+                #---------------------------------------
+                elif (data[0] == "\xde"):
+                    pass
+                #---------------------------------------
 
-        finally:
-            connection.close()
-#==============================================================================
-# starting both the threads
-#==============================================================================
-t1 = threading.Thread(target=thread_1, args=[])
-t2 = threading.Thread(target=thread_2, args=[])
-t1.start()
-t2.start()
+                else:
+                    break
+    #==============================================================================
+    # starting both the threads
+    #==============================================================================
+    t1 = threading.Thread(target=thread_1, args=[])
+    t2 = threading.Thread(target=thread_2, args=[])
+    t3 = threading.Thread(target=thread_3, args=[])
+    t1.start()
+    t2.start()
+    t3.start()
+
+# log if an exception is raised:
+except Exception as e:
+    print "AAAAAAAAAAAAAAAA"
+    logger.error(str(e))
+    traceback.print_exc()
+    logger.error(traceback.format_exc())
+    logger.error("\n" + '-'*60)
