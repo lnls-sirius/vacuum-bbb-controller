@@ -1,37 +1,101 @@
 EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:switches
-LIBS:relays
-LIBS:motors
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
+LIBS:Controle
+LIBS:74xgxx
 LIBS:74xx
-LIBS:cmos4000
+LIBS:ac-dc
+LIBS:actel
 LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
+LIBS:allegro
+LIBS:Altera
+LIBS:analog_devices
 LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
 LIBS:atmel
+LIBS:audio
+LIBS:battery_management
+LIBS:bbd
+LIBS:bosch
+LIBS:brooktre
+LIBS:cmos4000
+LIBS:cmos_ieee
+LIBS:conn
 LIBS:contrib
+LIBS:cypress
+LIBS:dc-dc
+LIBS:device
+LIBS:digital-audio
+LIBS:diode
+LIBS:display
+LIBS:dsp
+LIBS:elec-unifil
+LIBS:ESD_Protection
+LIBS:ftdi
+LIBS:gennum
+LIBS:graphic_symbols
+LIBS:hc11
+LIBS:infineon
+LIBS:intel
+LIBS:interface
+LIBS:intersil
+LIBS:ir
+LIBS:Lattice
+LIBS:leds
+LIBS:LEM
+LIBS:linear
+LIBS:logic_programmable
+LIBS:maxim
+LIBS:mechanical
+LIBS:memory
+LIBS:microchip
+LIBS:microchip_dspic33dsc
+LIBS:microchip_pic10mcu
+LIBS:microchip_pic12mcu
+LIBS:microchip_pic16mcu
+LIBS:microchip_pic18mcu
+LIBS:microchip_pic24mcu
+LIBS:microchip_pic32mcu
+LIBS:microcontrollers
+LIBS:modules
+LIBS:motor_drivers
+LIBS:motorola
+LIBS:motors
+LIBS:msp430
+LIBS:nordicsemi
+LIBS:nxp
+LIBS:nxp_armmcu
+LIBS:onsemi
+LIBS:opto
+LIBS:Oscillators
+LIBS:philips
+LIBS:power
+LIBS:powerint
+LIBS:Power_Management
+LIBS:pspice
+LIBS:references
+LIBS:regul
+LIBS:relays
+LIBS:rfcom
+LIBS:RFSolutions
+LIBS:sensors
+LIBS:silabs
+LIBS:siliconi
+LIBS:stm8
+LIBS:stm32
+LIBS:supertex
+LIBS:switches
+LIBS:texas
+LIBS:transf
+LIBS:transistors
+LIBS:triac_thyristor
+LIBS:ttl_ieee
 LIBS:valves
-LIBS:VBC_v2-0-cache
+LIBS:video
+LIBS:wiznet
+LIBS:Worldsemi
+LIBS:Xicor
+LIBS:xilinx
+LIBS:zetex
+LIBS:Zilog
+LIBS:VBC_v2-1-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -148,10 +212,10 @@ F 3 "" H 1550 1800 50  0001 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L RELAY_Metaltex K1
+L RELAY_Metaltex K4
 U 1 1 5B4DFA80
 P 2050 965
-F 0 "K1" H 2000 1365 50  0000 C CNN
+F 0 "K4" H 2000 1365 50  0000 C CNN
 F 1 "RELAY_Metaltex" V 2165 445 50  0000 C CNN
 F 2 "Relays_THT:Relay_DPDT_Omron_G5V-2" H 2050 965 50  0001 C CNN
 F 3 "" H 2050 965 50  0000 C CNN
@@ -192,7 +256,7 @@ F 3 "" H 1115 1800 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Text Label 965  1800 2    60   ~ 0
-BBB_p1
+BBB_p4
 $Comp
 L BC817 Q4
 U 1 1 5B4DFA84
@@ -205,10 +269,10 @@ F 3 "" H 1640 7175 50  0001 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L RELAY_Metaltex K4
+L RELAY_Metaltex K1
 U 1 1 5B4DFA85
 P 2140 6340
-F 0 "K4" H 2090 6740 50  0000 C CNN
+F 0 "K1" H 2090 6740 50  0000 C CNN
 F 1 "RELAY_Metaltex" V 2255 5740 50  0000 C CNN
 F 2 "Relays_THT:Relay_DPDT_Omron_G5V-2" H 2140 6340 50  0001 C CNN
 F 3 "" H 2140 6340 50  0000 C CNN
@@ -249,7 +313,7 @@ F 3 "" H 1205 7175 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Text Label 1055 7175 2    60   ~ 0
-BBB_p4
+BBB_p1
 $Comp
 L BC817 Q3
 U 1 1 5B4DFA89
@@ -453,10 +517,10 @@ F 3 "" H 7085 4760 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L RJ11 J1
+L RJ11 J4
 U 1 1 5B4DFA9C
 P 3740 865
-F 0 "J1" H 3890 1215 60  0000 C CNN
+F 0 "J4" H 3890 1215 60  0000 C CNN
 F 1 "RJ11" H 3590 1215 60  0000 C CNN
 F 2 "Controle:RJ11-4P4C-HIROSE" H 3740 865 60  0001 C CNN
 F 3 "" H 3740 865 60  0000 C CNN
@@ -550,13 +614,13 @@ VAT_P5
 Text Label 5355 1540 3    60   ~ 0
 VAT_P6
 Text Label 9450 3385 0    60   ~ 0
-BBB_p1
+BBB_p4
 Text Label 10610 3680 0    60   ~ 0
 BBB_p2
 Text Label 9450 3285 0    60   ~ 0
 BBB_p3
 Text Label 10610 3080 0    60   ~ 0
-BBB_p4
+BBB_p1
 Text Label 10610 4280 0    60   ~ 0
 AIn_BBB
 $Comp
@@ -699,7 +763,6 @@ NoConn ~ 8950 3585
 NoConn ~ 9185 5715
 NoConn ~ 10625 5495
 NoConn ~ 9845 5715
-NoConn ~ 1940 6490
 NoConn ~ 10110 3780
 NoConn ~ 10110 3880
 NoConn ~ 10110 3280
@@ -726,14 +789,14 @@ F 3 "" H 3820 4315 60  0000 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L RJ11 J4
+L RJ11 J1
 U 1 1 5B4DFAAE
-P 3830 6240
-F 0 "J4" H 3980 6590 60  0000 C CNN
-F 1 "RJ11" H 3680 6590 60  0000 C CNN
-F 2 "Controle:RJ11-4P4C-HIROSE" H 3830 6240 60  0001 C CNN
-F 3 "" H 3830 6240 60  0000 C CNN
-	1    3830 6240
+P 3820 6240
+F 0 "J1" H 3970 6590 60  0000 C CNN
+F 1 "RJ11" H 3670 6590 60  0000 C CNN
+F 2 "Controle:RJ11-4P4C-HIROSE" H 3820 6240 60  0001 C CNN
+F 3 "" H 3820 6240 60  0000 C CNN
+	1    3820 6240
 	0    1    -1   0   
 $EndComp
 $Comp
@@ -827,89 +890,89 @@ $EndComp
 $Comp
 L R R15
 U 1 1 5B4DFAB7
-P 3090 7170
-F 0 "R15" V 3170 7170 50  0000 C CNN
-F 1 "4k7" V 3090 7170 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3020 7170 50  0001 C CNN
-F 3 "" H 3090 7170 50  0000 C CNN
-	1    3090 7170
+P 3080 7170
+F 0 "R15" V 3160 7170 50  0000 C CNN
+F 1 "4k7" V 3080 7170 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3010 7170 50  0001 C CNN
+F 3 "" H 3080 7170 50  0000 C CNN
+	1    3080 7170
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R19
 U 1 1 5B4DFAB8
-P 3310 7170
-F 0 "R19" V 3390 7170 50  0000 C CNN
-F 1 "4k7" V 3310 7170 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3240 7170 50  0001 C CNN
-F 3 "" H 3310 7170 50  0000 C CNN
-	1    3310 7170
+P 3300 7170
+F 0 "R19" V 3380 7170 50  0000 C CNN
+F 1 "4k7" V 3300 7170 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3230 7170 50  0001 C CNN
+F 3 "" H 3300 7170 50  0000 C CNN
+	1    3300 7170
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED D11
 U 1 1 5B4DFAB9
-P 3090 6805
-F 0 "D11" H 3090 6905 50  0000 C CNN
-F 1 "LED red" H 3090 6655 50  0000 C CNN
-F 2 "LEDs:LED_0805_HandSoldering" H 3090 6805 50  0001 C CNN
-F 3 "" H 3090 6805 50  0000 C CNN
-	1    3090 6805
+P 3080 6805
+F 0 "D11" H 3080 6905 50  0000 C CNN
+F 1 "LED red" H 3080 6655 50  0000 C CNN
+F 2 "LEDs:LED_0805_HandSoldering" H 3080 6805 50  0001 C CNN
+F 3 "" H 3080 6805 50  0000 C CNN
+	1    3080 6805
 	0    -1   -1   0   
 $EndComp
 $Comp
 L GND #PWR024
 U 1 1 5B4DFABA
-P 3090 7360
-F 0 "#PWR024" H 3090 7110 50  0001 C CNN
-F 1 "GND" H 3090 7210 50  0000 C CNN
-F 2 "" H 3090 7360 50  0000 C CNN
-F 3 "" H 3090 7360 50  0000 C CNN
-	1    3090 7360
+P 3080 7360
+F 0 "#PWR024" H 3080 7110 50  0001 C CNN
+F 1 "GND" H 3080 7210 50  0000 C CNN
+F 2 "" H 3080 7360 50  0000 C CNN
+F 3 "" H 3080 7360 50  0000 C CNN
+	1    3080 7360
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R11
 U 1 1 5B4DFABB
-P 2825 7170
-F 0 "R11" V 2905 7170 50  0000 C CNN
-F 1 "4k7" V 2825 7170 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2755 7170 50  0001 C CNN
-F 3 "" H 2825 7170 50  0000 C CNN
-	1    2825 7170
+P 2815 7170
+F 0 "R11" V 2895 7170 50  0000 C CNN
+F 1 "4k7" V 2815 7170 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2745 7170 50  0001 C CNN
+F 3 "" H 2815 7170 50  0000 C CNN
+	1    2815 7170
 	-1   0    0    -1  
 $EndComp
 $Comp
 L R R7
 U 1 1 5B4DFABC
-P 2620 7175
-F 0 "R7" V 2700 7175 50  0000 C CNN
-F 1 "4k7" V 2620 7175 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2550 7175 50  0001 C CNN
-F 3 "" H 2620 7175 50  0000 C CNN
-	1    2620 7175
+P 2610 7175
+F 0 "R7" V 2690 7175 50  0000 C CNN
+F 1 "4k7" V 2610 7175 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2540 7175 50  0001 C CNN
+F 3 "" H 2610 7175 50  0000 C CNN
+	1    2610 7175
 	-1   0    0    -1  
 $EndComp
 $Comp
 L LED D7
 U 1 1 5B4DFABD
-P 2825 6805
-F 0 "D7" H 2825 6905 50  0000 C CNN
-F 1 "LED green" H 2825 6655 50  0000 C CNN
-F 2 "LEDs:LED_0805_HandSoldering" H 2825 6805 50  0001 C CNN
-F 3 "" H 2825 6805 50  0000 C CNN
-	1    2825 6805
+P 2815 6805
+F 0 "D7" H 2815 6905 50  0000 C CNN
+F 1 "LED green" H 2815 6655 50  0000 C CNN
+F 2 "LEDs:LED_0805_HandSoldering" H 2815 6805 50  0001 C CNN
+F 3 "" H 2815 6805 50  0000 C CNN
+	1    2815 6805
 	0    1    -1   0   
 $EndComp
 $Comp
 L GND #PWR025
 U 1 1 5B4DFABE
-P 2825 7360
-F 0 "#PWR025" H 2825 7110 50  0001 C CNN
-F 1 "GND" H 2825 7210 50  0000 C CNN
-F 2 "" H 2825 7360 50  0000 C CNN
-F 3 "" H 2825 7360 50  0000 C CNN
-	1    2825 7360
+P 2815 7360
+F 0 "#PWR025" H 2815 7110 50  0001 C CNN
+F 1 "GND" H 2815 7210 50  0000 C CNN
+F 2 "" H 2815 7360 50  0000 C CNN
+F 3 "" H 2815 7360 50  0000 C CNN
+	1    2815 7360
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -1104,7 +1167,6 @@ F 3 "" H 8055 1785 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 NoConn ~ 10110 2680
-NoConn ~ 2900 6985
 $Comp
 L GND #PWR030
 U 1 1 5B4DFAD0
@@ -1185,15 +1247,10 @@ F 3 "" H 7080 2765 50  0001 C CNN
 	1    7080 2765
 	1    0    0    -1  
 $EndComp
-Connection ~ 3090 6090
 Wire Wire Line
-	2960 6090 2960 5355
+	3080 6090 3080 6290
 Wire Wire Line
-	3090 6290 3090 6090
-Wire Wire Line
-	3230 6290 3090 6290
-Wire Wire Line
-	2825 6290 2540 6290
+	3080 6290 3220 6290
 Connection ~ 3080 4165
 Wire Wire Line
 	2920 4165 2920 3615
@@ -1205,24 +1262,13 @@ Wire Wire Line
 	2820 4365 2530 4365
 Wire Wire Line
 	3140 915  2965 915 
-Wire Wire Line
-	3140 715  3140 915 
-Connection ~ 2965 1870
-Wire Wire Line
-	2965 915  2965 1870
 Connection ~ 3110 2360
-Wire Wire Line
-	2965 2360 2965 1865
 Wire Wire Line
 	2835 915  2450 915 
 Wire Wire Line
 	2790 2560 2790 2930
 Wire Wire Line
-	2965 2360 3195 2360
-Wire Wire Line
-	3110 2560 3110 2360
-Wire Wire Line
-	3195 2560 3110 2560
+	3110 2560 3195 2560
 Wire Wire Line
 	2790 2560 2505 2560
 Wire Wire Line
@@ -1248,11 +1294,7 @@ Connection ~ 3080 4565
 Wire Wire Line
 	3085 4565 3085 4670
 Wire Wire Line
-	2825 6655 2825 6290
-Wire Wire Line
 	3305 5355 3305 5335
-Wire Wire Line
-	2960 5355 3305 5355
 Wire Wire Line
 	3085 5035 3305 5035
 Wire Wire Line
@@ -1298,29 +1340,29 @@ Wire Wire Line
 	2790 3595 2790 3635
 Connection ~ 2790 3615
 Wire Wire Line
-	3310 7340 3310 7320
+	3300 7340 3300 7320
 Wire Wire Line
-	3090 7340 3310 7340
+	3080 7340 3300 7340
 Wire Wire Line
-	3090 7020 3310 7020
+	3080 7020 3300 7020
 Wire Wire Line
-	2620 7020 2620 7025
+	2610 7020 2610 7025
 Wire Wire Line
-	2825 7020 2620 7020
+	2815 7020 2610 7020
 Wire Wire Line
-	2620 7340 2825 7340
+	2610 7340 2815 7340
 Wire Wire Line
-	2620 7325 2620 7340
+	2610 7325 2610 7340
 Wire Wire Line
-	3090 6955 3090 7020
+	3080 6955 3080 7020
 Wire Wire Line
-	2825 7020 2825 6955
+	2815 7020 2815 6955
 Wire Wire Line
-	3090 7320 3090 7360
-Connection ~ 3090 7340
+	3080 7320 3080 7360
+Connection ~ 3080 7340
 Wire Wire Line
-	2825 7320 2825 7360
-Connection ~ 2825 7340
+	2815 7320 2815 7360
+Connection ~ 2815 7340
 Wire Wire Line
 	3320 1865 3320 1845
 Wire Wire Line
@@ -1345,7 +1387,7 @@ Connection ~ 1740 6245
 Wire Wire Line
 	1740 6090 1740 6390
 Wire Wire Line
-	1580 6245 1740 6245
+	1740 6245 1580 6245
 Connection ~ 1740 6890
 Wire Wire Line
 	1430 6890 1740 6890
@@ -1353,12 +1395,12 @@ Connection ~ 1730 4325
 Wire Wire Line
 	1730 4165 1730 4465
 Wire Wire Line
-	1590 4325 1730 4325
+	1730 4325 1590 4325
 Connection ~ 1705 2515
 Wire Wire Line
 	1705 2360 1705 2660
 Wire Wire Line
-	1525 2515 1705 2515
+	1705 2515 1525 2515
 Wire Wire Line
 	8055 1980 8055 1935
 Connection ~ 1650 1515
@@ -1370,11 +1412,6 @@ Wire Wire Line
 Connection ~ 1730 4965
 Wire Wire Line
 	1420 4965 1730 4965
-Connection ~ 1650 935 
-Wire Wire Line
-	1650 715  1650 935 
-Wire Wire Line
-	1650 930  1650 1015
 Wire Wire Line
 	1495 930  1650 930 
 Wire Wire Line
@@ -1388,17 +1425,17 @@ Wire Wire Line
 Wire Wire Line
 	8065 740  7975 740 
 Wire Wire Line
-	7970 865  8065 865 
+	8065 865  7970 865 
 Wire Wire Line
 	8055 1485 8055 1635
 Wire Wire Line
-	1705 3245 1705 2960
+	1705 2960 1705 3245
 Wire Wire Line
 	1395 2860 1705 2860
 Wire Wire Line
 	1320 3445 1405 3445
 Wire Wire Line
-	1650 1600 1650 1315
+	1650 1315 1650 1600
 Wire Wire Line
 	1650 2110 1650 2000
 Wire Wire Line
@@ -1406,7 +1443,7 @@ Wire Wire Line
 Wire Wire Line
 	1265 1800 1350 1800
 Wire Wire Line
-	1740 6975 1740 6690
+	1740 6690 1740 6975
 Wire Wire Line
 	1740 7485 1740 7375
 Wire Wire Line
@@ -1414,7 +1451,7 @@ Wire Wire Line
 Wire Wire Line
 	1355 7175 1440 7175
 Wire Wire Line
-	1730 5050 1730 4765
+	1730 4765 1730 5050
 Wire Wire Line
 	1730 5560 1730 5450
 Wire Wire Line
@@ -1455,15 +1492,7 @@ Wire Wire Line
 Wire Wire Line
 	2530 4565 3085 4565
 Wire Wire Line
-	2540 6190 3230 6190
-Wire Wire Line
-	2960 6090 3230 6090
-Wire Wire Line
-	3230 6390 3090 6390
-Wire Wire Line
-	3090 6390 3090 6655
-Wire Wire Line
-	3090 6490 2540 6490
+	3220 6390 3080 6390
 Connection ~ 3000 1115
 Wire Wire Line
 	3100 1845 3100 1885
@@ -1472,7 +1501,6 @@ Wire Wire Line
 	2835 1845 2835 1885
 Connection ~ 2835 1865
 Connection ~ 3055 2760
-Connection ~ 3090 6490
 Wire Bus Line
 	6115 490  6115 2080
 Wire Bus Line
@@ -1486,15 +1514,11 @@ Wire Bus Line
 Wire Bus Line
 	545  490  6115 490 
 Wire Bus Line
-	8855 2280 11115 2280
-Wire Bus Line
 	11115 2280 11115 5145
 Wire Bus Line
 	11115 5145 8805 5145
 Wire Bus Line
 	8805 5145 8805 2280
-Wire Bus Line
-	8805 2280 8865 2280
 Wire Bus Line
 	8985 5405 10945 5405
 Wire Bus Line
@@ -1539,4 +1563,40 @@ Wire Wire Line
 	7080 2615 7285 2615
 Wire Wire Line
 	7285 2615 7285 2620
+Wire Wire Line
+	2950 6090 3220 6090
+Wire Wire Line
+	2965 2360 3195 2360
+Wire Wire Line
+	2950 5355 3305 5355
+Wire Bus Line
+	8805 2280 11115 2280
+Wire Wire Line
+	2965 915  2965 2360
+Wire Wire Line
+	1650 715  1650 1015
+Connection ~ 2835 1545
+Connection ~ 3100 1545
+Connection ~ 3140 915 
+Connection ~ 2815 7020
+Connection ~ 3080 7020
+Wire Wire Line
+	2540 6190 3220 6190
+Wire Wire Line
+	2815 6290 2815 6655
+Wire Wire Line
+	2540 6290 2815 6290
+Wire Wire Line
+	3080 6390 3080 6655
+Wire Wire Line
+	3080 6490 2540 6490
+Connection ~ 3080 6490
+Wire Wire Line
+	3140 715  3140 915 
+Wire Wire Line
+	2950 6090 2950 5355
+Connection ~ 3080 6090
+Wire Wire Line
+	3110 2560 3110 2360
+Connection ~ 2965 1865
 $EndSCHEMATC
