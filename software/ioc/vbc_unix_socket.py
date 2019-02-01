@@ -830,7 +830,7 @@ try:
 
 # log if an exception is raised:
 except Exception as e:
-    print "AAAAAAAAAAAAAAAA"
+    print "logging exception"
     logger.error(str(e))
     traceback.print_exc()
     logger.error(traceback.format_exc())
