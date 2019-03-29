@@ -1,12 +1,11 @@
 version: '3.7'
 services:
   pydm:
-    #image: lnlscon/pydm:1.6.5
-    image: pydm:latest
+    image: lnlscon/pydm:1.6.5
+    #image: pydm:latest
     volumes:
       - "$HOME/.Xauthority:/root/.Xauthority:rw"
-    networks:
-      hostnet: {}
+    network_mode: "host"
     dns:
       - 10.0.0.71
       - 10.0.0.72
@@ -17,8 +16,3 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
-networks:
-  hostnet:
-    external: true
-    name: host
