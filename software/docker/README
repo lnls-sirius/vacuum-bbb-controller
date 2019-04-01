@@ -1,0 +1,29 @@
+Linux:
+
+add documentation for running in Linux
+
+
+
+Windows:
+
+Using VM VirtualBox:
+
+** add description ***
+
+
+Using Docker Desktop:
+
+Install Docker Desktop for Windows:
+https://hub.docker.com/editions/community/docker-ce-desktop-windows
+
+Install VcXsrv:
+https://sourceforge.net/projects/vcxsrv
+
+After installing it, start XLaunch and click "Next" until you reach "Extra Settings". Once there, be sure to disable access control, otherwise the request from Docker will be rejected.
+
+*** add screenshot ***
+
+Clone the repository under "C:\Users\%USERNAME%\Documents\ControleVBC\":
+https://github.com/lnls-sirius/vacuum-bbb-controller.git
+
+Copy the VBC.bat file under vacuum-bbb-controller/software/docker/ and launch it.
