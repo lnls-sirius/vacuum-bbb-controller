@@ -11,12 +11,16 @@ RUN apt-get update && apt-get install -y \
     git \
     libreadline-gplv2-dev \
     python3 \
+    python \
+    python-pip \
     python3-pip \
     pyqt5-dev-tools \
     python3-pyqt5 \
     python3-pyqt5.qtsvg \
     python3-pyqt5.qtwebkit \
     qttools5-dev-tools 
+
+RUN pip install pyepics
 
 #=================================================
 # install EPICS base

@@ -1,8 +1,7 @@
 version: '3.7'
 services:
   pydm:
-    image: lnlscon/pydm:1.6.5
-    #image: pydm:latest
+    image: lnlscon/vbc:v0.1
     #volumes:
     #  - "$HOME/.Xauthority:/root/.Xauthority:rw"
     network_mode: "host"
