@@ -1,3 +1,4 @@
+# Use an official Debian 9 OS as a parent image
 FROM debian:9
 LABEL maintainer="Rafael Ito <rafael.ito@lnls.br>"A
 USER root
@@ -11,15 +12,17 @@ RUN apt-get update && apt-get install -y \
     git \
     libreadline-gplv2-dev \
     python3 \
-    python \
-    python-pip \
     python3-pip \
     pyqt5-dev-tools \
     python3-pyqt5 \
     python3-pyqt5.qtsvg \
     python3-pyqt5.qtwebkit \
     qttools5-dev-tools 
-
+#------------------------------------------------
+# the next lines are necessary since there are some scripts written in Python 2
+RUN apt-get update && apt-get install -y \
+    python \
+    python-pip
 RUN pip install pyepics
 
 #=================================================
@@ -34,6 +37,7 @@ RUN rm base-3.15.6.tar.gz
 RUN mv base-3.15.6 base
 WORKDIR base
 RUN make
+#------------------------------------------------
 # set EPICS environment variables:
 ENV EPICS_CA_ADDR_LIST="10.128.255.255"
 ENV EPICS_CA_AUTO_ADDR_LIST=NO
