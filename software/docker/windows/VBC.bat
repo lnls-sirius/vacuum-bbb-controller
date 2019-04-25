@@ -4,7 +4,7 @@
 title Vacuum BBB Controller
 
 :: change dir to where app is
-cd C:\Users\%USERNAME%\Documents\ControleVBC\vacuum-bbb-controller\software\docker
+cd C:\Users\%USERNAME%\Documents\ControleVBC\vacuum-bbb-controller\software\docker\windows
 
 :: enable CR (carriage return) character
 setlocal enableextensions enabledelayedexpansion
