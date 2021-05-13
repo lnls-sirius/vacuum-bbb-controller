@@ -2976,7 +2976,7 @@
             </size>
            </property>
            <property name="command" stdset="0">
-            <string>python ../scripts/commute_valve.py $IOC 1 yes</string>
+            <string>pythonw ../scripts/commute_valve.py $IOC 1 yes</string>
            </property>
           </widget>
          </item>
@@ -3009,7 +3009,7 @@
             </size>
            </property>
            <property name="command" stdset="0">
-            <string>python ../scripts/commute_valve.py $IOC 2 yes</string>
+            <string>pythonw ../scripts/commute_valve.py $IOC 2 yes</string>
            </property>
           </widget>
          </item>

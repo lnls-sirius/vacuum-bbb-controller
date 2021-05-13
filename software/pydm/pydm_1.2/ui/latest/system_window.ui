@@ -1239,7 +1239,7 @@
             </size>
            </property>
            <property name="command" stdset="0">
-            <string>python ../scripts/process_on.py ${IOC}</string>
+            <string>pythonw ../scripts/process_on.py ${IOC}</string>
            </property>
           </widget>
          </item>
@@ -1369,7 +1369,7 @@
             <bool>false</bool>
            </property>
            <property name="command" stdset="0">
-            <string>python ../scripts/check_pressure.py ${IOC} 0</string>
+            <string>pythonw ../scripts/check_pressure.py ${IOC} 0</string>
            </property>
           </widget>
          </item>
@@ -2606,7 +2606,7 @@
             <bool>false</bool>
            </property>
            <property name="command" stdset="0">
-            <string>python ../scripts/process_off.py ${IOC}</string>
+            <string>pythonw ../scripts/process_off.py ${IOC}</string>
            </property>
           </widget>
          </item>

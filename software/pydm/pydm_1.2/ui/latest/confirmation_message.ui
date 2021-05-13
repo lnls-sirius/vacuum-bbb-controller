@@ -31,7 +31,7 @@
     </string>
    </property>
    <property name="command" stdset="0">
-    <string>&quot;python ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; yes&quot;</string>
+    <string>&quot;pythonw ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; yes&quot;</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
@@ -261,7 +261,7 @@
     </string>
    </property>
    <property name="command" stdset="0">
-    <string>&quot;python ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; no&quot;</string>
+    <string>&quot;pythonw ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; no&quot;</string>
    </property>
   </widget>
   <widget class="PyDMLabel" name="PyDMLabel_40">
