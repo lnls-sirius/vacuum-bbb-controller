@@ -1,2 +1,2 @@
 conda activate vbc
-python vbc-launcher.py
+pythonw vbc-launcher.py
