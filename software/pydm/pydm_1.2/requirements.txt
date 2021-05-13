@@ -16,7 +16,7 @@ packaging==19.2
 pathlib2==2.3.5
 pluggy==0.13.1
 psutil==5.6.5
-py==1.8.0
+py==1.10.0
 pyasn1==0.1.9
 pydm==1.6.4
 pyepics==3.4.0
