@@ -2,7 +2,7 @@ Setup the environment
 
 ```powershell
 conda create --name vbc python=3.6
-conda install qt epics-base pyepics
+conda install qt=5.12.9 epics-base pyepics
 pip install -r requirements.txt
 ```
 
